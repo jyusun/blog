@@ -13,6 +13,15 @@
 <meta name="theme-color" content="#222">
 
 
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "c7717065"
+    });
+  daovoice('update');
+  </script>
+
+
 
 
 
@@ -360,6 +369,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/contents/20180907112238.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/contents/20180907112238.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -367,6 +386,25 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k
+                </span>
+              
+
+              
+
+              
+            </div>
           
 
           
@@ -436,7 +474,7 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="指定next主题Pisces模板"><a href="#指定next主题Pisces模板" class="headerlink" title="指定next主题Pisces模板"></a>指定next主题Pisces模板</h3><ul>
+<h3 id="指定next-Pisces模板"><a href="#指定next-Pisces模板" class="headerlink" title="指定next-Pisces模板"></a>指定next-Pisces模板</h3><ul>
 <li><p>主题配置文件，关键字：<code>Schemes</code></p>
 <blockquote>
 <p>#scheme: Muse<br>#scheme: Mist<br>scheme: Pisces  #打开前面的注释<br>#scheme: Gemini</p>
@@ -577,6 +615,7 @@ content:
 </code></pre></blockquote>
 </li>
 </ul>
+<h2 id="底部设置"><a href="#底部设置" class="headerlink" title="底部设置"></a>底部设置</h2><p>### </p>
 <h2 id="首页文章样式"><a href="#首页文章样式" class="headerlink" title="首页文章样式"></a>首页文章样式</h2><h3 id="主页文章添加阴影效果"><a href="#主页文章添加阴影效果" class="headerlink" title="主页文章添加阴影效果"></a>主页文章添加阴影效果</h3><ul>
 <li><p>新增内容<code>主题/source/css/_custom/custom.styl</code>文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line">.post &#123;</span><br><span class="line">   margin-top: 0px;</span><br><span class="line">   margin-bottom: 60px;</span><br><span class="line">   padding: 25px;</span><br><span class="line">   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -622,7 +661,7 @@ content:
 </blockquote>
 </li>
 </ul>
-<h2 id="文内功能"><a href="#文内功能" class="headerlink" title="文内功能"></a>文内功能</h2><h3 id="文章浏览显示进度百分比"><a href="#文章浏览显示进度百分比" class="headerlink" title="文章浏览显示进度百分比"></a>文章浏览显示进度百分比</h3><ul>
+<h2 id="博客功能"><a href="#博客功能" class="headerlink" title="博客功能"></a>博客功能</h2><h3 id="文章浏览显示进度百分比"><a href="#文章浏览显示进度百分比" class="headerlink" title="文章浏览显示进度百分比"></a>文章浏览显示进度百分比</h3><ul>
 <li><p>主题配置文件，关键字： <code>scrollpercent</code> ，将 <code>false</code> 改为 <code>true</code> </p>
 <blockquote>
 <p># Scroll percent label in b2t button.<br>scrollpercent: true</p>
@@ -672,6 +711,26 @@ content:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">advert:</span><br><span class="line">	天猫618: https://gw.alicdn.com/tfs/TB1p12MsQ9WBuNjSspeXXaz5VXa-440-180.jpg || https://s.click.taobao.com/t?e=m%3D2%26s%3DQ7%2BOxHRJNU8cQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMSjJriMKVvzd5x%2BIUlGKNpUKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS9iw0%2FdWyiVaogaseAKBk0cTbU9KzMTtxpe7auY0HPYWszlTEcWhO9mCmht7GX%2FH9k%3D</span><br><span class="line">	2018年618理想生活狂欢季——聚划算主会场: https://img.alicdn.com/tfs/TB125UMsMmTBuNjy1XbXXaMrVXa-440-180.jpg || https://s.click.taobao.com/t?e=m%3D2%26s%3D2c9N%2F89tPiMcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMXJZeCVJPqDB8sviUM61dt0KzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B%2BUEclaRYva8F8WBkZipnv9sOkOOEWZ4E%2FnCA8IhtTQhnqXdg7YFDycSpj5qSCmbA%3D</span><br><span class="line">	2018年618理想生活狂欢节—消费电子主会场: https://img.alicdn.com/tfs/TB1GnfasntYBeNjy1XdXXXXyVXa-440-180.jpg || https://s.click.taobao.com/t?e=m%3D2%26s%3D5xcD%2FIEjdhYcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMUG5eE0BPbCdxq3IhSJN6GQKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B6zThPYvErzhJBFs1%2FyLxVPxey8%2Bhd8pyvTW5l3DCD30V92HL3DKLNSqwyt%2BH6DtO%2FMqT4SeHHMKTHNVRq3ENViYq%2BoOM2USF%2Bn%2B1pvicu6FXll1U39L8dNcwDbqGDeU3JefVee9XDEgxYVk%2BaFSeXxiXvDf8DaRs%3D</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h3 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h3><h3 id="在线沟通"><a href="#在线沟通" class="headerlink" title="在线沟通"></a>在线沟通</h3><ul>
+<li><p><code>主题/layout/_partials/head.swig</code>，怎加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;)</span><br><span class="line">  daovoice(&apos;init&apos;, &#123;</span><br><span class="line">      app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(&apos;update&apos;);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主题配置文件，新增内容</p>
+<blockquote>
+<p># Online contact<br>daovoice: true<br>daovoice_app_id: bsdasdas #你的id</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="统计功能"><a href="#统计功能" class="headerlink" title="统计功能"></a>统计功能</h3><ul>
+<li><p>安装统计插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主题配置文件，关键字：<code>wordcount</code></p>
+<blockquote>
+<p>post_wordcount:<br>  item_text: true<br>  wordcount: true #字数统计<br>  min2read: false #预览时间<br>  totalcount: false #总字数,显示在页面底部<br>  separated_meta: true</p>
+</blockquote>
+</li>
+</ul>
 <h3 id="文章内链接文本样式"><a href="#文章内链接文本样式" class="headerlink" title="文章内链接文本样式"></a>文章内链接文本样式</h3><ul>
 <li><p>修改文件<code>主题/source/css/_common/components/post/post.styl</code>，在末尾添加css样式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.post-body p a&#123;</span><br><span class="line">  color: #0593d3;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: 1px solid #0593d3;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #fc6423;</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: 1px solid #fc6423;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -687,11 +746,13 @@ content:
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var minifycss = require(&apos;gulp-minify-css&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">var htmlmin = require(&apos;gulp-htmlmin&apos;);</span><br><span class="line">var htmlclean = require(&apos;gulp-htmlclean&apos;);</span><br><span class="line">// 压缩 public 目录 css</span><br><span class="line">gulp.task(&apos;minify-css&apos;, function() &#123;</span><br><span class="line">    return gulp.src(&apos;./public/**/*.css&apos;)</span><br><span class="line">        .pipe(minifycss())</span><br><span class="line">        .pipe(gulp.dest(&apos;./public&apos;));</span><br><span class="line">&#125;);</span><br><span class="line">// 压缩 public 目录 html</span><br><span class="line">gulp.task(&apos;minify-html&apos;, function() &#123;</span><br><span class="line">  return gulp.src(&apos;./public/**/*.html&apos;)</span><br><span class="line">    .pipe(htmlclean())</span><br><span class="line">    .pipe(htmlmin(&#123;</span><br><span class="line">         removeComments: true,</span><br><span class="line">         minifyJS: true,</span><br><span class="line">         minifyCSS: true,</span><br><span class="line">         minifyURLs: true,</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(&apos;./public&apos;))</span><br><span class="line">&#125;);</span><br><span class="line">// 压缩 public/js 目录 js</span><br><span class="line">gulp.task(&apos;minify-js&apos;, function() &#123;</span><br><span class="line">    return gulp.src(&apos;./public/**/*.js&apos;)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(&apos;./public&apos;));</span><br><span class="line">&#125;);</span><br><span class="line">// 执行 gulp 命令时执行的任务</span><br><span class="line">gulp.task(&apos;default&apos;, [</span><br><span class="line">    &apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <p>生成博文是执行 hexo g &amp;&amp; gulp 就会根据 gulpfile.js 中的配置，对 public 目录中的静态资源文件进行压缩。</p>
-<h2 id="文章生成"><a href="#文章生成" class="headerlink" title="文章生成"></a>文章生成</h2><ul>
+<h2 id="文章生成"><a href="#文章生成" class="headerlink" title="文章生成"></a>文章生成</h2><h3 id="文章生成位置及名称"><a href="#文章生成位置及名称" class="headerlink" title="文章生成位置及名称"></a>文章生成位置及名称</h3><ul>
 <li><p>设置文章生成位置及名称，关键字：<code>new_post_name</code></p>
 <blockquote>
 <p>new_post_name: :year:month:day-:title/index.md # File name of new posts</p>
 </blockquote>
+</li>
+<li><p>文章内标题</p>
 </li>
 </ul>
 
@@ -749,7 +810,7 @@ content:
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div></div>
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>打赏</span>
   </button>
@@ -849,6 +910,9 @@ content:
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -999,7 +1063,7 @@ content:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Next主题博客优化"><span class="nav-number">1.</span> <span class="nav-text">Hexo-Next主题博客优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础路径说明"><span class="nav-number">1.1.</span> <span class="nav-text">基础路径说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo站点配置"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo站点配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#站点基础配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">站点基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL访问配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">URL访问配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">指定next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next主题Pisces模板"><span class="nav-number">1.2.4.</span> <span class="nav-text">指定next主题Pisces模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署设置"><span class="nav-number">1.2.5.</span> <span class="nav-text">部署设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单栏设置"><span class="nav-number">1.3.</span> <span class="nav-text">菜单栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置展示菜单"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置展示菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置文章分类页面"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置文章分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点地图"><span class="nav-number">1.3.3.</span> <span class="nav-text">站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公益404"><span class="nav-number">1.3.4.</span> <span class="nav-text">公益404</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站内搜索功能"><span class="nav-number">1.3.5.</span> <span class="nav-text">添加站内搜索功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏设置"><span class="nav-number">1.4.</span> <span class="nav-text">侧边栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">1.4.1.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边社交连接"><span class="nav-number">1.4.2.</span> <span class="nav-text">设置侧边社交连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边栏社交样式"><span class="nav-number">1.4.3.</span> <span class="nav-text">设置侧边栏社交样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS"><span class="nav-number">1.4.4.</span> <span class="nav-text">RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友情链接"><span class="nav-number">1.4.5.</span> <span class="nav-text">友情链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章样式"><span class="nav-number">1.5.</span> <span class="nav-text">首页文章样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主页文章添加阴影效果"><span class="nav-number">1.5.1.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏文章与文章间分割线"><span class="nav-number">1.5.2.</span> <span class="nav-text">隐藏文章与文章间分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页自动形成摘要"><span class="nav-number">1.5.3.</span> <span class="nav-text">首页自动形成摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文内样式"><span class="nav-number">1.6.</span> <span class="nav-text">文内样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文内图片引用"><span class="nav-number">1.6.1.</span> <span class="nav-text">文内图片引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章末尾加上”本文结束”字样"><span class="nav-number">1.6.2.</span> <span class="nav-text">文章末尾加上”本文结束”字样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文内功能"><span class="nav-number">1.7.</span> <span class="nav-text">文内功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章浏览显示进度百分比"><span class="nav-number">1.7.1.</span> <span class="nav-text">文章浏览显示进度百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启版权声明"><span class="nav-number">1.7.2.</span> <span class="nav-text">开启版权声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打赏功能"><span class="nav-number">1.7.3.</span> <span class="nav-text">打赏功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推广链接功能"><span class="nav-number">1.7.4.</span> <span class="nav-text">推广链接功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章内链接文本样式"><span class="nav-number">1.7.5.</span> <span class="nav-text">文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博文压缩"><span class="nav-number">1.7.6.</span> <span class="nav-text">博文压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章生成"><span class="nav-number">1.8.</span> <span class="nav-text">文章生成</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Next主题博客优化"><span class="nav-number">1.</span> <span class="nav-text">Hexo-Next主题博客优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础路径说明"><span class="nav-number">1.1.</span> <span class="nav-text">基础路径说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo站点配置"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo站点配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#站点基础配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">站点基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL访问配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">URL访问配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">指定next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next-Pisces模板"><span class="nav-number">1.2.4.</span> <span class="nav-text">指定next-Pisces模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署设置"><span class="nav-number">1.2.5.</span> <span class="nav-text">部署设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单栏设置"><span class="nav-number">1.3.</span> <span class="nav-text">菜单栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置展示菜单"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置展示菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置文章分类页面"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置文章分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点地图"><span class="nav-number">1.3.3.</span> <span class="nav-text">站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公益404"><span class="nav-number">1.3.4.</span> <span class="nav-text">公益404</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站内搜索功能"><span class="nav-number">1.3.5.</span> <span class="nav-text">添加站内搜索功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏设置"><span class="nav-number">1.4.</span> <span class="nav-text">侧边栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">1.4.1.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边社交连接"><span class="nav-number">1.4.2.</span> <span class="nav-text">设置侧边社交连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边栏社交样式"><span class="nav-number">1.4.3.</span> <span class="nav-text">设置侧边栏社交样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS"><span class="nav-number">1.4.4.</span> <span class="nav-text">RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友情链接"><span class="nav-number">1.4.5.</span> <span class="nav-text">友情链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底部设置"><span class="nav-number">1.5.</span> <span class="nav-text">底部设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章样式"><span class="nav-number">1.6.</span> <span class="nav-text">首页文章样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主页文章添加阴影效果"><span class="nav-number">1.6.1.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏文章与文章间分割线"><span class="nav-number">1.6.2.</span> <span class="nav-text">隐藏文章与文章间分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页自动形成摘要"><span class="nav-number">1.6.3.</span> <span class="nav-text">首页自动形成摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文内样式"><span class="nav-number">1.7.</span> <span class="nav-text">文内样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文内图片引用"><span class="nav-number">1.7.1.</span> <span class="nav-text">文内图片引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章末尾加上”本文结束”字样"><span class="nav-number">1.7.2.</span> <span class="nav-text">文章末尾加上”本文结束”字样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客功能"><span class="nav-number">1.8.</span> <span class="nav-text">博客功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章浏览显示进度百分比"><span class="nav-number">1.8.1.</span> <span class="nav-text">文章浏览显示进度百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启版权声明"><span class="nav-number">1.8.2.</span> <span class="nav-text">开启版权声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打赏功能"><span class="nav-number">1.8.3.</span> <span class="nav-text">打赏功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推广链接功能"><span class="nav-number">1.8.4.</span> <span class="nav-text">推广链接功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论功能"><span class="nav-number">1.8.5.</span> <span class="nav-text">评论功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线沟通"><span class="nav-number">1.8.6.</span> <span class="nav-text">在线沟通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计功能"><span class="nav-number">1.8.7.</span> <span class="nav-text">统计功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章内链接文本样式"><span class="nav-number">1.8.8.</span> <span class="nav-text">文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博文压缩"><span class="nav-number">1.8.9.</span> <span class="nav-text">博文压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章生成"><span class="nav-number">1.9.</span> <span class="nav-text">文章生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章生成位置及名称"><span class="nav-number">1.9.1.</span> <span class="nav-text">文章生成位置及名称</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1189,6 +1253,28 @@ content:
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vKR8bVdBfz65wqu5fvSJhdGa-gzGzoHsz',
+        appKey: 'OQRJPMAjTGxudDkXO9UTQcye',
+        placeholder: 'Just go go',
+        avatar:'/images/touxiang.png',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
