@@ -89,15 +89,15 @@
 <meta property="og:site_name" content="EvanSun Home">
 <meta property="og:description" content="配置SSH免密登陆前言 test  生成.ssh文件夹 新安装的系统用户下一般情况下没有.ssh的文件夹  查看 1cd ~ &amp;amp; ls -al   执行命令生成 1ssh localhost    生成公钥、私钥 用于配置免密登陆 1ssh-keygen -t rsa -P &apos;&apos; -f ~/.ssh/id_rsa    authorized_keys文件 将公钥（id_rsa.pub）写入">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog.jyusun.com/contents/1.jpg">
-<meta property="og:image" content="https://blog.jyusun.com/contents/2.jpg">
-<meta property="og:image" content="https://blog.jyusun.com/contents/3.jpg">
-<meta property="og:image" content="https://blog.jyusun.com/contents/:id/4.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/1.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/2.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/3.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/4.jpg">
 <meta property="og:updated_time" content="2019-02-18T12:15:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置SSH免密登陆">
 <meta name="twitter:description" content="配置SSH免密登陆前言 test  生成.ssh文件夹 新安装的系统用户下一般情况下没有.ssh的文件夹  查看 1cd ~ &amp;amp; ls -al   执行命令生成 1ssh localhost    生成公钥、私钥 用于配置免密登陆 1ssh-keygen -t rsa -P &apos;&apos; -f ~/.ssh/id_rsa    authorized_keys文件 将公钥（id_rsa.pub）写入">
-<meta name="twitter:image" content="https://blog.jyusun.com/contents/1.jpg">
+<meta name="twitter:image" content="https://blog.jyusun.com/contents/20190218182031/1.jpg">
 
 
 
@@ -430,17 +430,17 @@
 </li>
 <li><p>查看</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~ &amp; ls -al</span><br></pre></td></tr></table></figure>
-<p><img src="/contents/./1.jpg" alt="ssh文件夹查看"></p>
+<img src="/contents/20190218182031/1.jpg" title="ssh文件夹查看">
 </li>
 <li><p>执行命令生成</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
-<p><img src="/contents/./2.jpg" alt="sshlocalhost"></p>
+<img src="/contents/20190218182031/2.jpg" title="ssh localhost">
 </li>
 </ul>
 <h2 id="生成公钥、私钥"><a href="#生成公钥、私钥" class="headerlink" title="生成公钥、私钥"></a>生成公钥、私钥</h2><ul>
 <li><p>用于配置免密登陆</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p><img src="/contents/./3.jpg" alt="生成公钥私钥"></p>
+<img src="/contents/20190218182031/3.jpg" title="生成公钥私钥">
 </li>
 </ul>
 <h2 id="authorized-keys文件"><a href="#authorized-keys文件" class="headerlink" title="authorized_keys文件"></a>authorized_keys文件</h2><ul>
@@ -462,7 +462,7 @@
 <h2 id="验证配置"><a href="#验证配置" class="headerlink" title="验证配置"></a>验证配置</h2><ul>
 <li><p>将公钥（id_rsa.pub）写入到authorized_keys文件中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
-<p><img src="/contents/:id/4.jpg" alt="sshlocalhost"></p>
+<img src="/contents/20190218182031/4.jpg" title="验证成功">
 <p>注：能成功进入说明配置成功</p>
 </li>
 </ul>
