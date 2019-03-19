@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title></title>
+    <url>%2Fcontents%2Fcjtfkzchs003h8sf4rt88txrm.html</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[大数据学习-Hadoop-高可用（HA）集群搭建]]></title>
+    <url>%2Fcontents%2F20190228112031.html</url>
+    <content type="text"><![CDATA[Hadoop-高可用（HA）集群搭建前言 test 基础准备软件及环境准备 软件名称 版本 描述 VirtualBox或VMware 14 CentOS7 7.5 JDK 1.8 Hadoop 3.1.2 hadoop-3.1.2.tar.gz 机器节点规划 Hadoop五个节点HA规划 HostName IP NameNode DataNode ZooKeeper ZKFC JouaryNode node1 192.168.233.101 * * node2 192.168.233.102 * * node3 192.168.233.103 * * * node4 192.168.233.104 * * * node5 192.168.233.105 * * * 注：ZooKeeper和JouaryNode是可以共享的 相关路径创建 基础软件安装配置路径 路径 注释 /opt/basics 基础路径 /opt/basics/java/ JDK路径 /opt/bigdata/hadoop/ Hadoop路径 /opt/bigdata/zookeeper/ ZooKeeper安装路径 系统基础配置（root用户）基本组件安装 安装net-tools vim wge ntp 等基础工具 1yum install -y net-tools vim* wget ntp telnet 注：如果系统是最小化安装的，以上工具组件可能没有集成，需要另外安装 设置HostName和Hosts 链接-CentOS7设置hostname和hosts 根据规划将下面内容写入hosts 192.168.233.101 node1192.168.233.102 node2192.168.233.103 node3192.168.233.104 node4192.168.233.105 node5 关闭SELINUX 临时关闭 1setenforce 0 永久关闭 1vim /etc/selinux/config SELINUX=disabled #将SELINUX的值由enforcing改为disabled 设置静态IP地址 链接-设置静态IP地址 注：IP根据自己的节点规划进行相应的配置 关闭防火墙 链接-关闭防火墙 配置免密登陆 链接-配置免密登陆 需要免密钥的两种场景： 管理脚本：远程管理其他节点启停服务时需要免密钥 NameNode：搭建HA的时候，需要免密钥控制对方和自己 环境配置JDK环境配置 链接-Linux安装配置JDK1.8 ZooKeeper分布式集群搭建配置 链接-Linux下ZooKeeper分布式集群搭建 注：根据节点规划，调整相应的配置 Hadoop相关配置安装及环境变量配置 创建Hadoop路径 1mkdir -p /opt/basics/hadoop/ 将事先准备好的hadoop-3.1.2.tar.gz文件上传至/opt/basics/hadoop路径 执行解压命令 1tar -xvzf hadoop-3.1.2.tar.gz 配置环境变量，在末尾追加hadoop相关配置 1vim ~/.bashrc HADOOP_HOME=/opt/basics/hadoop/hadoop-3.1.2HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoopYARN_CONF_DIR=$HADOOP_HOME/etc/hadoopPATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATHexport HADOOP_HOME HADOOP_CONF_DIR YARN_CONF_DIR PATH 使配置立即生效 1source ~/.bashrc 验证是否安装成功 1hadoop version Hadoop配置 切换到hadoop路径下 1cd $HADOOP_HOME/etc/hadoop 注：本章节下文配置均在此目录中 | 涉及文件 | 描述 || ————- | ————————- || hadoop-env.sh | || core-site.xml | || workers | DataNode节点信息 || hdfs-site.xml | SecondaryNameNode相应内容 || | || | | ​ 编辑core-site.xml文件，配置NameNode相应内容 1vi core-site.xml fs.defaultFS hdfs://node1:9000 hadoop.tmp.dir /var/bigdata/hdfs/full io.file.buffer.size 4096 编辑workers文件，配置DataNode相应内容 1vi workers node3 node4 node5 编辑hdfs-site.xml文件，配置SecondaryNameNode相应内容 1vi hdfs-site.xml dfs.replication 3 dfs.namenode.secondary.http-address node2:9001 dfs.webhdfs.enabled true 格式化NameNode 执行格式化NameNode 1hdfs namenode -format 启动hdfs 1start-dfs.sh 访问hdfs 访问下面地址 1http://192.168.233.101:9870 注：Hadoop从3.1.0开始hdfs默认访问端口从50070改为9870]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>hadoop</tag>
+        <tag>搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下ZooKeeper分布式集群搭建]]></title>
+    <url>%2Fcontents%2F20190220202125.html</url>
+    <content type="text"><![CDATA[ZooKeeper分布式集群搭建前言 test 基础准备软件及环境准备 软件名称 版本 描述 CentOS 7.5 虚拟机节点3个且配置了JDK环境-Linux安装配置JDK1.8 （zookeeper需要依赖jdk） zookeeper 3.4.13 zookeeper-3.4.13.tar.gz 机器节点规划 HostName IP 描述 zknode1 192.168.233.101 第一个节点 zknode2 192.168.233.102 第二个节点 zknode3 192.168.233.103 第三个节点 注：根据规划为每个节点配置相应的HostName及IP地址 相关路径创建 创建zookeeper安装路径 1# mkdir -p /opt/basics/zookeeper/ 创建zookeeper数据存储路径 1# mkdir -p /var/udata/zookeeper/ 注：由于zookeeper默认数据存储路径为/tmp下，所以我们需要调整数据存储路径 软件解压缩安装将软件包上传至系统中 将下载好的软件包传至/opt/basics/zookeeper/目录中 解压缩包 切换到上传路径 1# cd /opt/basics/zookeeper/ 解压缩包 1# tar -xvzf zookeeper-3.4.13.tar.gz 配置环境变量(每个节点都需要配置)配置文件说明 Linux环境变量配置文件总结 环境变量配置 编辑.bashrc文件 1# vi ~/.bashrc 将以下文内容粘贴至配置文件末尾 ZOOKEEPER_HOME=/opt/basics/zookeeper/zookeeper-3.4.13PATH=\$ZOOKEEPER_HOME/bin:$PATHexport ZOOKEEPER_HOME PATH 使修改立即生效 配置文件如果有改动，需要执行一下source命令让文件生效 1# source ~/.bashrc ZooKeeper配置复制配置文件 切换到zookeeper配置文件路径 1# cd $ZOOKEEPER_HOME/conf 复制zoo示例文件且重命名为zoo.cfg 1# cp zoo_sample.cfg zoo.cfg 文件zoo.cfg配置 编辑配置文件zoo.cfg 1# vi zoo.cfg 修改dataDir属性指定上边创建的数据存储路径 dataDir=/var/udata/zookeeper 在文件的末尾根据节点规划进行配置 server.1=zknode1:2888:3888server.2=zknode2:2888:3888server.3=zknode3:2888:3888 注：此步骤配置完成，可以将此包分发至其他节点当前路径，或在其他节点根据上面配置信息依次配置即可。 数据存储位置中为节点指定id信息写入myid文件中（每个节点需要单独操作） 1# echo 1 &gt; /var/udata/zookeeper/myid 注：不同的节点根据实际规划情况自行指定1、2、3]]></content>
+      <categories>
+        <category>ZooKeeper</category>
+        <category>集群搭建</category>
+      </categories>
+      <tags>
+        <tag>zookeeper</tag>
+        <tag>ZooKeeper分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux安装配置JDK1.8]]></title>
+    <url>%2Fcontents%2F20190219202025.html</url>
+    <content type="text"><![CDATA[Linux安装配置JDK前言 JDK是 Java 语言的软件开发工具包，主要用于java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具，所以我们要运行一个JAVA程序的时候就要先安装一个JDK。下文主要以二进制的方式安装配置。 基础准备软件及环境准备 软件名称 版本 描述 JDK jdk1.8.0_191 jdk-8u191-linux-x64.tar.gz 相关路径创建 创建jdk安装路径 1# mkdir -p /opt/basics/java 软件解压缩安装将软件包上传至系统中 下载好的软件包传至/opt/basics/java目录中 解压缩包 切换到上传路径 1# cd /opt/basics/java 解压缩包 1# tar -xvzf jdk-8u191-linux-x64.tar.gz 配置环境变量配置文件说明 Linux环境变量配置文件总结 环境变量配置 编辑.bashrc文件 1# vi ~/.bashrc 将以下文件粘贴至属性文件末尾 JAVA_HOME=/opt/basics/java/jdk1.8.0_191JRE_HOME=$JAVA_HOME/jreCLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jarPATH=$JAVA_HOME/bin:$PATHexport JAVA_HOME JRE_HOME CLASSPATH PATH 使修改立即生效 配置文件如果有变动，需要执行一下source命令让文件生效 1# source ~/.bashrc 查看配置的环境变量 查看是否可以读取到环境变量 123# echo $JAVA_HOME# echo $CLASSPATH# echo $PATH 配置完成，查看版本 执行命令查看配置 1# java -version java version “1.8.0_191”Java(TM) SE Runtime Environment (build 1.8.0_191-b12)Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode) 注：也可以使用jps命令查看进程]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>jdk</tag>
+        <tag>配置JDK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[配置SSH免密登陆]]></title>
+    <url>%2Fcontents%2F20190218182031.html</url>
+    <content type="text"><![CDATA[配置SSH免密登陆前言 test 生成.ssh文件夹 新安装的系统用户下一般情况下没有.ssh的文件夹 查看 1cd ~ &amp; ls -al 执行命令生成 1ssh localhost 生成公钥、私钥 用于配置免密登陆 1ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa authorized_keys文件 将公钥（id_rsa.pub）写入到authorized_keys文件中 1cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys 文件授权 SSH公钥生效需满足至少下面两个条件： 目录.ssh的权限必须是700，由于上面是通过ssh localhost生成的文件夹故此满足此条件； 文件.ssh/authorized_keys权限必须是600； 1chmod 0600 ~/.ssh/authorized_keys 验证配置 将公钥（id_rsa.pub）写入到authorized_keys文件中 1ssh localhost 注：能成功进入说明配置成功 同其他机器相互访问 将.ssh文件夹完整复制到其他机器对应位置 授权后即可相互访问 12chmod 0700 ~/.sshchmod 0600 ~/.ssh/authorized_keys 单向访问只需要将公钥写入到对方的authorized_keys文件中即可访问对方]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>免密登陆</tag>
+        <tag>公钥认证</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS7关闭防火墙]]></title>
+    <url>%2Fcontents%2F20190218122031.html</url>
+    <content type="text"><![CDATA[CentOS7关闭防火墙前言 CentOS7默认的防火墙为firewalld，防火墙在一些非生产环境中，防火墙管理并不是我们关注的重点，至此我们需要将其关闭。 firewalld的基本命令 启动 1systemctl start firewalld 关闭 1systemctl stop firewalld 查看状态 1systemctl status firewalld 开机禁用 1systemctl disable firewalld 开机启用 1systemctl enable firewalld 注：以上命令需要以管理员用户执行 设置防火墙关闭依据上文，我们需要执行相应的命令来关闭防火墙 查看当前状态（防火墙开启状态） 1# systemctl status firewalld 关闭防火墙 1# systemctl stop firewalld 开机禁用（永久关闭，重启也不会启用） 1# systemctl disable firewalld 再次查看当前状态（防火墙关闭成功） 1# systemctl status firewalld]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>防火墙</tag>
+        <tag>CentOS防火墙</tag>
+        <tag>Linux防火墙</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux环境变量配置文件总结]]></title>
+    <url>%2Fcontents%2F20190218120022.html</url>
+    <content type="text"><![CDATA[Linux环境变量配置文件总结前言 Linux中环境变量可以配置在多个地方，在什么样的场景下将环境变量配置在哪个文件中比较合理，下文主要根据使用场景进行分析 主要文件介绍 一般主要环境变量配置的文件 文件 交互 描述 /etc/profile 全局 此文件为系统的每个用户设置环境信息,当第一个用户登录时,该文件被执行，并从/etc/profile.d目录的配置文件中搜集shell的设置. /etc/bashrc 全局 为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取。有些linux版本中的/etc目录下已经不存在bashrc文件。 ~/.profile 用户家目录下的私有环境变量设定 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,它设置一些环境变量,然后执行用户的.bashrc文件 ~/.bashrc 用户家目录下的私有环境变量设定 该文件包含专用于某个用户的bash shell的bash信息,当该用户登录时以及每次打开新的shell时,该文件被读取. 系统读取配置文件的顺序 待续]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>profile</tag>
+        <tag>bashrc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS7设置静态IP地址]]></title>
+    <url>%2Fcontents%2F20190217112031.html</url>
+    <content type="text"><![CDATA[设置静态IP前言 通常使用Linux系统都是需要提供服务的。 如果不设置静态的IP地址，采用动态地址的情况下，系统每次启动或IP被占用，都会重新获取一个IP地址，会造成我们不知道此服务器当前的IP地址而访问不了，不便于我们管理和维护。 综合上述原因需要给其指定一个固定的IP地址，这个就是静态的IP地址，客户端可以每次通过这个指定的IP地址来访问这个服务器即可。 编辑网卡配置文件 切换路径，并编辑网卡文件，如（ifcfg-ens33）文件 12# cd /etc/sysconfig/network-scripts# vim ifcfg-ens33 TYPE=”Ethernet”PROXY_METHOD=”none”BROWSER_ONLY=”no”BOOTPROTO=”static” #静态的IPDEFROUTE=”yes”IPV4_FAILURE_FATAL=”no”IPV6INIT=”yes”IPV6_AUTOCONF=”yes”IPV6_DEFROUTE=”yes”IPV6_FAILURE_FATAL=”no”IPV6_ADDR_GEN_MODE=”stable-privacy”NAME=”ens33”UUID=”658b8ef8-1295-446d-8235-7f6e4054b527”DEVICE=”ens33”ONBOOT=”yes” #开机启动IPADDR=192.168.233.101 #IP地址PREFIX=24 #子网掩码24位,255.255.255.0GATEWAY=192.168.233.2 #网关地址DNS1=202.106.0.20 #联通DNS 注：IP及网关根据实际网络情况进行相应的设置 使网卡设置生效 设置完成后，无需重新启动系统，使用命令重启网卡使其生效 1# systemctl restart network 重启后验证 重启网卡后，验证是否生效 1# ifconfig 注:如ifconfig命令无效，说明没有安装基础工具包（net-tools）]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>IP</tag>
+        <tag>静态ip</tag>
+        <tag>LinuxIP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Centos7更新后遗留内核清理]]></title>
+    <url>%2Fcontents%2F20190214131719.html</url>
+    <content type="text"><![CDATA[Centos7更新后遗留内核清理前言 今天对CentOS7系统进行了一次更新，更新后重启发现系统启动项多了一个，经过了解是更新后遗留的系统内核，在上网查找后，找到了下面的方法清理遗留的内核，经过本人测试完全可行。自己写下来便以后用到。 删除系统遗留内核查看当前内核1# uname -sr Linux 3.10.0-514.26.2.el7.x86_64 搜索查询1# rpm -qa | grep kernel kernel-3.10.0-514.26.2.el7.x86_64abrt-addon-kerneloops-2.1.11-45.el7.centos.x86_64kernel-tools-libs-3.10.0-514.26.2.el7.x86_64kernel-3.10.0-514.el7.x86_64kernel-tools-3.10.0-514.26.2.el7.x86_64 删除多余的版本1# rpm -e kernel-3.10.0-514.el7.x86_64 内核定量1# vi /etc/yum.conf installonly_limit=5 重启系统1# reboot 再次查看1# rpm -qa|grep kernel*]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>Linux内核清理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS7设置hostname和hosts]]></title>
+    <url>%2Fcontents%2F20190213131719.html</url>
+    <content type="text"><![CDATA[设置hostname和hosts前言 在使用Linux系统的过程中，某些软件访问需要指定IP地址，因IP可能会变动而导致软件需要再次配置新的IP。基于此种场景，配置hostname和hosts文件解决此问题：即软件中需要配置IP的地方使用hostname代替，通过解析hosts文件hostname就被解析成对应的IP地址。如果IP有变动也只需要调整hosts中IP与hostname的对应关系，无需在频繁改动软件内部IP配置。 设置HostName 设置hostname为centosvm（可以根据自己的需求起名） 1vim /etc/hostname centosvm 注：HostName尽量不要出现’/‘、’*’、’.’、’_’等特殊字符，否则某些软件引用过程中可能读不到正确的配置或一些莫名其妙的错误问题。 设置Hosts 在Hosts中设置的尾部追加IP地址、域名和主机名映射关系 1vim /etc/hosts 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4::1 localhost localhost.localdomain localhost6 localhost6.localdomain6192.168.233.100 centosvm 注：需要配置多个映射关系在尾部继续追加即可 重启系统 hostname永久修改需要重启系统才可以生效 1# reboot]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>hostname</tag>
+        <tag>hosts</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VirtualBox中CentOS7配置Nat+host-only]]></title>
+    <url>%2Fcontents%2F20190212093157.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>虚拟机</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[虚拟机迁移-VMWare-to-VirtualBox]]></title>
+    <url>%2Fcontents%2F20190211092005.html</url>
+    <content type="text"><![CDATA[虚拟机迁移-VMWare-to-VirtualBox前言 由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。 导出VMware中的虚拟机 导出开放式格式.ovf的虚拟机 导出完成 导入虚拟机到VirtualBox 将.ovf格式的虚拟机导入到VirtualBox中 导入成功并启动 迁移过程中网络问题解决桥接模式 迁移完成后，打开虚拟机，执行ifconfig命令发现网卡名称与我们配置的网卡名称不一致，最简单的解决办法是重命名我们配置的网卡信息与ifconfig中的名称一致即可。 NAT模式 VirtualBox如果实现VM Ware中的访问模式，需要配置两个网卡，将当前的网卡指定为（host-only）模式，在新建一个nat网卡即可。]]></content>
+      <categories>
+        <category>虚拟机</category>
+      </categories>
+      <tags>
+        <tag>vm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[idea-edit-default-file-location]]></title>
+    <url>%2Fcontents%2F20181116135728.html</url>
+    <content type="text"><![CDATA[前言 IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配置目录会越来越大，因此将配置目录指定到想要存放的位置。 编辑默认配置路径 编辑默认配置路径 编辑文件：{IDEA安装路径}/bin/idea.properties（本人将默认路径配置在IntelliJIdea的安装路径settings下，故做如下配置） 1234idea.config.path=../settings/.IntelliJIdea/configidea.system.path=../settings/.IntelliJIdea/systemidea.plugins.path=$&#123;idea.config.path&#125;/pluginsidea.log.path=$&#123;idea.system.path&#125;/log 如图所示红色部分 配置完成后重新启动，配置即可生效！]]></content>
+      <categories>
+        <category>Idea</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux环境下Oracle生成AWR报告]]></title>
+    <url>%2Fcontents%2F20180909121931.html</url>
+    <content type="text"><![CDATA[Linux环境下Oracle生成AWR报告前言 test 生成报告 创建文件存储路径（oracle需要对此路径有读写权限） 1# mkdir -p ~/oradata/update/awrreport 切换到存储路径中 1# cd ~/oradata/update/awrreport 使用sqlplus命令连接数据库 1# sqlplus / as sysdba 使用DBA用户或 sqlplus 用户名/密码 1@?/rdbms/admin/awrrpt.sql 选择报告类型，默认选html （可直接回车） 报告涉及天数范围（1：当天） 开始、结束编号 报告名字 （回车默认）]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>Oracle</category>
+      </categories>
+      <tags>
+        <tag>dmp操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Oracle数据库DMP导入和导出]]></title>
+    <url>%2Fcontents%2F20180908122031.html</url>
+    <content type="text"><![CDATA[Oracle数据库DMP导入和导出前言 开发的过程中，我们使用的数据库可能需要备份，即可以此方式进行简单的备份操作 使用expdp命令备份数据库 使用impdp命令恢复数据库 expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TEST_DMP20180908.DMP logfile=TEST_DMP20180908.log reuse_dumpfiles=y impdp命令导入操作1impdp tuser/tpass@orcl directory=DUMP_DIR dumpfile=TEST_DMP20180908.DMP table_exists_action=replace remap_schema=tuser:tuser]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>Oracle</category>
+      </categories>
+      <tags>
+        <tag>dmp操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IDEA快捷键位调整及对比]]></title>
+    <url>%2Fcontents%2F20180907180504.html</url>
+    <content type="text"><![CDATA[IDEA快捷键位调整及对比前言 最近工作中开发代码由Eclipse切换到IDEA，使用之前需要对IDEA进行一些简单的配置，还需要了解同Eclipse中快捷键的对比，使我们能够更快的适应这个软件。 修改冲突键位 Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → Code → Completion Cyclic Expand Word 默认Alt + /，修改为Alt + Shift + 逗号 （将此快捷键让给basic使用） basic 默认Ctrl + 空格，修改为 Alt + / （此快捷键一般会和输入法冲突，调整同eclipse一致键位符合使用习惯） 操作 原有 修改为 循环往上选择单词 Alt+/ Alt+Shift+逗号 循环往下选择单词 Alt + Shift + / 无修改 代码提示 Ctrl+空格 Alt+/ 常用默认键位对比 操作 Eclipse IDEA 删除一行 Ctrl+D Ctrl+Y 关闭当前窗口 Ctrl+W Ctrl+F4 上移、下移一行 Alt+↑、↓ Ctrl+Alt+↑、↓ 回退操作 Ctrl+Z Ctrl+Z 反向回退 Ctrl+Y Ctrl+Shift+Z 回到上一处编辑 Alt+← Ctrl+Alt+← 提取变量 Ctrl+1 And Ctrl+L Ctrl+Alt+V 添加或取消注释 Ctrl+/ Ctrl+/ 生成Getter、Setter Alt+Shift+S Alt+Insert 光标移到相同的变量 Ctrl+K F3或Ctrl+F7 打开类结构 Ctrl+O Ctrl+F12 显示类继承层次 Ctrl+T Ctrl+H 查看方法调用链 Ctrl+Shift+H Ctrl+Alt+H 文件内容搜索 Ctrl+H Ctrl+Shift+F 按文件名搜索 Ctrl+Shift+R Ctrl+Shift+N 格式化代码 Ctrl+Shift+F Ctrl+Alt+L 代码折叠与打开 Ctrl+Shift+*、/ Ctrl+Shift+加号、减号 try-catch包围 Alt+Shift+S Ctrl+Shift+T]]></content>
+      <categories>
+        <category>Idea</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[idea-plugin... read-timed-out]]></title>
+    <url>%2Fcontents%2F20180907150704.html</url>
+    <content type="text"><![CDATA[IDEA下载插件超时问题前言 新下载的idea集成开发环境，下载插件时出现读取超时错误 1Plugin ... Read timed out 解决此问题 依次点击 Appearance &amp; Behavior →System settings →Updates 去掉use secure connection 前面的对号 再次下载 至此，问题已解决]]></content>
+      <categories>
+        <category>Idea</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-Next主题博客优化]]></title>
+    <url>%2Fcontents%2F20180907112238.html</url>
+    <content type="text"><![CDATA[Hexo-Next主题博客优化基础路径说明 名称 文件 URL 根路径 BLOG_HEXO BLOG_HEXO/ 站点配置文件 _config.yml BLOG_HEXO/_config.yml 主题配置文件 _config.yml BLOG_HEXO/themes/next/_config.yml 注：下文中术语以此为准自行匹配 Hexo站点配置站点基础配置 Site title: EvanSun Homesubtitle: 记录、分享description: 男人有实力，才有魅力~keywords:author: evansunlanguage: zh-Hans #指定语言timezone: Asia/Shanghai #指定时区 URL访问配置 站点配置文件，关键字：URL # If your site is put in a subdirectory, set url as ‘http://yoursite.com/child&#39; and root as ‘/child/‘url: https://blog.jyusun.comroot: /permalink: contents/:id.htmlpermalink_defaults: 指定next主题 克隆next主题到themes文件夹下 1$ git clone https://github.com/iissnan/hexo-theme-next themes/next 站点配置文件，关键字：theme theme: next 指定next主题Pisces模板 主题配置文件，关键字：Schemes #scheme: Muse#scheme: Mistscheme: Pisces #打开前面的注释#scheme: Gemini 菜单栏设置设置展示菜单 增加菜单主题/languages/zh-Hans.yml，关键字：menu home: 首页 archives: 归档 categories: 分类 tags: 标签 about: 关于 search: 搜索 schedule: 日程表 sitemap: 站点地图 commonweal: 公益404 注：由于上面站点基础配置中指定了语言zh-Hans，所以本文以此为例。 主题配置文件，关键字：menu打开需要菜单的注释 menu:home: / || hometags: /tags/ || tagscategories: /categories/ || tharchives: /archives/ || archiveschedule: /schedule/ || calendarsitemap: /sitemap.xml || sitemapcommonweal: /404/ || heartbeatabout: /about/ || user 设置文章分类页面 新建分类页面categories 1$ hexo new page categories 注：根路径下执行此命令 修改页面内容 title: 文章分类date: 2018-07-19 14:08:34type: “categories” 注：使用时在文章标题处指定categories标签即可 站点地图 安装插件，分别适用于谷歌和百度生成站点地图便于爬虫爬取 12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save 站点配置文件，新增内容 Plugins: \- hexo-generator-baidu-sitemap \- hexo-generator-sitemap baidusitemap: path: baidusitemap.xml sitemap: path: sitemap.xml 公益404 待续… 添加站内搜索功能 下载插件 1$ npm install hexo-generator-searchdb --save 站点配置文件，新增内容 # 设置站内搜索search: path: search.xml field: post format: html limit: 10000 主题配置文件，关键字：local_search， # Local search# Dependencies: https://github.com/flashlab/hexo-generator-searchlocal_search: enable: true #将false改为true # if auto, trigger search by changing input # if manual, trigger search by pressing enter key or search button trigger: auto # show top n results per article, show all results by setting to -1 top_n_per_article: 1 侧边栏设置设置头像 主题配置文件，关键字：Sidebar Avatar avatar指定网络地址 # Sidebar Avatar# in theme directory(source/images): /images/avatar.gif# in site directory(source/uploads): /uploads/avatar.gifavatar: http://example.com/avatar.png avatar指定本地图片,把图片放入 themes/next/source/images 下,修改 avatar： avatar: /images/avatar.png 设置侧边社交连接 主题配置文件，关键字： Social Links，根据需要打开注释，调整为自己的地址 social: GitHub: https://github.com/jyusun || github E-Mail: mailto:mr.evansun@foxmail.com || envelope #Google: https://plus.google.com/yourname || google #Twitter: https://twitter.com/yourname || twitter #FB Page: https://www.facebook.com/yourname || facebook #VK Group: https://vk.com/yourname || vk #StackOverflow: https://stackoverflow.com/yourname || stack-overflow #YouTube: https://youtube.com/yourname || youtube #Instagram: https://instagram.com/yourname || instagram #Skype: skype:yourname?call|chat || skype 设置侧边栏社交样式 主题配置文件，关键字： social_icons social_icons: enable: true #`true`显示图标，`false`只显示名称 icons_only: false #`true`只展示图标，`false`显示图标及名称 transition: false RSS 安装feed插件 1$ npm install hexo-generator-feed --save 主题配置文件，新增内容 # feed# Dependencies: https://github.com/hexojs/hexo-generator-feedfeed: type: atom path: atom.xml limit: 20 hub: content: 友情链接 主题配置文件，关键字：Blog rolls links_icon: linklinks_title: Linkslinks_layout: block#links_layout: inlinelinks: #友情连接 开源中国: https://www.oschina.net/ 百度: http://baidu.com/ 首页文章样式 主页文章添加阴影效果，主题/source/css/_custom/custom.styl文件中新增内容 12345678// 主页文章添加阴影效果.post &#123; margin-top: 0px; margin-bottom: 60px; padding: 25px; -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5); -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);&#125; 隐藏文章与文章间分割线，主题/source/css/_common/components/post/post-eof.styl修改内容 12345678910.posts-expand &#123; .post-eof &#123; display: block; margin: $post-eof-margin-top auto $post-eof-margin-bottom; width: 0%; height: 0px; background: $grey-light; text-align: center; &#125;&#125; 首页自动形成摘要 主题配置文件，关键字：auto_excerpt，文章前150字 auto_excerpt: enable: true length: 150 文内样式文内图片引用 站点配置文件，关键字：post_asset_folder post_asset_folder: true 执行新建命令时会创建同名文件夹 1$ hexo n &lt;title&gt; 将图片放入同名文件夹下，文章内图片相对引用 文章末尾加上”本文结束”字样 主题/layout/_macro，新增passage-end-tag.swig文件 12345&lt;div&gt; &#123;% if not is_index %&#125; &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;------本文结束------&lt;/div&gt; &#123;% endif %&#125;&lt;/div&gt; 将代码插入主题/layout/_macro/post.swig文件中，关键字：END POST BODY下方 12345&lt;div&gt; &#123;% if not is_index %&#125; &#123;% include &apos;passage-end-tag.swig&apos; %&#125; &#123;% endif %&#125;&lt;/div&gt; 主题配置文件，新增内容 # 文章末尾添加“本文结束”标记passage_end_tag: enabled: true 文内功能文章浏览显示进度百分比 主题配置文件，关键字： scrollpercent ，将 false 改为 true # Scroll percent label in b2t button.scrollpercent: true 如果想要把百分比在左边显示，关键字：b2t将false改为true # Back to top in sidebar (only for Pisces | Gemini).b2t: true 开启版权声明 主题配置文件下,搜索关键字 post_copyright , enable 改为 true post_copyright: enable: true license: CC BY-NC-SA 4.0 license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/ 打赏功能 文章底部打赏共功能，关键字：Reward。把二维码图片放入 主题/source/images 下 # Reward#reward_comment: Donate comment herewechatpay: /images/wechatpay.jpg #微信收款指定二维码图片urlalipay: /images/alipay.jpg #支付宝收款指定二维码图片url#bitcoin: /images/bitcoin.png 禁止鼠标悬浮二维码上底部文字抖动，配置文件路径：主题/source/css/_common/components/post/post-reward.styl，关键字：wechat:hover和alipay:hover /* 注释打赏底部文字抖动#wechat:hover p{ animation: roll 0.1s infinite linear; -webkit-animation: roll 0.1s infinite linear; -moz-animation: roll 0.1s infinite linear; }#alipay:hover p{ animation: roll 0.1s infinite linear; -webkit-animation: roll 0.1s infinite linear; -moz-animation: roll 0.1s infinite linear; }*/ 推广链接功能 主题/layout/_macro路径下新增advert.swig文件 123456789101112131415161718&#123;# Gallery support #&#125;&#123;% if config.advert %&#125;&lt;div class=&quot;post-gallery&quot; itemscope itemtype=&quot;http://schema.org/ImageGallery&quot;&gt; &#123;% set COLUMN_NUMBER = 3 %&#125; &#123;% for advert, link in config.advert %&#125; &#123;% if loop.index0 % COLUMN_NUMBER === 0 %&#125;&lt;div class=&quot;post-gallery-row&quot;&gt;&#123;% endif %&#125; &lt;a class=&quot;post-gallery-img fancybox&quot; href=&quot;&#123;&#123; link.split(&apos;||&apos;)[1] | trim &#125;&#125;&quot; rel=&quot;gallery_&#123;&#123; post._id &#125;&#125;&quot; target=&quot;_blank&quot; itemscope itemtype=&quot;http://schema.org/ImageObject&quot; itemprop=&quot;url&quot;&gt; &lt;img src=&quot;&#123;&#123; link.split(&apos;||&apos;)[0] | trim &#125;&#125;&quot; itemprop=&quot;contentUrl&quot; alt=&quot;&#123;&#123;advert&#125;&#125;&quot;/&gt; &lt;/a&gt; &#123;% if loop.index0 % COLUMN_NUMBER === 2 %&#125;&lt;/div&gt;&#123;% endif %&#125; &#123;% endfor %&#125; &#123;# Append end tag for `post-gallery-row` when (photos size mod COLUMN_NUMBER) is less than COLUMN_NUMBER #&#125; &#123;% if config.advert.length % COLUMN_NUMBER &gt; 0 %&#125;&lt;/div&gt;&#123;% endif %&#125;&lt;/div&gt;&#123;% endif %&#125; 将代码插入主题/layout/_macro/post.swig文件中，关键字：theme.wechat_subscriber.enabled上方 12345&#123;% if not is_index%&#125; &lt;div&gt; &#123;% include &apos;advert.swig&apos; %&#125; &lt;/div&gt;&#123;% endif %&#125; 站点配置文件，新增推广内容 1234advert: 天猫618: https://gw.alicdn.com/tfs/TB1p12MsQ9WBuNjSspeXXaz5VXa-440-180.jpg || https://s.click.taobao.com/t?e=m%3D2%26s%3DQ7%2BOxHRJNU8cQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMSjJriMKVvzd5x%2BIUlGKNpUKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS9iw0%2FdWyiVaogaseAKBk0cTbU9KzMTtxpe7auY0HPYWszlTEcWhO9mCmht7GX%2FH9k%3D 2018年618理想生活狂欢季——聚划算主会场: https://img.alicdn.com/tfs/TB125UMsMmTBuNjy1XbXXaMrVXa-440-180.jpg || https://s.click.taobao.com/t?e=m%3D2%26s%3D2c9N%2F89tPiMcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMXJZeCVJPqDB8sviUM61dt0KzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B%2BUEclaRYva8F8WBkZipnv9sOkOOEWZ4E%2FnCA8IhtTQhnqXdg7YFDycSpj5qSCmbA%3D 2018年618理想生活狂欢节—消费电子主会场: https://img.alicdn.com/tfs/TB1GnfasntYBeNjy1XdXXXXyVXa-440-180.jpg || https://s.click.taobao.com/t?e=m%3D2%26s%3D5xcD%2FIEjdhYcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMUG5eE0BPbCdxq3IhSJN6GQKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B6zThPYvErzhJBFs1%2FyLxVPxey8%2Bhd8pyvTW5l3DCD30V92HL3DKLNSqwyt%2BH6DtO%2FMqT4SeHHMKTHNVRq3ENViYq%2BoOM2USF%2Bn%2B1pvicu6FXll1U39L8dNcwDbqGDeU3JefVee9XDEgxYVk%2BaFSeXxiXvDf8DaRs%3D 文章内链接文本样式 修改文件主题/source/css/_common/components/post/post.styl，在末尾添加css样式： 12345678910.post-body p a&#123; color: #0593d3; border-bottom: none; border-bottom: 1px solid #0593d3; &amp;:hover &#123; color: #fc6423; border-bottom: none; border-bottom: 1px solid #fc6423; &#125;&#125; 其中选择.post-body 是为了不影响标题，选择 p 是为了不影响首页“阅读全文”的显示样式,颜色可以自己定义。 博文压缩 安装gulp 12$ npm install gulp -g$ npm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp --save hexo主目录下新建gulpfile.js文件 123456789101112131415161718192021222324252627282930313233var gulp = require(&apos;gulp&apos;);var minifycss = require(&apos;gulp-minify-css&apos;);var uglify = require(&apos;gulp-uglify&apos;);var htmlmin = require(&apos;gulp-htmlmin&apos;);var htmlclean = require(&apos;gulp-htmlclean&apos;);// 压缩 public 目录 cssgulp.task(&apos;minify-css&apos;, function() &#123; return gulp.src(&apos;./public/**/*.css&apos;) .pipe(minifycss()) .pipe(gulp.dest(&apos;./public&apos;));&#125;);// 压缩 public 目录 htmlgulp.task(&apos;minify-html&apos;, function() &#123; return gulp.src(&apos;./public/**/*.html&apos;) .pipe(htmlclean()) .pipe(htmlmin(&#123; removeComments: true, minifyJS: true, minifyCSS: true, minifyURLs: true, &#125;)) .pipe(gulp.dest(&apos;./public&apos;))&#125;);// 压缩 public/js 目录 jsgulp.task(&apos;minify-js&apos;, function() &#123; return gulp.src(&apos;./public/**/*.js&apos;) .pipe(uglify()) .pipe(gulp.dest(&apos;./public&apos;));&#125;);// 执行 gulp 命令时执行的任务gulp.task(&apos;default&apos;, [ &apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;]); 生成博文是执行 hexo g &amp;&amp; gulp 就会根据 gulpfile.js 中的配置，对 public 目录中的静态资源文件进行压缩。 域名设置阿斯顿]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS7服务器安装Oralce11gR2企业版]]></title>
+    <url>%2Fcontents%2F20180902112031.html</url>
+    <content type="text"><![CDATA[基础准备环境准备 系统：CentOS7 （需要联网，或配置本地源） 终端神器 ：MobaXterm 点击进入下载页面（SSH连接、图形转发） Oracle安装包：linux.x64_11gR2_database_1of2.zip linux.x64_11gR2_database_2of2.zip 查看当前内核（需要内核2.3.1以上） 123# cat /proc/version Linux version 3.10.0-514.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-11) (GCC) ) #1 SMP Tue Nov 22 16:42:41 UTC 2016 系统环境基础配置配置静态IP 配置静态IP(192.168.233.99) 1234567891011121314151617181920212223# cd /etc/sysconfig/network-scripts/ #切换路径# vi ifcfg-ens33 #编辑你的网卡文件-----------以下为文件中内容-----------TYPE="Ethernet"PROXY_METHOD="none"BROWSER_ONLY="no"BOOTPROTO="static" #设置静态的IPDEFROUTE="yes"IPV4_FAILURE_FATAL="no"IPV6INIT="yes"IPV6_AUTOCONF="yes"IPV6_DEFROUTE="yes"IPV6_FAILURE_FATAL="no"IPV6_ADDR_GEN_MODE="stable-privacy"NAME="ens33"UUID="51dd3e15-9ec2-4aeb-b1bf-f371da401511"DEVICE="ens33"ONBOOT="yes" #系统启动时激活网卡IPADDR="192.168.233.99" #IP地址PREFIX="24" #子网掩码GATEWAY="192.168.233.2" #网关地址DNS1="192.168.233.2" #DNS地址IPV6_PRIVACY="no" 修改hostname 编辑hostname文件，写入centos 123# vi /etc/hostname-----------以下为文件中内容-----------centos 修改hosts 编辑hosts文件，写入ip和hostname 123# vi /etc/hosts-----------以下为文件中内容-----------192.168.233.99 centos 修改系统标识 查看系统版本标识 12# cat /etc/redhat-releaseCentOS Linux release 7.3.1611 (Core) 修改系统版本标识（将centos标识修改为redhat-7） 123# vi /etc/redhat-release-----------以下是文件内容-----------redhat-7 关闭防火墙12# systemctl stop firewalld.service #临时关闭防火墙# systemctl disable firewalld.service #禁止使用防火墙（重启也是禁止的） 关闭selinux12345678910111213# vi /etc/selinux/config-----------以下为文件中内容-----------# This file controls the state of SELinux on the system.# SELINUX= can take one of these three values:# enforcing - SELinux security policy is enforced.# permissive - SELinux prints warnings instead of enforcing.# disabled - No SELinux policy is loaded.SELINUX=disabled #此处修改为disabled# SELINUXTYPE= can take one of three two values:# targeted - Targeted processes are protected,# minimum - Modification of targeted policy. Only selected processes are protected. # mls - Multi Level Security protection.SELINUXTYPE=targeted 注：重启系统使所有配置生效 依赖安装安装基础工具1# yum install -y net-tools vim* wget ntp telnet unzip 安装SSH X11转发依赖 SSH X11 Forwarding 依赖 1# yum -y install xorg-x11-xauth xclock 查看SSH配置（一般情况下无需操作直接执行测试即可） 1234# cat /etc/ssh/sshd_configX11Forwarding yesX11UseLocalhost no -- 禁止将X11转发请求绑定到本地回环地址上AddressFamily inet -- 强制使用IPv4通道 测试：使用MobaXterm终端工具运行xclock程序（Win端弹出小时钟） 1# xclock 安装Oracle必要依赖 使用yum命令安装依赖（自动识别系统位数） 1# yum install -y binutils compat-libcap1 compat-libstdc gcc gcc-c++ glibc glibc-devel ksh libaio libaio-devel libgcc libstdc libstdc++ libstdc++-devel libXi libXtst make sysstat unixODBC unixODBC-devel elfutils-libelf-devel 使用yum命令安装所需要的32位依赖部分（安装检查时候可以检查出来缺少的） 1# yum install -y unixODBC.i686 unixODBC-devel.i686 compat-libstdc++-33.i686 libstdc++-devel.i686 gcc-c++.i686 libaio-devel.i686 官网CentOS7依赖说明 Oracle Linux 7和Red Hat Enterprise Linux 7 必须安装以下软件包（或更高版本），官方是这么说的： 123456789101112131415161718192021222324252627binutils-2.23.52.0.1-12.el7.x86_64 compat-libcap1-1.10-3.el7.x86_64 compat-libstdc++-33-3.2.3-71.el7.i686compat-libstdc++-33-3.2.3-71.el7.x86_64gcc-4.8.2-3.el7.x86_64 gcc-c++-4.8.2-3.el7.x86_64 glibc-2.17-36.el7.i686 glibc-2.17-36.el7.x86_64 glibc-devel-2.17-36.el7.i686 glibc-devel-2.17-36.el7.x86_64 kshlibaio-0.3.109-9.el7.i686 libaio-0.3.109-9.el7.x86_64 libaio-devel-0.3.109-9.el7.i686 libaio-devel-0.3.109-9.el7.x86_64 libgcc-4.8.2-3.el7.i686 libgcc-4.8.2-3.el7.x86_64 libstdc++-4.8.2-3.el7.i686 libstdc++-4.8.2-3.el7.x86_64 libstdc++-devel-4.8.2-3.el7.i686 libstdc++-devel-4.8.2-3.el7.x86_64 libXi-1.7.2-1.el7.i686 libXi-1.7.2-1.el7.x86_64 libXtst-1.2.2-1.el7.i686 libXtst-1.2.2-1.el7.x86_64 make-3.82-19.el7.x86_64 sysstat-10.1.5-1.el7.x86_64 安装前准备组和用户 新建oinstall和dba组 官网参考 12# groupadd oinstall# groupadd dba 新建用户oracle并指定组为oinstall和dba 12# useradd -g oinstall -g dba -m oracle# passwd oracle #根据提示输入密码 查看oracle用户基本信息 12# id oracleuid=1002(oracle) gid=1003(dba) 组=1003(dba) 安装目录 创建相关目录 123# mkdir -p /opt/data/oracle #oracle数据库安装目录# mkdir -p /opt/data/oraInventory #oracle数据库配置文件目录# mkdir -p /opt/data/database #oracle数据库软件包解压目录 将文件夹指定操作用户oracle 123# chown -R oracle:oinstall /opt/data/oracle/# chown -R oracle:oinstall /opt/data/oraInventory/# chown -R oracle:oinstall /opt/data/database 修改系统内核参数 修改内核参数，以8G内存为例（配置时最好把内容中注释去掉） 123456789101112131415# vi /etc/sysctl.conf -----------将以下内容根据实际情况修改后粘贴至文件中------------net.ipv4.icmp_echo_ignore_broadcasts = 1net.ipv4.conf.all.rp_filter = 1fs.file-max = 6815744 #设置最大打开文件数fs.aio-max-nr = 1048576kernel.shmall = 2097152 #共享内存的总量，8G内存设置：2097152*4k/1024/1024kernel.shmmax = 7730941132 #单个段允许使用的大小，设置为内存的90%如：8*1024*1024*1024*90%kernel.shmmni = 4096 #整个系统共享内存端的最大数，缺省值 4096kernel.sem = 250 32000 100 128net.ipv4.ip_local_port_range = 9000 65500 #可使用的IPv4端口范围net.core.rmem_default = 262144net.core.rmem_max= 4194304net.core.wmem_default= 262144net.core.wmem_max= 1048576 使配置立即生效 1# sysctl -p 对oracle用户设置限制 对oracle用户设置限制，提高软件运行性能 123456# vi /etc/security/limits.conf -----------将以下内容根据实际情况修改后粘贴至文件中------------oracle soft nproc 2047oracle hard nproc 16384oracle soft nofile 1024oracle hard nofile 65536 配置用户的环境变量 配置oracle相关环境变量（配置时最好把内容中注释去掉） 12345678910# vi /home/oracle/.bash_profile-----------将以下内容根据实际情况修改后粘贴至文件中------------export ORACLE_BASE=/data/oracle #oracle数据库安装目录export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/db_1 #oracle数据库路径export ORACLE_SID=orcl #oracle启动数据库实例名export ORACLE_TERM=xterm #xterm窗口模式安装export PATH=$ORACLE_HOME/bin:/usr/sbin:$PATH #添加系统环境变量export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib #添加系统环境变量export LANG=C #防止安装过程出现乱码export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK #设置Oracle客户端字符集，必须与Oracle安装时设置的字符集保持一致，如：ZHS16GBK，否则出现数据导入导出中文乱码问题 使环境变量立即生效 1# source /home/oracle/.bash_profile 通过MobaXterm上传文件1234将Oracle两个安装包linux.x64_11gR2_database_1of2.zip linux.x64_11gR2_database_2of2.zip上传至/usr/local/src/ 路径中 解压并对oracle用户授权 解压文件1和文件2 123# cd /usr/local/src/ #切换到文件上传路径# unzip linux.x64_11gR2_database_1of2.zip -d /opt/data# unzip linux.x64_11gR2_database_2of2.zip -d /opt/data 将此解压路径授权给oinstall组中oracle用户 1# chown -R oracle:oinstall /opt/data/database 安装Oracle数据库Oracle用户登陆 检查database、oraInventory、oracle权限是否为oinstall组和oracle用户 12345678[oracle@centos ~]$ cd /opt/data/[oracle@centos data]$ ls -altotal 0drwxr-xr-x 5 root root 56 Sep 4 17:32 .drwxr-xr-x. 4 root root 32 Sep 4 17:31 ..drwxr-xr-x 8 oracle oinstall 128 Sep 4 19:00 databasedrwxr-xr-x 2 oracle oinstall 6 Sep 4 17:31 oraInventorydrwxr-xr-x 2 oracle oinstall 6 Sep 4 17:31 oracle 测试：使用MobaXterm终端工具运行xclock程序（Win端弹出小时钟） 1# xclock 注：弹出小时钟在继续执行，如不弹出，使用MobaXterm直接以oracle用户登陆（使用su - oracle 切换可能某些变量不生效会报错导致无法弹出窗口） 执行安装命令 12# cd /opt/data/database #切换到安装文件路径下# ./runInstaller Win端弹出安装窗口 中文参照：https://jingyan.baidu.com/article/363872eccfb9266e4aa16f5d.html 安装即可 安装完成之后执行脚本 执行一下两个脚本（根据自己配置的路径调整） 12#/opt/data/oraInventory/orainstRoot.sh#/opt/data/oracle/product/11.2.0/db_1/root.sh 服务与监听随系统启动配置/etc/oratab 以root身份登录到linux系统，编辑/etc/oratab文件(如oratab文件不存在，新增即可) 12345# vi /etc/orataborcl:/opt/data/oracle/product/11.2.0/db_1:N改为orcl:/opt/data/oracle/product/11.2.0/db_1:Y 注：orcl为实例名/opt/data/oracle/product/11.2.0/db_1为安装的$ORACLE_HOME，根据情况自行修改。 编辑dbstart和dbshut 以oracle身份登录到linux系统，编辑dbstart文件 12345$ vi $ORACLE_HOME/bin/dbstartORACLE_HOME_LISTNER=$1改为ORACLE_HOME_LISTNER=$ORACLE_HOME 以oracle身份登录到linux系统，编辑dbshut文件 12345$ vi $ORACLE_HOME/bin/dbshutORACLE_HOME_LISTNER=$1改为ORACLE_HOME_LISTNER=$ORACLE_HOME 配置 rc.local 文件 以root身份登录到linux系统，编辑/etc/rc.d/rc.local文件，将dbstart命令写入文件 123# vi /etc/rc.d/rc.local------------将以下内容写入文件末尾--------------su oracle -lc dbstart 执行以下命令，对rc.local文件授予执行权限 1# chmod +x /etc/rc.d/rc.local 该文件默认是没有执行权限的，查看/etc/rc.d/rc.local文件说明： 1234567891011121314151617181920# cat /etc/rc.d/rc.local-------------------------------------------------#!/bin/bash# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES## It is highly advisable to create own systemd services or udev rules# to run scripts during boot instead of using this file.## In contrast to previous versions due to parallel execution during boot# this script will NOT be run after all other services.## Please note that you must run &apos;chmod +x /etc/rc.d/rc.local&apos; to ensure# that this script will be executed during boot.----------------------------------------------------翻译一下：这个文件是为了兼容性的目的而添加的，建议创建自己的systemd服务或udev规则来在开机引导时运行脚本而不是使用这个文件。 与以前的版本引导时的并行执行相比较，这个脚本将不会在其他所有的服务后执行。 请记住，你必须执行“chmod +x /etc/rc.d/rc.local”来确保确保这个脚本在引导时执行。 重启并查看监听与服务 以oracle用户登入，并查看监听与服务状态 12$ lsnrctl status$ ps -ef | grep ora]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>Oracle</tag>
+        <tag>安装Oracle</tag>
+        <tag>LinuxOracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[基于CentOS7安装Docker-CE]]></title>
+    <url>%2Fcontents%2F20180901171228.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>Linux</category>
+        <category>安装配置</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NodeJS修改npm镜像源]]></title>
+    <url>%2Fcontents%2F20180807112035.html</url>
+    <content type="text"><![CDATA[#NodeJS修改npm镜像源 前言 由于npm的镜像地址默认在境外，虽然没有被墙，但是在国内使用的过程中会出现下载速度较慢或因直接安装失败，所以将镜像地址为国内的地址解决此问题。本人使用的是NPMJS，下文以此为例 npm镜像源修改常用镜像说明 官方默认镜像 registry https://registry.npmjs.org/ 淘宝镜像 官网：https://npm.taobao.org/ registry http://registry.npm.taobao.org/ CNPMJS 官网：https://cnpmjs.org/ registry http://registry.cnpmjs.org/ 方式1：通过命令设置镜像源 执行命令后将源地址写入~/.npmrc文件 1$ npm config set registry http://registry.cnpmjs.org 方式2：直接在文件中指定 修改~/.npmrc文件，直接指定镜像源地址，如果没有此文件新建即可 registry = http://registry.cnpmjs.org 注：~为用户家目录 方式3：cnpm 命令代替npm1$ npm install cnpm -g --registry=http://registry.cnpmjs.org 1$ cnpm 命令 查看是否设置成功1$ npm config get registry]]></content>
+  </entry>
+</search>

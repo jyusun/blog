@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Oracle,安装Oracle,LinuxOracle,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="EvanSun Home" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="基础准备环境准备 系统：CentOS7 （需要联网，或配置本地源） 终端神器 ：MobaXterm 点击进入下载页面（SSH连接、图形转发） Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2of2.zip 查看当前内核（需要内核2.3.1以上）  123# cat /proc/version Linux">
+<meta name="keywords" content="Oracle,安装Oracle,LinuxOracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7服务器安装Oralce11gR2企业版">
+<meta property="og:url" content="https://blog.jyusun.com/contents/20180902112031.html">
+<meta property="og:site_name" content="EvanSun Home">
+<meta property="og:description" content="基础准备环境准备 系统：CentOS7 （需要联网，或配置本地源） 终端神器 ：MobaXterm 点击进入下载页面（SSH连接、图形转发） Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2of2.zip 查看当前内核（需要内核2.3.1以上）  123# cat /proc/version Linux">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog.jyusun.com/contents/1.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/2.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/3.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/4.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/5.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/6.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/7.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/8.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/9.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/10.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/11.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/12.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/13.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/14.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/15.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/16.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/17.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/18.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/19.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/21.jpg">
+<meta property="og:updated_time" content="2018-09-02T03:19:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS7服务器安装Oralce11gR2企业版">
+<meta name="twitter:description" content="基础准备环境准备 系统：CentOS7 （需要联网，或配置本地源） 终端神器 ：MobaXterm 点击进入下载页面（SSH连接、图形转发） Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2of2.zip 查看当前内核（需要内核2.3.1以上）  123# cat /proc/version Linux">
+<meta name="twitter:image" content="https://blog.jyusun.com/contents/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.jyusun.com/contents/20180902112031.html">
+
+
+
+
+
+  <title>CentOS7服务器安装Oralce11gR2企业版 | EvanSun Home</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EvanSun Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录、分享</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.jyusun.com/contents/20180902112031.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evansun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EvanSun Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CentOS7服务器安装Oralce11gR2企业版</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T11:19:31+08:00">
+                2018-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/安装配置/" itemprop="url" rel="index">
+                    <span itemprop="name">安装配置</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基础准备"><a href="#基础准备" class="headerlink" title="基础准备"></a>基础准备</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>系统：CentOS7 （需要联网，或配置本地源）</li>
+<li>终端神器 ：<a href="https://mobaxterm.mobatek.net/download.html" target="_blank" rel="noopener">MobaXterm</a> 点击进入下载页面（SSH连接、图形转发）</li>
+<li>Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2of2.zip</li>
+<li>查看当前内核（需要内核2.3.1以上）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> cat /proc/version </span><br><span class="line">Linux version 3.10.0-514.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version </span><br><span class="line">4.8.5 20150623 (Red Hat 4.8.5-11) (GCC) ) #1 SMP Tue Nov 22 16:42:41 UTC 2016</span><br></pre></td></tr></table></figure>
+<h2 id="系统环境基础配置"><a href="#系统环境基础配置" class="headerlink" title="系统环境基础配置"></a>系统环境基础配置</h2><h3 id="配置静态IP"><a href="#配置静态IP" class="headerlink" title="配置静态IP"></a>配置静态IP</h3><ul>
+<li>配置静态IP(192.168.233.99)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> cd /etc/sysconfig/network-scripts/     #切换路径</span><br><span class="line"><span class="meta">#</span> vi ifcfg-ens33                         #编辑你的网卡文件</span><br><span class="line">-----------以下为文件中内容-----------</span><br><span class="line">TYPE="Ethernet"</span><br><span class="line">PROXY_METHOD="none"</span><br><span class="line">BROWSER_ONLY="no"</span><br><span class="line">BOOTPROTO="static"                 #设置静态的IP</span><br><span class="line">DEFROUTE="yes"</span><br><span class="line">IPV4_FAILURE_FATAL="no"</span><br><span class="line">IPV6INIT="yes"</span><br><span class="line">IPV6_AUTOCONF="yes"</span><br><span class="line">IPV6_DEFROUTE="yes"</span><br><span class="line">IPV6_FAILURE_FATAL="no"</span><br><span class="line">IPV6_ADDR_GEN_MODE="stable-privacy"</span><br><span class="line">NAME="ens33"</span><br><span class="line">UUID="51dd3e15-9ec2-4aeb-b1bf-f371da401511"</span><br><span class="line">DEVICE="ens33"</span><br><span class="line">ONBOOT="yes"                       #系统启动时激活网卡</span><br><span class="line">IPADDR="192.168.233.99"            #IP地址</span><br><span class="line">PREFIX="24"                        #子网掩码</span><br><span class="line">GATEWAY="192.168.233.2"            #网关地址</span><br><span class="line">DNS1="192.168.233.2"               #DNS地址</span><br><span class="line">IPV6_PRIVACY="no"</span><br></pre></td></tr></table></figure>
+<h3 id="修改hostname"><a href="#修改hostname" class="headerlink" title="修改hostname"></a>修改hostname</h3><ul>
+<li>编辑hostname文件，写入centos</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vi /etc/hostname</span><br><span class="line">-----------以下为文件中内容-----------</span><br><span class="line">centos</span><br></pre></td></tr></table></figure>
+<h3 id="修改hosts"><a href="#修改hosts" class="headerlink" title="修改hosts"></a>修改hosts</h3><ul>
+<li>编辑hosts文件，写入ip和hostname</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vi /etc/hosts</span><br><span class="line">-----------以下为文件中内容-----------</span><br><span class="line">192.168.233.99 centos</span><br></pre></td></tr></table></figure>
+<h3 id="修改系统标识"><a href="#修改系统标识" class="headerlink" title="修改系统标识"></a>修改系统标识</h3><ul>
+<li>查看系统版本标识</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> cat /etc/redhat-release</span><br><span class="line">CentOS Linux release 7.3.1611 (Core)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改系统版本标识（将centos标识修改为redhat-7）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vi /etc/redhat-release</span><br><span class="line">-----------以下是文件内容-----------</span><br><span class="line">redhat-7</span><br></pre></td></tr></table></figure>
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> systemctl stop firewalld.service  #临时关闭防火墙</span><br><span class="line"><span class="meta">#</span> systemctl disable firewalld.service  #禁止使用防火墙（重启也是禁止的）</span><br></pre></td></tr></table></figure>
+<h3 id="关闭selinux"><a href="#关闭selinux" class="headerlink" title="关闭selinux"></a>关闭selinux</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vi /etc/selinux/config</span><br><span class="line">-----------以下为文件中内容-----------</span><br><span class="line"><span class="meta">#</span> This file controls the state of SELinux on the system.</span><br><span class="line"><span class="meta">#</span> SELINUX= can take one of these three values:</span><br><span class="line"><span class="meta">#</span>     enforcing - SELinux security policy is enforced.</span><br><span class="line"><span class="meta">#</span>     permissive - SELinux prints warnings instead of enforcing.</span><br><span class="line"><span class="meta">#</span>     disabled - No SELinux policy is loaded.</span><br><span class="line">SELINUX=disabled   #此处修改为disabled</span><br><span class="line"><span class="meta">#</span> SELINUXTYPE= can take one of three two values:</span><br><span class="line"><span class="meta">#</span>     targeted - Targeted processes are protected,</span><br><span class="line"><span class="meta">#</span>     minimum - Modification of targeted policy. Only selected processes are protected. </span><br><span class="line"><span class="meta">#</span>     mls - Multi Level Security protection.</span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure>
+<p>注：重启系统使所有配置生效</p>
+<h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><h3 id="安装基础工具"><a href="#安装基础工具" class="headerlink" title="安装基础工具"></a>安装基础工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> yum install -y net-tools vim* wget ntp telnet unzip</span><br></pre></td></tr></table></figure>
+<h3 id="安装SSH-X11转发依赖"><a href="#安装SSH-X11转发依赖" class="headerlink" title="安装SSH X11转发依赖"></a>安装SSH X11转发依赖</h3><ul>
+<li>SSH X11 Forwarding  依赖</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> yum -y install xorg-x11-xauth xclock</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看SSH配置（一般情况下无需操作直接执行测试即可）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> cat /etc/ssh/sshd_config</span><br><span class="line">X11Forwarding yes</span><br><span class="line">X11UseLocalhost no -- 禁止将X11转发请求绑定到本地回环地址上</span><br><span class="line">AddressFamily inet -- 强制使用IPv4通道</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试：使用MobaXterm终端工具运行xclock程序（Win端弹出小时钟）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> xclock</span><br></pre></td></tr></table></figure>
+<h3 id="安装Oracle必要依赖"><a href="#安装Oracle必要依赖" class="headerlink" title="安装Oracle必要依赖"></a>安装Oracle必要依赖</h3><ul>
+<li>使用yum命令安装依赖（自动识别系统位数）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> yum install -y binutils compat-libcap1 compat-libstdc gcc gcc-c++ glibc glibc-devel ksh libaio libaio-devel libgcc libstdc libstdc++ libstdc++-devel libXi libXtst make sysstat  unixODBC unixODBC-devel elfutils-libelf-devel</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用yum命令安装所需要的32位依赖部分（安装检查时候可以检查出来缺少的）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> yum install -y unixODBC.i686 unixODBC-devel.i686 compat-libstdc++-33.i686 libstdc++-devel.i686 gcc-c++.i686 libaio-devel.i686</span><br></pre></td></tr></table></figure>
+<p><a href="https://docs.oracle.com/cd/E11882_01/install.112/e47689/pre_install.htm#LADBI1121" target="_blank" rel="noopener">官网CentOS7依赖说明</a></p>
+<p>Oracle Linux 7和Red Hat Enterprise Linux 7    必须安装以下软件包（或更高版本），官方是这么说的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">binutils-2.23.52.0.1-12.el7.x86_64 </span><br><span class="line">compat-libcap1-1.10-3.el7.x86_64 </span><br><span class="line">compat-libstdc++-33-3.2.3-71.el7.i686</span><br><span class="line">compat-libstdc++-33-3.2.3-71.el7.x86_64</span><br><span class="line">gcc-4.8.2-3.el7.x86_64 </span><br><span class="line">gcc-c++-4.8.2-3.el7.x86_64 </span><br><span class="line">glibc-2.17-36.el7.i686 </span><br><span class="line">glibc-2.17-36.el7.x86_64 </span><br><span class="line">glibc-devel-2.17-36.el7.i686 </span><br><span class="line">glibc-devel-2.17-36.el7.x86_64 </span><br><span class="line">ksh</span><br><span class="line">libaio-0.3.109-9.el7.i686 </span><br><span class="line">libaio-0.3.109-9.el7.x86_64 </span><br><span class="line">libaio-devel-0.3.109-9.el7.i686 </span><br><span class="line">libaio-devel-0.3.109-9.el7.x86_64 </span><br><span class="line">libgcc-4.8.2-3.el7.i686 </span><br><span class="line">libgcc-4.8.2-3.el7.x86_64 </span><br><span class="line">libstdc++-4.8.2-3.el7.i686 </span><br><span class="line">libstdc++-4.8.2-3.el7.x86_64 </span><br><span class="line">libstdc++-devel-4.8.2-3.el7.i686 </span><br><span class="line">libstdc++-devel-4.8.2-3.el7.x86_64 </span><br><span class="line">libXi-1.7.2-1.el7.i686 </span><br><span class="line">libXi-1.7.2-1.el7.x86_64 </span><br><span class="line">libXtst-1.2.2-1.el7.i686 </span><br><span class="line">libXtst-1.2.2-1.el7.x86_64 </span><br><span class="line">make-3.82-19.el7.x86_64 </span><br><span class="line">sysstat-10.1.5-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+<h1 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h1><h2 id="组和用户"><a href="#组和用户" class="headerlink" title="组和用户"></a>组和用户</h2><ul>
+<li>新建oinstall和dba组  <a href="http://www.oracle.com/technetwork/cn/articles/hunter-rac11gr2-iscsi-2-092412-zhs.html#13" target="_blank" rel="noopener">官网参考</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> groupadd oinstall</span><br><span class="line"><span class="meta">#</span> groupadd dba</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建用户oracle并指定组为oinstall和dba</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> useradd -g oinstall -g dba -m oracle</span><br><span class="line"><span class="meta">#</span> passwd oracle      #根据提示输入密码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看oracle用户基本信息</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> id oracle</span><br><span class="line">uid=1002(oracle) gid=1003(dba) 组=1003(dba)</span><br></pre></td></tr></table></figure>
+<h2 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h2><ul>
+<li>创建相关目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> mkdir -p /opt/data/oracle            #oracle数据库安装目录</span><br><span class="line"><span class="meta">#</span> mkdir -p /opt/data/oraInventory　    #oracle数据库配置文件目录</span><br><span class="line"><span class="meta">#</span> mkdir -p /opt/data/database         #oracle数据库软件包解压目录</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将文件夹指定操作用户oracle</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> chown -R oracle:oinstall /opt/data/oracle/</span><br><span class="line"><span class="meta">#</span> chown -R oracle:oinstall /opt/data/oraInventory/</span><br><span class="line"><span class="meta">#</span> chown -R oracle:oinstall /opt/data/database</span><br></pre></td></tr></table></figure>
+<h2 id="修改系统内核参数"><a href="#修改系统内核参数" class="headerlink" title="修改系统内核参数"></a>修改系统内核参数</h2><ul>
+<li>修改内核参数，以8G内存为例（配置时最好把内容中注释去掉）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vi /etc/sysctl.conf </span><br><span class="line">-----------将以下内容根据实际情况修改后粘贴至文件中------------</span><br><span class="line">net.ipv4.icmp_echo_ignore_broadcasts = 1</span><br><span class="line">net.ipv4.conf.all.rp_filter = 1</span><br><span class="line">fs.file-max = 6815744         #设置最大打开文件数</span><br><span class="line">fs.aio-max-nr = 1048576</span><br><span class="line">kernel.shmall = 2097152       #共享内存的总量，8G内存设置：2097152*4k/1024/1024</span><br><span class="line">kernel.shmmax = 7730941132    #单个段允许使用的大小，设置为内存的90%如：8*1024*1024*1024*90%</span><br><span class="line">kernel.shmmni = 4096          #整个系统共享内存端的最大数，缺省值 4096</span><br><span class="line">kernel.sem = 250 32000 100 128</span><br><span class="line">net.ipv4.ip_local_port_range = 9000 65500 #可使用的IPv4端口范围</span><br><span class="line">net.core.rmem_default = 262144</span><br><span class="line">net.core.rmem_max= 4194304</span><br><span class="line">net.core.wmem_default= 262144</span><br><span class="line">net.core.wmem_max= 1048576</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使配置立即生效</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> sysctl -p</span><br></pre></td></tr></table></figure>
+<h2 id="对oracle用户设置限制"><a href="#对oracle用户设置限制" class="headerlink" title="对oracle用户设置限制"></a>对oracle用户设置限制</h2><ul>
+<li>对oracle用户设置限制，提高软件运行性能</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vi /etc/security/limits.conf </span><br><span class="line">-----------将以下内容根据实际情况修改后粘贴至文件中------------</span><br><span class="line">oracle soft nproc 2047</span><br><span class="line">oracle hard nproc 16384</span><br><span class="line">oracle soft nofile 1024</span><br><span class="line">oracle hard nofile 65536</span><br></pre></td></tr></table></figure>
+<h2 id="配置用户的环境变量"><a href="#配置用户的环境变量" class="headerlink" title="配置用户的环境变量"></a>配置用户的环境变量</h2><ul>
+<li>配置oracle相关环境变量（配置时最好把内容中注释去掉）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># vi /home/oracle/.bash_profile</span><br><span class="line">-----------将以下内容根据实际情况修改后粘贴至文件中------------</span><br><span class="line">export ORACLE_BASE=/data/oracle #oracle数据库安装目录</span><br><span class="line">export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/db_1 #oracle数据库路径</span><br><span class="line">export ORACLE_SID=orcl #oracle启动数据库实例名</span><br><span class="line">export ORACLE_TERM=xterm #xterm窗口模式安装</span><br><span class="line">export PATH=$ORACLE_HOME/bin:/usr/sbin:$PATH #添加系统环境变量</span><br><span class="line">export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib #添加系统环境变量</span><br><span class="line">export LANG=C #防止安装过程出现乱码</span><br><span class="line">export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK  #设置Oracle客户端字符集，必须与Oracle安装时设置的字符集保持一致，如：ZHS16GBK，否则出现数据导入导出中文乱码问题</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使环境变量立即生效</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> source /home/oracle/.bash_profile</span><br></pre></td></tr></table></figure>
+<h2 id="通过MobaXterm上传文件"><a href="#通过MobaXterm上传文件" class="headerlink" title="通过MobaXterm上传文件"></a>通过MobaXterm上传文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">将Oracle两个安装包</span><br><span class="line">linux.x64_11gR2_database_1of2.zip  </span><br><span class="line">linux.x64_11gR2_database_2of2.zip</span><br><span class="line">上传至/usr/local/src/ 路径中</span><br></pre></td></tr></table></figure>
+<h2 id="解压并对oracle用户授权"><a href="#解压并对oracle用户授权" class="headerlink" title="解压并对oracle用户授权"></a>解压并对oracle用户授权</h2><ul>
+<li>解压文件1和文件2</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> cd /usr/local/src/               #切换到文件上传路径</span><br><span class="line"><span class="meta">#</span> unzip linux.x64_11gR2_database_1of2.zip -d /opt/data</span><br><span class="line"><span class="meta">#</span> unzip linux.x64_11gR2_database_2of2.zip -d /opt/data</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将此解压路径授权给oinstall组中oracle用户</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> chown -R oracle:oinstall /opt/data/database</span><br></pre></td></tr></table></figure>
+<h1 id="安装Oracle数据库"><a href="#安装Oracle数据库" class="headerlink" title="安装Oracle数据库"></a>安装Oracle数据库</h1><h2 id="Oracle用户登陆"><a href="#Oracle用户登陆" class="headerlink" title="Oracle用户登陆"></a>Oracle用户登陆</h2><ul>
+<li>检查database、oraInventory、oracle权限是否为oinstall组和oracle用户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[oracle@centos ~]$ cd /opt/data/</span><br><span class="line">[oracle@centos data]$ ls -al</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x  5 root   root      56 Sep  4 17:32 .</span><br><span class="line">drwxr-xr-x. 4 root   root      32 Sep  4 17:31 ..</span><br><span class="line">drwxr-xr-x  8 oracle oinstall 128 Sep  4 19:00 database</span><br><span class="line">drwxr-xr-x  2 oracle oinstall   6 Sep  4 17:31 oraInventory</span><br><span class="line">drwxr-xr-x  2 oracle oinstall   6 Sep  4 17:31 oracle</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试：使用MobaXterm终端工具运行xclock程序（Win端弹出小时钟）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># xclock</span><br></pre></td></tr></table></figure>
+<p>注：弹出小时钟在继续执行，如不弹出，使用MobaXterm直接以oracle用户登陆（使用su - oracle 切换可能某些变量不生效会报错导致无法弹出窗口）</p>
+<ul>
+<li>执行安装命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /opt/data/database       #切换到安装文件路径下</span><br><span class="line"># ./runInstaller</span><br></pre></td></tr></table></figure>
+<h2 id="Win端弹出安装窗口"><a href="#Win端弹出安装窗口" class="headerlink" title="Win端弹出安装窗口"></a>Win端弹出安装窗口</h2><p><img src="/contents/./1.jpg" alt><br><img src="/contents/./2.jpg" alt><br><img src="/contents/./3.jpg" alt><br><img src="/contents/./4.jpg" alt><br><img src="/contents/./5.jpg" alt><br><img src="/contents/./6.jpg" alt><br><img src="/contents/./7.jpg" alt><br><img src="/contents/./8.jpg" alt><br><img src="/contents/./9.jpg" alt><br><img src="/contents/./10.jpg" alt><br><img src="/contents/./11.jpg" alt><br><img src="/contents/./12.jpg" alt><br><img src="/contents/./13.jpg" alt><br><img src="/contents/./14.jpg" alt><br><img src="/contents/./15.jpg" alt><br><img src="/contents/./16.jpg" alt><br><img src="/contents/./17.jpg" alt><br><img src="/contents/./18.jpg" alt><br><img src="/contents/./19.jpg" alt><br><img src="/contents/./20.jpg" alt><br><img src="/contents/./21.jpg" alt></p>
+<p>中文参照：<a href="https://jingyan.baidu.com/article/363872eccfb9266e4aa16f5d.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/363872eccfb9266e4aa16f5d.html</a> 安装即可</p>
+<h2 id="安装完成之后执行脚本"><a href="#安装完成之后执行脚本" class="headerlink" title="安装完成之后执行脚本"></a>安装完成之后执行脚本</h2><ul>
+<li>执行一下两个脚本（根据自己配置的路径调整）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#/opt/data/oraInventory/orainstRoot.sh</span><br><span class="line">#/opt/data/oracle/product/11.2.0/db_1/root.sh</span><br></pre></td></tr></table></figure>
+<h1 id="服务与监听随系统启动"><a href="#服务与监听随系统启动" class="headerlink" title="服务与监听随系统启动"></a>服务与监听随系统启动</h1><h2 id="配置-etc-oratab"><a href="#配置-etc-oratab" class="headerlink" title="配置/etc/oratab"></a>配置/etc/oratab</h2><ul>
+<li>以root身份登录到linux系统，编辑/etc/oratab文件<br>(如oratab文件不存在，新增即可)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/oratab</span><br><span class="line"></span><br><span class="line">orcl:/opt/data/oracle/product/11.2.0/db_1:N</span><br><span class="line">改为</span><br><span class="line">orcl:/opt/data/oracle/product/11.2.0/db_1:Y</span><br></pre></td></tr></table></figure>
+<p>注：orcl为实例名/opt/data/oracle/product/11.2.0/db_1为安装的$ORACLE_HOME，根据情况自行修改。</p>
+<h2 id="编辑dbstart和dbshut"><a href="#编辑dbstart和dbshut" class="headerlink" title="编辑dbstart和dbshut"></a>编辑dbstart和dbshut</h2><ul>
+<li>以oracle身份登录到linux系统，编辑dbstart文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ vi $ORACLE_HOME/bin/dbstart</span><br><span class="line"></span><br><span class="line">ORACLE_HOME_LISTNER=$1</span><br><span class="line">改为</span><br><span class="line">ORACLE_HOME_LISTNER=$ORACLE_HOME</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以oracle身份登录到linux系统，编辑dbshut文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ vi $ORACLE_HOME/bin/dbshut</span><br><span class="line"></span><br><span class="line">ORACLE_HOME_LISTNER=$1</span><br><span class="line">改为</span><br><span class="line">ORACLE_HOME_LISTNER=$ORACLE_HOME</span><br></pre></td></tr></table></figure>
+<h2 id="配置-rc-local-文件"><a href="#配置-rc-local-文件" class="headerlink" title="配置 rc.local 文件"></a>配置 rc.local 文件</h2><ul>
+<li>以root身份登录到linux系统，编辑/etc/rc.d/rc.local文件，将dbstart命令写入文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/rc.d/rc.local</span><br><span class="line">------------将以下内容写入文件末尾--------------</span><br><span class="line">su oracle -lc dbstart</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行以下命令，对rc.local文件授予执行权限</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> chmod +x /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
+<ul>
+<li>该文件默认是没有执行权限的，查看/etc/rc.d/rc.local文件说明：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/rc.d/rc.local</span><br><span class="line">-------------------------------------------------</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES</span><br><span class="line">#</span><br><span class="line"># It is highly advisable to create own systemd services or udev rules</span><br><span class="line"># to run scripts during boot instead of using this file.</span><br><span class="line">#</span><br><span class="line"># In contrast to previous versions due to parallel execution during boot</span><br><span class="line"># this script will NOT be run after all other services.</span><br><span class="line">#</span><br><span class="line"># Please note that you must run &apos;chmod +x /etc/rc.d/rc.local&apos; to ensure</span><br><span class="line"># that this script will be executed during boot.</span><br><span class="line">----------------------------------------------------</span><br><span class="line">翻译一下：</span><br><span class="line">这个文件是为了兼容性的目的而添加的，</span><br><span class="line">建议创建自己的systemd服务或udev规则来在开机引导时运行脚本而不是使用这个文件。 </span><br><span class="line">与以前的版本引导时的并行执行相比较，这个脚本将不会在其他所有的服务后执行。 </span><br><span class="line">请记住，你必须执行“chmod +x /etc/rc.d/rc.local”来确保确保这个脚本在引导时执行。</span><br></pre></td></tr></table></figure>
+<h2 id="重启并查看监听与服务"><a href="#重启并查看监听与服务" class="headerlink" title="重启并查看监听与服务"></a>重启并查看监听与服务</h2><ul>
+<li>以oracle用户登入，并查看监听与服务状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> lsnrctl status</span><br><span class="line"><span class="meta">$</span> ps -ef | grep ora</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+	
+    
+    
+    
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束------</div>
+    
+</div>
+		
+	</div>
+	
+	
+		<div>
+			
+
+<div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+  
+  
+	<div class="post-gallery-row">
+	  <a class="post-gallery-img fancybox" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DQ7%2BOxHRJNU8cQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMSjJriMKVvzd5x%2BIUlGKNpUKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS9iw0%2FdWyiVaogaseAKBk0cTbU9KzMTtxpe7auY0HPYWszlTEcWhO9mCmht7GX%2FH9k%3D" rel="gallery_" target="_blank" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+		<img src="https://gw.alicdn.com/tfs/TB1p12MsQ9WBuNjSspeXXaz5VXa-440-180.jpg" itemprop="contentUrl" alt="天猫618">
+	  </a>
+	
+  
+	
+	  <a class="post-gallery-img fancybox" href="https://s.click.taobao.com/t?e=m%3D2%26s%3D2c9N%2F89tPiMcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMXJZeCVJPqDB8sviUM61dt0KzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B%2BUEclaRYva8F8WBkZipnv9sOkOOEWZ4E%2FnCA8IhtTQhnqXdg7YFDycSpj5qSCmbA%3D" rel="gallery_" target="_blank" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+		<img src="https://img.alicdn.com/tfs/TB125UMsMmTBuNjy1XbXXaMrVXa-440-180.jpg" itemprop="contentUrl" alt="2018年618理想生活狂欢季——聚划算主会场">
+	  </a>
+	
+  
+	
+	  <a class="post-gallery-img fancybox" href="https://s.click.taobao.com/t?e=m%3D2%26s%3D5xcD%2FIEjdhYcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMUG5eE0BPbCdxq3IhSJN6GQKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B6zThPYvErzhJBFs1%2FyLxVPxey8%2Bhd8pyvTW5l3DCD30V92HL3DKLNSqwyt%2BH6DtO%2FMqT4SeHHMKTHNVRq3ENViYq%2BoOM2USF%2Bn%2B1pvicu6FXll1U39L8dNcwDbqGDeU3JefVee9XDEgxYVk%2BaFSeXxiXvDf8DaRs%3D" rel="gallery_" target="_blank" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+		<img src="https://img.alicdn.com/tfs/TB1GnfasntYBeNjy1XdXXXXyVXa-440-180.jpg" itemprop="contentUrl" alt="2018年618理想生活狂欢节—消费电子主会场">
+	  </a>
+	</div>
+  
+
+  
+  
+</div>
+
+		</div>
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="evansun 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="evansun 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    evansun
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.jyusun.com/contents/20180902112031.html" title="CentOS7服务器安装Oralce11gR2企业版">https://blog.jyusun.com/contents/20180902112031.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
+          
+            <a href="/tags/安装Oracle/" rel="tag"># 安装Oracle</a>
+          
+            <a href="/tags/LinuxOracle/" rel="tag"># LinuxOracle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/contents/20180901171228.html" rel="next" title="基于CentOS7安装Docker-CE">
+                <i class="fa fa-chevron-left"></i> 基于CentOS7安装Docker-CE
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/contents/20180907112238.html" rel="prev" title="Hexo-Next主题博客优化">
+                Hexo-Next主题博客优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="evansun">
+            
+              <p class="site-author-name" itemprop="name">evansun</p>
+              <p class="site-description motion-element" itemprop="description">男人有实力，才有魅力~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jyusun" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mr.evansun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.oschina.net/" title="开源中国" target="_blank">开源中国</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sogou.com/" title="搜狗" target="_blank">搜狗</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础准备"><span class="nav-number">1.</span> <span class="nav-text">基础准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境基础配置"><span class="nav-number">1.2.</span> <span class="nav-text">系统环境基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置静态IP"><span class="nav-number">1.2.1.</span> <span class="nav-text">配置静态IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改hostname"><span class="nav-number">1.2.2.</span> <span class="nav-text">修改hostname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改hosts"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改系统标识"><span class="nav-number">1.2.4.</span> <span class="nav-text">修改系统标识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">1.2.5.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭selinux"><span class="nav-number">1.2.6.</span> <span class="nav-text">关闭selinux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖安装"><span class="nav-number">1.3.</span> <span class="nav-text">依赖安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装基础工具"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装基础工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装SSH-X11转发依赖"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装SSH X11转发依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Oracle必要依赖"><span class="nav-number">1.3.3.</span> <span class="nav-text">安装Oracle必要依赖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装前准备"><span class="nav-number">2.</span> <span class="nav-text">安装前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组和用户"><span class="nav-number">2.1.</span> <span class="nav-text">组和用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装目录"><span class="nav-number">2.2.</span> <span class="nav-text">安装目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改系统内核参数"><span class="nav-number">2.3.</span> <span class="nav-text">修改系统内核参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对oracle用户设置限制"><span class="nav-number">2.4.</span> <span class="nav-text">对oracle用户设置限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置用户的环境变量"><span class="nav-number">2.5.</span> <span class="nav-text">配置用户的环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过MobaXterm上传文件"><span class="nav-number">2.6.</span> <span class="nav-text">通过MobaXterm上传文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压并对oracle用户授权"><span class="nav-number">2.7.</span> <span class="nav-text">解压并对oracle用户授权</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Oracle数据库"><span class="nav-number">3.</span> <span class="nav-text">安装Oracle数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle用户登陆"><span class="nav-number">3.1.</span> <span class="nav-text">Oracle用户登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Win端弹出安装窗口"><span class="nav-number">3.2.</span> <span class="nav-text">Win端弹出安装窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装完成之后执行脚本"><span class="nav-number">3.3.</span> <span class="nav-text">安装完成之后执行脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务与监听随系统启动"><span class="nav-number">4.</span> <span class="nav-text">服务与监听随系统启动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-etc-oratab"><span class="nav-number">4.1.</span> <span class="nav-text">配置/etc/oratab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑dbstart和dbshut"><span class="nav-number">4.2.</span> <span class="nav-text">编辑dbstart和dbshut</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-rc-local-文件"><span class="nav-number">4.3.</span> <span class="nav-text">配置 rc.local 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启并查看监听与服务"><span class="nav-number">4.4.</span> <span class="nav-text">重启并查看监听与服务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evansun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
