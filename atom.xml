@@ -34,7 +34,11 @@
     
     </summary>
     
-      <category term="BigData" scheme="https://blog.jyusun.com/categories/BigData/"/>
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="BigData" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/BigData/"/>
+    
+      <category term="Hadoop" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/BigData/Hadoop/"/>
     
     
       <category term="hadoop" scheme="https://blog.jyusun.com/tags/hadoop/"/>
@@ -61,9 +65,9 @@
     
     </summary>
     
-      <category term="ZooKeeper" scheme="https://blog.jyusun.com/categories/ZooKeeper/"/>
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="集群搭建" scheme="https://blog.jyusun.com/categories/ZooKeeper/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"/>
+      <category term="ZooKeeper" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/ZooKeeper/"/>
     
     
       <category term="zookeeper" scheme="https://blog.jyusun.com/tags/zookeeper/"/>
@@ -90,9 +94,9 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="jdk" scheme="https://blog.jyusun.com/tags/jdk/"/>
@@ -119,9 +123,9 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="免密登陆" scheme="https://blog.jyusun.com/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86/"/>
@@ -148,9 +152,9 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="防火墙" scheme="https://blog.jyusun.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
@@ -179,9 +183,9 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="profile" scheme="https://blog.jyusun.com/tags/profile/"/>
@@ -191,7 +195,7 @@
   </entry>
   
   <entry>
-    <title>CentOS7设置静态IP地址</title>
+    <title>Linux系统设置静态IP地址</title>
     <link href="https://blog.jyusun.com/contents/20190217112031.html"/>
     <id>https://blog.jyusun.com/contents/20190217112031.html</id>
     <published>2019-02-17T03:19:31.000Z</published>
@@ -208,9 +212,9 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="IP" scheme="https://blog.jyusun.com/tags/IP/"/>
@@ -239,9 +243,9 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="Linux内核清理" scheme="https://blog.jyusun.com/tags/Linux%E5%86%85%E6%A0%B8%E6%B8%85%E7%90%86/"/>
@@ -266,30 +270,14 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
     
     
       <category term="hostname" scheme="https://blog.jyusun.com/tags/hostname/"/>
     
       <category term="hosts" scheme="https://blog.jyusun.com/tags/hosts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VirtualBox中CentOS7配置Nat+host-only</title>
-    <link href="https://blog.jyusun.com/contents/20190212093157.html"/>
-    <id>https://blog.jyusun.com/contents/20190212093157.html</id>
-    <published>2019-02-12T01:31:57.000Z</published>
-    <updated>2019-02-12T01:31:57.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="虚拟机" scheme="https://blog.jyusun.com/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
     
   </entry>
   
@@ -300,7 +288,7 @@
     <published>2019-02-11T01:20:05.000Z</published>
     <updated>2019-02-11T01:20:05.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="虚拟机迁移-VMWare-to-VirtualBox"><a href="#虚拟机迁移-VMWare-to-VirtualBox" class="headerlink" title="虚拟机迁移-VMWare-to-VirtualBox"></a>虚拟机迁移-VMWare-to-VirtualBox</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。</li></ul><h2 id="导出VMware中的虚拟机"><a href="#导出VMware中的虚拟机" class="headerlink" title="导出VMware中的虚拟机"></a>导出VMware中的虚拟机</h2><ul><li>导出开放式格式.ovf的虚拟机</li></ul><p><img src="/contents/./1.jpg" alt="导出开放式格式.ovf的虚拟机"></p><p><img src="/contents/./2.jpg" alt="导出开放式格式.ovf的虚拟机"></p><ul><li>导出完成</li></ul><p><img src="/contents/./3.jpg" alt="导出开放式格式.ovf的虚拟机"></p><h2 id="导入虚拟机到VirtualBox"><a href="#导入虚拟机到VirtualBox" class="headerlink" title="导入虚拟机到VirtualBox"></a>导入虚拟机到VirtualBox</h2><ul><li>将.ovf格式的虚拟机导入到VirtualBox中</li></ul><p><img src="/contents/./4.jpg" alt="导入开放式格式.ovf的虚拟机"></p><p><img src="/contents/./5.jpg" alt="导入开放式格式.ovf的虚拟机"></p><ul><li>导入成功并启动</li></ul><p><img src="/contents/./6.jpg" alt="导入开放式格式.ovf的虚拟机"></p><h2 id="迁移过程中网络问题解决"><a href="#迁移过程中网络问题解决" class="headerlink" title="迁移过程中网络问题解决"></a>迁移过程中网络问题解决</h2><h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><ul><li>迁移完成后，打开虚拟机，执行ifconfig命令发现网卡名称与我们配置的网卡名称不一致，最简单的解决办法是重命名我们配置的网卡信息与ifconfig中的名称一致即可。</li></ul><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><ul><li>VirtualBox如果实现VM Ware中的访问模式，需要配置两个网卡，将当前的网卡指定为（host-only）模式，在新建一个nat网卡即可。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="虚拟机迁移-VMWare-to-VirtualBox"><a href="#虚拟机迁移-VMWare-to-VirtualBox" class="headerlink" title="虚拟机迁移-VMWare-to-VirtualBox"></a>虚拟机迁移-VMWare-to-VirtualBox</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。</li></ul><h2 id="导出VMware中的虚拟机"><a href="#导出VMware中的虚拟机" class="headerlink" title="导出VMware中的虚拟机"></a>导出VMware中的虚拟机</h2><ul><li><p>导出开放式格式.ovf的虚拟机</p><img src="/contents/20190211092005/1.jpg" title="导出开放式格式.ovf的虚拟机"><img src="/contents/20190211092005/2.jpg" title="导出开放式格式.ovf的虚拟机"></li><li><p>导出完成</p><img src="/contents/20190211092005/3.jpg" title="导出完成"></li></ul><h2 id="导入虚拟机到VirtualBox"><a href="#导入虚拟机到VirtualBox" class="headerlink" title="导入虚拟机到VirtualBox"></a>导入虚拟机到VirtualBox</h2><ul><li><p>将.ovf格式的虚拟机导入到VirtualBox中</p><img src="/contents/20190211092005/4.jpg" title="导入开放式格式.ovf的虚拟机"><img src="/contents/20190211092005/5.jpg" title="导入开放式格式.ovf的虚拟机"></li><li><p>导入成功并启动</p><img src="/contents/20190211092005/6.jpg" title="导入成功并启动"></li></ul><h2 id="迁移过程中网络问题解决"><a href="#迁移过程中网络问题解决" class="headerlink" title="迁移过程中网络问题解决"></a>迁移过程中网络问题解决</h2><h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><ul><li>迁移完成后，打开虚拟机，执行ifconfig命令发现网卡名称与我们配置的网卡名称不一致，最简单的解决办法是重命名我们配置的网卡信息与ifconfig中的名称一致即可。</li></ul><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><ul><li>VirtualBox如果实现VM Ware中的访问模式，需要配置两个网卡，将当前的网卡指定为（host-only）模式，在新建一个nat网卡即可。</li></ul>]]></content>
     
     <summary type="html">
     
@@ -311,7 +299,9 @@
     
     </summary>
     
-      <category term="虚拟机" scheme="https://blog.jyusun.com/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="实用工具" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="虚拟机" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
     
       <category term="vm" scheme="https://blog.jyusun.com/tags/vm/"/>
@@ -338,7 +328,9 @@
     
     </summary>
     
-      <category term="Idea" scheme="https://blog.jyusun.com/categories/Idea/"/>
+      <category term="实用工具" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Idea" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/Idea/"/>
     
     
       <category term="idea" scheme="https://blog.jyusun.com/tags/idea/"/>
@@ -363,12 +355,12 @@
     
     </summary>
     
-      <category term="数据库" scheme="https://blog.jyusun.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="Oracle" scheme="https://blog.jyusun.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/"/>
+      <category term="Oracle" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Oracle/"/>
     
     
-      <category term="dmp操作" scheme="https://blog.jyusun.com/tags/dmp%E6%93%8D%E4%BD%9C/"/>
+      <category term="awr" scheme="https://blog.jyusun.com/tags/awr/"/>
     
   </entry>
   
@@ -390,9 +382,9 @@
     
     </summary>
     
-      <category term="数据库" scheme="https://blog.jyusun.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="Oracle" scheme="https://blog.jyusun.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/"/>
+      <category term="Oracle" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Oracle/"/>
     
     
       <category term="dmp操作" scheme="https://blog.jyusun.com/tags/dmp%E6%93%8D%E4%BD%9C/"/>
@@ -417,7 +409,9 @@
     
     </summary>
     
-      <category term="Idea" scheme="https://blog.jyusun.com/categories/Idea/"/>
+      <category term="实用工具" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Idea" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/Idea/"/>
     
     
       <category term="idea" scheme="https://blog.jyusun.com/tags/idea/"/>
@@ -442,7 +436,9 @@
     
     </summary>
     
-      <category term="Idea" scheme="https://blog.jyusun.com/categories/Idea/"/>
+      <category term="实用工具" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Idea" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/Idea/"/>
     
     
       <category term="idea" scheme="https://blog.jyusun.com/tags/idea/"/>
@@ -467,6 +463,14 @@
     
     </summary>
     
+      <category term="实用工具" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="个人博客" scheme="https://blog.jyusun.com/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="https://blog.jyusun.com/tags/hexo/"/>
+    
+      <category term="next" scheme="https://blog.jyusun.com/tags/next/"/>
     
   </entry>
   
@@ -488,16 +492,16 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
+    
+      <category term="Oracle" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/Oracle/"/>
     
     
       <category term="Oracle" scheme="https://blog.jyusun.com/tags/Oracle/"/>
     
       <category term="安装Oracle" scheme="https://blog.jyusun.com/tags/%E5%AE%89%E8%A3%85Oracle/"/>
-    
-      <category term="LinuxOracle" scheme="https://blog.jyusun.com/tags/LinuxOracle/"/>
     
   </entry>
   
@@ -512,9 +516,11 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/Linux/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
-      <category term="安装配置" scheme="https://blog.jyusun.com/categories/Linux/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
+    
+      <category term="Docker" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/Docker/"/>
     
     
       <category term="docker" scheme="https://blog.jyusun.com/tags/docker/"/>
@@ -522,25 +528,29 @@
   </entry>
   
   <entry>
-    <title>NodeJS修改npm镜像源</title>
+    <title>设置npm国内镜像源</title>
     <link href="https://blog.jyusun.com/contents/20180807112035.html"/>
     <id>https://blog.jyusun.com/contents/20180807112035.html</id>
     <published>2018-08-07T03:20:35.000Z</published>
     <updated>2018-08-07T03:20:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p>#NodeJS修改npm镜像源</p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>由于npm的镜像地址默认在境外，虽然没有被墙，但是在国内使用的过程中会出现下载速度较慢或因直接安装失败，所以将镜像地址为国内的地址解决此问题。本人使用的是NPMJS，下文以此为例</li></ul><h2 id="npm镜像源修改"><a href="#npm镜像源修改" class="headerlink" title="npm镜像源修改"></a>npm镜像源修改</h2><h3 id="常用镜像说明"><a href="#常用镜像说明" class="headerlink" title="常用镜像说明"></a>常用镜像说明</h3><ul><li><p>官方默认镜像</p><blockquote><p>registry <code>https://registry.npmjs.org/</code></p></blockquote></li><li><p>淘宝镜像</p><blockquote><p>官网：<a href="https://npm.taobao.org/" target="_blank" rel="noopener">https://npm.taobao.org/</a></p><p>registry <code>http://registry.npm.taobao.org/</code></p></blockquote></li><li><p>CNPMJS </p><blockquote><p>官网：<a href="https://cnpmjs.org/" target="_blank" rel="noopener">https://cnpmjs.org/</a></p><p>registry <code>http://registry.cnpmjs.org/</code></p></blockquote></li></ul><h3 id="方式1：通过命令设置镜像源"><a href="#方式1：通过命令设置镜像源" class="headerlink" title="方式1：通过命令设置镜像源"></a>方式1：通过命令设置镜像源</h3><ul><li><p>执行命令后将源地址写入~/.npmrc文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry http://registry.cnpmjs.org</span><br></pre></td></tr></table></figure></li></ul><h3 id="方式2：直接在文件中指定"><a href="#方式2：直接在文件中指定" class="headerlink" title="方式2：直接在文件中指定"></a>方式2：直接在文件中指定</h3><ul><li><p>修改~/.npmrc文件，直接指定镜像源地址，如果没有此文件新建即可</p><blockquote><p>registry = <a href="http://registry.cnpmjs.org" target="_blank" rel="noopener">http://registry.cnpmjs.org</a></p></blockquote><p>注：~为用户家目录</p></li></ul><h3 id="方式3：cnpm-命令代替npm"><a href="#方式3：cnpm-命令代替npm" class="headerlink" title="方式3：cnpm 命令代替npm"></a>方式3：cnpm 命令代替npm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install cnpm -g --registry=http://registry.cnpmjs.org</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm 命令</span><br></pre></td></tr></table></figure><h3 id="查看是否设置成功"><a href="#查看是否设置成功" class="headerlink" title="查看是否设置成功"></a>查看是否设置成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config get registry</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="NodeJS修改npm镜像源"><a href="#NodeJS修改npm镜像源" class="headerlink" title="NodeJS修改npm镜像源"></a>NodeJS修改npm镜像源</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>由于npm的镜像地址默认在境外，虽然没有被墙，但是在国内使用的过程中会出现下载速度较慢或因直接安装失败，所以将镜像地址为国内的地址解决此问题。本人使用的是NPMJS，下文以此为例</li></ul><h2 id="npm镜像源修改"><a href="#npm镜像源修改" class="headerlink" title="npm镜像源修改"></a>npm镜像源修改</h2><h3 id="常用镜像说明"><a href="#常用镜像说明" class="headerlink" title="常用镜像说明"></a>常用镜像说明</h3><ul><li><p>官方默认镜像</p><blockquote><p>registry <code>https://registry.npmjs.org/</code></p></blockquote></li><li><p>淘宝镜像</p><blockquote><p>官网：<a href="https://npm.taobao.org/" target="_blank" rel="noopener">https://npm.taobao.org/</a></p><p>registry <code>http://registry.npm.taobao.org/</code></p></blockquote></li><li><p>CNPMJS </p><blockquote><p>官网：<a href="https://cnpmjs.org/" target="_blank" rel="noopener">https://cnpmjs.org/</a></p><p>registry <code>http://registry.cnpmjs.org/</code></p></blockquote></li></ul><h3 id="方式1：通过命令设置镜像源"><a href="#方式1：通过命令设置镜像源" class="headerlink" title="方式1：通过命令设置镜像源"></a>方式1：通过命令设置镜像源</h3><ul><li><p>执行命令后将源地址写入~/.npmrc文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry http://registry.cnpmjs.org</span><br></pre></td></tr></table></figure></li></ul><h3 id="方式2：直接在文件中指定"><a href="#方式2：直接在文件中指定" class="headerlink" title="方式2：直接在文件中指定"></a>方式2：直接在文件中指定</h3><ul><li><p>修改~/.npmrc文件，直接指定镜像源地址，如果没有此文件新建即可</p><blockquote><p>registry = <a href="http://registry.cnpmjs.org" target="_blank" rel="noopener">http://registry.cnpmjs.org</a></p></blockquote><p>注：~为用户家目录</p></li></ul><h3 id="方式3：cnpm-命令代替npm"><a href="#方式3：cnpm-命令代替npm" class="headerlink" title="方式3：cnpm 命令代替npm"></a>方式3：cnpm 命令代替npm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install cnpm -g --registry=http://registry.cnpmjs.org</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm 命令</span><br></pre></td></tr></table></figure><h3 id="查看是否设置成功"><a href="#查看是否设置成功" class="headerlink" title="查看是否设置成功"></a>查看是否设置成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config get registry</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;#NodeJS修改npm镜像源&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;由于npm的镜像地址默认在境外，虽然没有被墙，但是在国内使用的过程中会出现下载速度
+        &lt;h1 id=&quot;NodeJS修改npm镜像源&quot;&gt;&lt;a href=&quot;#NodeJS修改npm镜像源&quot; class=&quot;headerlink&quot; title=&quot;NodeJS修改npm镜像源&quot;&gt;&lt;/a&gt;NodeJS修改npm镜像源&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;
       
     
     </summary>
     
+      <category term="环境部署，NPM" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%EF%BC%8CNPM/"/>
+    
+    
+      <category term="npm" scheme="https://blog.jyusun.com/tags/npm/"/>
+    
+      <category term="npm镜像源" scheme="https://blog.jyusun.com/tags/npm%E9%95%9C%E5%83%8F%E6%BA%90/"/>
     
   </entry>
   
