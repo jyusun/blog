@@ -545,7 +545,9 @@
     
     </summary>
     
-      <category term="环境部署，NPM" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%EF%BC%8CNPM/"/>
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="NPM" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/NPM/"/>
     
     
       <category term="npm" scheme="https://blog.jyusun.com/tags/npm/"/>

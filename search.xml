@@ -236,7 +236,8 @@
     <url>%2Fcontents%2F20180807112035.html</url>
     <content type="text"><![CDATA[NodeJS修改npm镜像源前言 由于npm的镜像地址默认在境外，虽然没有被墙，但是在国内使用的过程中会出现下载速度较慢或因直接安装失败，所以将镜像地址为国内的地址解决此问题。本人使用的是NPMJS，下文以此为例 npm镜像源修改常用镜像说明 官方默认镜像 registry https://registry.npmjs.org/ 淘宝镜像 官网：https://npm.taobao.org/ registry http://registry.npm.taobao.org/ CNPMJS 官网：https://cnpmjs.org/ registry http://registry.cnpmjs.org/ 方式1：通过命令设置镜像源 执行命令后将源地址写入~/.npmrc文件 1$ npm config set registry http://registry.cnpmjs.org 方式2：直接在文件中指定 修改~/.npmrc文件，直接指定镜像源地址，如果没有此文件新建即可 registry = http://registry.cnpmjs.org 注：~为用户家目录 方式3：cnpm 命令代替npm1$ npm install cnpm -g --registry=http://registry.cnpmjs.org 1$ cnpm 命令 查看是否设置成功1$ npm config get registry]]></content>
       <categories>
-        <category>环境部署，NPM</category>
+        <category>环境部署</category>
+        <category>NPM</category>
       </categories>
       <tags>
         <tag>npm</tag>
