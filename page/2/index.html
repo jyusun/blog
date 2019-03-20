@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
@@ -9,28 +18,13 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
-  <script>
-  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
-  daovoice('init', {
-      app_id: "c7717065"
-    });
-  daovoice('update');
-  </script>
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
 
 
@@ -45,52 +39,68 @@
 
 
 
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
 
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="EvanSun Home" type="application/atom+xml">
-
-
-
-
-
-
-<meta name="description" content="男人有实力，才有魅力~">
+  <meta name="description" content="男人有实力，才有魅力~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="EvanSun Home">
 <meta property="og:url" content="https://blog.jyusun.com/page/2/index.html">
@@ -103,29 +113,8 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+  <link rel="alternate" href="/atom.xml" title="EvanSun Home" type="application/atom+xml">
+
 
 
 
@@ -133,7 +122,11 @@
 
 
 
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>EvanSun Home</title>
   
@@ -144,6 +137,35 @@
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
@@ -160,7 +182,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -170,13 +192,16 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">记录、分享</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -184,96 +209,145 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
-            
-            Schedule
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
-            
-            Sitemap
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            About
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            Search
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -288,7 +362,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -302,12 +376,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -320,6 +405,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -329,7 +416,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -344,37 +431,35 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20190211092005.html" itemprop="url">虚拟机迁移-VMWare-to-VirtualBox</a></h1>
+                
+                <a href="/contents/20190211092005.html" class="post-title-link" itemprop="url">虚拟机迁移-VMWare-to-VirtualBox</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-11T09:20:05+08:00">
-                2019-02-11
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-11 09:20:05" itemprop="dateCreated datePublished" datetime="2019-02-11T09:20:05+08:00">2019-02-11</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-11T09:20:05+08:00">
-                2019-02-11
-              </time>
             
           </span>
 
@@ -387,25 +472,17 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/" itemprop="url" rel="index">
-                    <span itemprop="name">实用工具</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/虚拟机/" itemprop="url" rel="index">
-                    <span itemprop="name">虚拟机</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/虚拟机/" itemprop="url" rel="index"><span itemprop="name">虚拟机</span></a></span>
 
                 
                 
@@ -415,11 +492,15 @@
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20190211092005.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20190211092005.html" itemprop="commentCount"></span>
                 </a>
@@ -429,27 +510,20 @@
 
           
           
-
+            <span id="/contents/20190211092005.html" class="leancloud_visitors" data-flag-title="虚拟机迁移-VMWare-to-VirtualBox">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -469,7 +543,8 @@
       
         
           
-          虚拟机迁移-VMWare-to-VirtualBox前言
+            <p>
+              虚拟机迁移-VMWare-to-VirtualBox前言
 由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。
 
 导出VMware中的虚拟机
@@ -483,29 +558,36 @@
 
 导入虚拟机到VirtualBox
 
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20190211092005.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20190211092005.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -536,6 +618,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -547,7 +631,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -562,37 +646,35 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20181116135728.html" itemprop="url">idea-edit-default-file-location</a></h1>
+                
+                <a href="/contents/20181116135728.html" class="post-title-link" itemprop="url">idea-edit-default-file-location</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T13:57:28+08:00">
-                2018-11-16
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-16 13:57:28" itemprop="dateCreated datePublished" datetime="2018-11-16T13:57:28+08:00">2018-11-16</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-11-16T13:57:28+08:00">
-                2018-11-16
-              </time>
             
           </span>
 
@@ -605,25 +687,17 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/" itemprop="url" rel="index">
-                    <span itemprop="name">实用工具</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/Idea/" itemprop="url" rel="index">
-                    <span itemprop="name">Idea</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a></span>
 
                 
                 
@@ -633,11 +707,15 @@
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20181116135728.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20181116135728.html" itemprop="commentCount"></span>
                 </a>
@@ -647,27 +725,20 @@
 
           
           
-
+            <span id="/contents/20181116135728.html" class="leancloud_visitors" data-flag-title="idea-edit-default-file-location">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -687,35 +758,43 @@
       
         
           
-          前言
+            <p>
+              前言
 IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配置目录会越来越大，因此将配置目录指定到想要存放的位置。
 
 编辑默认配置路径
 编辑默认配置路径
 编辑文件：{IDEA安装路径}/bin/idea.properties（本人将默认路径配置在IntelliJIdea的安装路径setting
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20181116135728.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20181116135728.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -746,6 +825,8 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -757,7 +838,7 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -772,37 +853,35 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180909121931.html" itemprop="url">Linux环境下Oracle生成AWR报告</a></h1>
+                
+                <a href="/contents/20180909121931.html" class="post-title-link" itemprop="url">Linux环境下Oracle生成AWR报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-09T12:19:31+08:00">
-                2018-09-09
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 12:19:31" itemprop="dateCreated datePublished" datetime="2018-09-09T12:19:31+08:00">2018-09-09</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-09T12:19:31+08:00">
-                2018-09-09
-              </time>
             
           </span>
 
@@ -815,25 +894,17 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术实践/" itemprop="url" rel="index">
-                    <span itemprop="name">技术实践</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术实践/" itemprop="url" rel="index"><span itemprop="name">技术实践</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术实践/Oracle/" itemprop="url" rel="index">
-                    <span itemprop="name">Oracle</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术实践/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a></span>
 
                 
                 
@@ -843,11 +914,15 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180909121931.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180909121931.html" itemprop="commentCount"></span>
                 </a>
@@ -857,27 +932,20 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
 
           
           
-
+            <span id="/contents/20180909121931.html" class="leancloud_visitors" data-flag-title="Linux环境下Oracle生成AWR报告">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -897,42 +965,50 @@ IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配
       
         
           
-          Linux环境下Oracle生成AWR报告前言
+            <p>
+              Linux环境下Oracle生成AWR报告前言
 test
 
 生成报告
 创建文件存储路径（oracle需要对此路径有读写权限）
 
-1# mkdir -p ~/oradata/update/awrreport
+# mkdir -p ~/oradata/update/awrreport
 
 切换到存储路径中
 
-1# cd ~/oradata/update/awrreport
+# cd ~/oradata/update/awrreport
 
-使用
-          ...
+使用sq
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180909121931.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180909121931.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -963,6 +1039,8 @@ test
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -974,7 +1052,7 @@ test
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -989,37 +1067,35 @@ test
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180908122031.html" itemprop="url">Oracle数据库DMP导入和导出</a></h1>
+                
+                <a href="/contents/20180908122031.html" class="post-title-link" itemprop="url">Oracle数据库DMP导入和导出</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T12:20:31+08:00">
-                2018-09-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-08 12:20:31" itemprop="dateCreated datePublished" datetime="2018-09-08T12:20:31+08:00">2018-09-08</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-08T12:20:31+08:00">
-                2018-09-08
-              </time>
             
           </span>
 
@@ -1032,25 +1108,17 @@ test
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术实践/" itemprop="url" rel="index">
-                    <span itemprop="name">技术实践</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术实践/" itemprop="url" rel="index"><span itemprop="name">技术实践</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术实践/Oracle/" itemprop="url" rel="index">
-                    <span itemprop="name">Oracle</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术实践/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a></span>
 
                 
                 
@@ -1060,11 +1128,15 @@ test
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180908122031.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180908122031.html" itemprop="commentCount"></span>
                 </a>
@@ -1074,27 +1146,20 @@ test
 
           
           
-
+            <span id="/contents/20180908122031.html" class="leancloud_visitors" data-flag-title="Oracle数据库DMP导入和导出">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -1114,35 +1179,43 @@ test
       
         
           
-          Oracle数据库DMP导入和导出前言
+            <p>
+              Oracle数据库DMP导入和导出前言
 开发的过程中，我们使用的数据库可能需要备份，即可以此方式进行简单的备份操作
 使用expdp命令备份数据库
 使用impdp命令恢复数据库
 
-expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
-          ...
+expdp命令导出操作expdp tuser/tpass directory=DUMP_DIR dumpfile=TEST
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180908122031.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180908122031.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -1173,6 +1246,8 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1184,7 +1259,7 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -1199,37 +1274,35 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180907180504.html" itemprop="url">IDEA快捷键位调整及对比</a></h1>
+                
+                <a href="/contents/20180907180504.html" class="post-title-link" itemprop="url">IDEA快捷键位调整及对比</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T18:05:04+08:00">
-                2018-09-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-07 18:05:04" itemprop="dateCreated datePublished" datetime="2018-09-07T18:05:04+08:00">2018-09-07</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-07T18:05:04+08:00">
-                2018-09-07
-              </time>
             
           </span>
 
@@ -1242,25 +1315,17 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/" itemprop="url" rel="index">
-                    <span itemprop="name">实用工具</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/Idea/" itemprop="url" rel="index">
-                    <span itemprop="name">Idea</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a></span>
 
                 
                 
@@ -1270,11 +1335,15 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180907180504.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180907180504.html" itemprop="commentCount"></span>
                 </a>
@@ -1284,27 +1353,20 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
 
           
           
-
+            <span id="/contents/20180907180504.html" class="leancloud_visitors" data-flag-title="IDEA快捷键位调整及对比">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -1324,34 +1386,42 @@ expdp命令导出操作1expdp tuser/tpass directory=DUMP_DIR dumpfile=TES
       
         
           
-          IDEA快捷键位调整及对比前言
+            <p>
+              IDEA快捷键位调整及对比前言
 最近工作中开发代码由Eclipse切换到IDEA，使用之前需要对IDEA进行一些简单的配置，还需要了解同Eclipse中快捷键的对比，使我们能够更快的适应这个软件。
 
 修改冲突键位
 Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180907180504.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180907180504.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -1382,6 +1452,8 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1393,7 +1465,7 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -1408,37 +1480,35 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180907150704.html" itemprop="url">idea-plugin... read-timed-out</a></h1>
+                
+                <a href="/contents/20180907150704.html" class="post-title-link" itemprop="url">idea-plugin... read-timed-out</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T15:07:04+08:00">
-                2018-09-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-07 15:07:04" itemprop="dateCreated datePublished" datetime="2018-09-07T15:07:04+08:00">2018-09-07</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-07T15:07:04+08:00">
-                2018-09-07
-              </time>
             
           </span>
 
@@ -1451,25 +1521,17 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/" itemprop="url" rel="index">
-                    <span itemprop="name">实用工具</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/Idea/" itemprop="url" rel="index">
-                    <span itemprop="name">Idea</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a></span>
 
                 
                 
@@ -1479,11 +1541,15 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180907150704.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180907150704.html" itemprop="commentCount"></span>
                 </a>
@@ -1493,27 +1559,20 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
           
           
-
+            <span id="/contents/20180907150704.html" class="leancloud_visitors" data-flag-title="idea-plugin... read-timed-out">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -1533,37 +1592,45 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
       
         
           
-          IDEA下载插件超时问题前言
+            <p>
+              IDEA下载插件超时问题前言
 新下载的idea集成开发环境，下载插件时出现读取超时错误
 
-1Plugin ...  Read timed out
+Plugin ...  Read timed out
 
 解决此问题
 依次点击 Appearance &amp; Behavior →System settings →Updates
-去掉use secure 
-          ...
+去掉use secure c
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180907150704.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180907150704.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -1596,6 +1663,8 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1605,7 +1674,7 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -1620,37 +1689,35 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180907112238.html" itemprop="url">Hexo-Next主题博客优化</a></h1>
+                
+                <a href="/contents/20180907112238.html" class="post-title-link" itemprop="url">Hexo-Next主题博客优化</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T11:22:38+08:00">
-                2018-09-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-07 11:22:38" itemprop="dateCreated datePublished" datetime="2018-09-07T11:22:38+08:00">2018-09-07</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-07T11:22:38+08:00">
-                2018-09-07
-              </time>
             
           </span>
 
@@ -1663,25 +1730,17 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/" itemprop="url" rel="index">
-                    <span itemprop="name">实用工具</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用工具/个人博客/" itemprop="url" rel="index">
-                    <span itemprop="name">个人博客</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用工具/个人博客/" itemprop="url" rel="index"><span itemprop="name">个人博客</span></a></span>
 
                 
                 
@@ -1691,11 +1750,15 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180907112238.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180907112238.html" itemprop="commentCount"></span>
                 </a>
@@ -1705,27 +1768,20 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
 
           
           
-
+            <span id="/contents/20180907112238.html" class="leancloud_visitors" data-flag-title="Hexo-Next主题博客优化">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  12
-                </span>
-              
-            </div>
           
 
           
@@ -1745,7 +1801,8 @@ Ctrl+Alt+S进入设置页面，依次选择Keymap → Main menu → C
       
         
           
-          Hexo-Next主题博客优化基础路径说明
+            <p>
+              Hexo-Next主题博客优化基础路径说明
 
 
 名称
@@ -1768,29 +1825,36 @@ BLOG_HEXO/_config.yml
 主题配置文件
 _config.yml
 BLOG_HEXO/themes/next/_
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180907112238.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180907112238.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -1821,6 +1885,8 @@ BLOG_HEXO/themes/next/_
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1832,7 +1898,7 @@ BLOG_HEXO/themes/next/_
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -1847,37 +1913,35 @@ BLOG_HEXO/themes/next/_
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180902112031.html" itemprop="url">CentOS7服务器安装Oralce11gR2企业版</a></h1>
+                
+                <a href="/contents/20180902112031.html" class="post-title-link" itemprop="url">CentOS7服务器安装Oralce11gR2企业版</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-02T11:19:31+08:00">
-                2018-09-02
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-02 11:19:31" itemprop="dateCreated datePublished" datetime="2018-09-02T11:19:31+08:00">2018-09-02</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-02T11:19:31+08:00">
-                2018-09-02
-              </time>
             
           </span>
 
@@ -1890,36 +1954,24 @@ BLOG_HEXO/themes/next/_
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/" itemprop="url" rel="index">
-                    <span itemprop="name">环境部署</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/" itemprop="url" rel="index"><span itemprop="name">环境部署</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/Linux/Oracle/" itemprop="url" rel="index">
-                    <span itemprop="name">Oracle</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/Linux/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a></span>
 
                 
                 
@@ -1929,11 +1981,15 @@ BLOG_HEXO/themes/next/_
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180902112031.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180902112031.html" itemprop="commentCount"></span>
                 </a>
@@ -1943,27 +1999,20 @@ BLOG_HEXO/themes/next/_
 
           
           
-
+            <span id="/contents/20180902112031.html" class="leancloud_visitors" data-flag-title="CentOS7服务器安装Oralce11gR2企业版">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  11
-                </span>
-              
-            </div>
           
 
           
@@ -1983,34 +2032,42 @@ BLOG_HEXO/themes/next/_
       
         
           
-          基础准备环境准备
+            <p>
+              基础准备环境准备
 系统：CentOS7 （需要联网，或配置本地源）
 终端神器 ：MobaXterm 点击进入下载页面（SSH连接、图形转发）
 Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2of2.zip
 
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180902112031.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180902112031.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -2041,6 +2098,8 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -2052,7 +2111,7 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -2067,37 +2126,35 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180901171228.html" itemprop="url">基于CentOS7安装Docker-CE</a></h1>
+                
+                <a href="/contents/20180901171228.html" class="post-title-link" itemprop="url">基于CentOS7安装Docker-CE</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-01T17:12:28+08:00">
-                2018-09-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-01 17:12:28" itemprop="dateCreated datePublished" datetime="2018-09-01T17:12:28+08:00">2018-09-01</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-01T17:12:28+08:00">
-                2018-09-01
-              </time>
             
           </span>
 
@@ -2110,36 +2167,24 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/" itemprop="url" rel="index">
-                    <span itemprop="name">环境部署</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/" itemprop="url" rel="index"><span itemprop="name">环境部署</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/Linux/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/Linux/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
 
                 
                 
@@ -2149,11 +2194,15 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180901171228.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180901171228.html" itemprop="commentCount"></span>
                 </a>
@@ -2163,27 +2212,20 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
           
           
-
+            <span id="/contents/20180901171228.html" class="leancloud_visitors" data-flag-title="基于CentOS7安装Docker-CE">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -2203,30 +2245,38 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
       
         
           
-          
-          
+            <p>
+              
+              
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180901171228.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180901171228.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -2259,6 +2309,8 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -2268,7 +2320,7 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evansun">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="男人有实力，才有魅力~">
       <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
@@ -2283,37 +2335,35 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/contents/20180807112035.html" itemprop="url">设置npm国内镜像源</a></h1>
+                
+                <a href="/contents/20180807112035.html" class="post-title-link" itemprop="url">设置npm国内镜像源</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-07T11:20:35+08:00">
-                2018-08-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-07 11:20:35" itemprop="dateCreated datePublished" datetime="2018-08-07T11:20:35+08:00">2018-08-07</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-08-07T11:20:35+08:00">
-                2018-08-07
-              </time>
             
           </span>
 
@@ -2326,25 +2376,17 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/" itemprop="url" rel="index">
-                    <span itemprop="name">环境部署</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/" itemprop="url" rel="index"><span itemprop="name">环境部署</span></a></span>
 
                 
                 
-                  , 
+                  ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/环境部署/NPM/" itemprop="url" rel="index">
-                    <span itemprop="name">NPM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/NPM/" itemprop="url" rel="index"><span itemprop="name">NPM</span></a></span>
 
                 
                 
@@ -2354,11 +2396,15 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/contents/20180807112035.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count valine-comment-count" data-xid="/contents/20180807112035.html" itemprop="commentCount"></span>
                 </a>
@@ -2368,27 +2414,20 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
 
           
           
-
+            <span id="/contents/20180807112035.html" class="leancloud_visitors" data-flag-title="设置npm国内镜像源">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
-            <div class="post-wordcount">
-              
 
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -2408,36 +2447,44 @@ Oracle安装包：linux.x64_11gR2_database_1of2.zip  linux.x64_11gR2_database_2o
       
         
           
-          NodeJS修改npm镜像源前言
+            <p>
+              NodeJS修改npm镜像源前言
 由于npm的镜像地址默认在境外，虽然没有被墙，但是在国内使用的过程中会出现下载速度较慢或因直接安装失败，所以将镜像地址为国内的地址解决此问题。本人使用的是NPMJS，下文以此为例
 
 npm镜像源修改常用镜像说明
 官方默认镜像
 
 registry https://re
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/contents/20180807112035.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/contents/20180807112035.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
+    
+    
+    
+
 	
-    
-    
-    
-	<div>
-		
-	</div>
-	
+
 	
 
     
 
+    
+      
+    
     
 
     
@@ -2466,15 +2513,12 @@ registry https://re
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -2490,59 +2534,158 @@ registry https://re
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="evansun">
             
               <p class="site-author-name" itemprop="name">evansun</p>
-              <p class="site-description motion-element" itemprop="description">男人有实力，才有魅力~</p>
+              <div class="site-description motion-element" itemprop="description">男人有实力，才有魅力~</div>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -2554,24 +2697,35 @@ registry https://re
           
 
           
+
+          
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/jyusun" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:mr.evansun@foxmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jyusun" title="GitHub &rarr; https://github.com/jyusun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:mr.evansun@foxmail.com" title="E-Mail &rarr; mailto:mr.evansun@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
             </div>
           
 
-          
           
 
           
@@ -2584,15 +2738,15 @@ registry https://re
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.oschina.net/" title="开源中国" target="_blank">开源中国</a>
+                    <a href="https://www.oschina.net/" title="https://www.oschina.net/" rel="noopener" target="_blank">开源中国</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://baidu.com/" title="百度" target="_blank">百度</a>
+                    <a href="http://baidu.com/" title="http://baidu.com/" rel="noopener" target="_blank">百度</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.sogou.com/" title="搜狗" target="_blank">搜狗</a>
+                    <a href="https://www.sogou.com/" title="https://www.sogou.com/" rel="noopener" target="_blank">搜狗</a>
                   </li>
                 
               </ul>
@@ -2600,9 +2754,12 @@ registry https://re
           
 
           
+            
+          
+          
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -2610,6 +2767,7 @@ registry https://re
 
     </div>
   </aside>
+  
 
 
         
@@ -2619,23 +2777,27 @@ registry https://re
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  
   <span class="author" itemprop="copyrightHolder">evansun</span>
+
+  
 
   
 </div>
 
 
-  <!--
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div> -->
-	<div class="powered-by">
+
+
+
+
+
+
+   <div class="powered-by">
 		<i class="fa fa-user-md"></i>
 		<span id="busuanzi_container_site_pv">本站访客数:<span id="busuanzi_value_site_pv"></span>
-	</span>
-  </div>
+   </span>
 
 
 
@@ -2643,25 +2805,25 @@ registry https://re
 
 
 
-	<div class="theme-info">
+  <div class="theme-info">
 	  <div class="powered-by"></div>
 	  <span class="post-count">博客全站共:9.7k字</span>
-	</div>
-  <!--
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div> -->
+  </div>
 
 
 
-
-
+</div>
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
   
+
   
 
   
 </div>
+
 
 
 
@@ -2685,11 +2847,14 @@ registry https://re
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2703,7 +2868,6 @@ registry https://re
 
 
 
-  
 
 
 
@@ -2716,43 +2880,27 @@ registry https://re
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+
+
+
+
 
   
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script src="/js/src/utils.js?v=7.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script src="/js/src/motion.js?v=7.0.1"></script>
 
 
 
@@ -2760,9 +2908,9 @@ registry https://re
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+  <script src="/js/src/affix.js?v=7.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
 
 
 
@@ -2771,68 +2919,51 @@ registry https://re
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
 
 
   
 
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
 
 
 
-	
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'vKR8bVdBfz65wqu5fvSJhdGa-gzGzoHsz',
+    appKey: 'OQRJPMAjTGxudDkXO9UTQcye',
+    placeholder: 'Just go go',
+    avatar: '/images/touxiang.png',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
 
 
 
 
 
   
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'vKR8bVdBfz65wqu5fvSJhdGa-gzGzoHsz',
-        appKey: 'OQRJPMAjTGxudDkXO9UTQcye',
-        placeholder: 'Just go go',
-        avatar:'/images/touxiang.png',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
-
-
-  
-
-  <script type="text/javascript">
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2881,6 +3012,8 @@ registry https://re
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2914,8 +3047,9 @@ registry https://re
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -3084,9 +3218,9 @@ registry https://re
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -3160,30 +3294,38 @@ registry https://re
   
 
   
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
+  
+
+  
+
+  
+
+  
   
   
   <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
   <script>
     
       pbOptions = {};
       
-          pbOptions.iconStyle = "default";
+        pbOptions.iconStyle = "default";
       
-          pbOptions.boxForm = "horizontal";
+        pbOptions.boxForm = "horizontal";
       
-          pbOptions.position = "Center";
+        pbOptions.position = "bottomCenter";
       
-          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
       
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
   </script>
+
+
+  
+
+  
 
   
 
