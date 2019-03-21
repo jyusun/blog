@@ -1680,6 +1680,16 @@ pre .javascript .function {
 #qr p {
   text-align: center;
 }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
+}
+.post-copyright i.fa {
+  font-size: 15px;
+}
 .post-widgets {
   border-top: 1px solid #eee;
   padding-top: 9px;
@@ -1933,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3c50eb;
+  background: #2d5eff;
 }
 .links-of-blogroll {
   margin-top: 10px;
@@ -2234,29 +2244,6 @@ pre .javascript .function {
   top: 50%;
   transform: translate(-50%, -50%);
   color: #ccc;
-}
-#needsharebutton-postbottom {
-  position: relative;
-  cursor: pointer;
-  height: 26px;
-}
-#needsharebutton-postbottom .btn {
-  display: initial;
-  padding: 1px 4px;
-  border: 1px solid #555;
-  border-radius: 3px;
-}
-#needsharebutton-float {
-  position: fixed;
-  bottom: 38px;
-  left: -8px;
-  z-index: 9999;
-  cursor: pointer;
-}
-#needsharebutton-float .btn {
-  padding: 0 10px 0 14px;
-  border: 1px solid #555;
-  border-radius: 4px;
 }
 .page-archive .archive-page-counter {
   position: relative;
