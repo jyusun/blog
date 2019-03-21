@@ -61,6 +61,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>JDK</category>
       </categories>
       <tags>
         <tag>jdk</tag>
@@ -74,6 +75,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>免密登陆</tag>
@@ -87,6 +89,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>防火墙</tag>
@@ -101,6 +104,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>profile</tag>
@@ -114,6 +118,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>IP</tag>
@@ -128,6 +133,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>Linux内核清理</tag>
@@ -140,6 +146,7 @@
       <categories>
         <category>环境部署</category>
         <category>Linux</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>hostname</tag>
