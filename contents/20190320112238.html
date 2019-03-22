@@ -90,7 +90,7 @@
     fancybox: false,
     fastclick: false,
     lazyload: false,
-    tabs: true,
+    tabs: false,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
@@ -203,7 +203,7 @@
     </div>
     
       
-        <p class="site-subtitle">记录、分享</p>
+        <h1 class="site-subtitle" itemprop="description">记录、分享</h1>
       
     
     
@@ -438,11 +438,11 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo-Next7.0主题博客优化
+          <h2 class="post-title" itemprop="name headline">Hexo-Next7.0主题博客优化
 
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -738,9 +738,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n &lt;title&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将图片放入同名文件夹下，文章内图片相对引用</p>
-<blockquote>
-
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名称.jpg 图片描述 %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="文内超链接"><a href="#文内超链接" class="headerlink" title="文内超链接"></a>文内超链接</h3><ul>
+<li><p>文内超链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[TextUrl](https://blog.jyusun.com/)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="博客功能"><a href="#博客功能" class="headerlink" title="博客功能"></a>博客功能</h2><h3 id="文章浏览显示进度百分比"><a href="#文章浏览显示进度百分比" class="headerlink" title="文章浏览显示进度百分比"></a>文章浏览显示进度百分比</h3><ul>
@@ -841,6 +844,14 @@
 	
 
 	
+	  <div>
+		
+    <div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢您的阅读------</div>
+    </div>
+
+	  </div>
+	
 
     
 
@@ -902,7 +913,7 @@
     <a href="https://blog.jyusun.com/contents/20190320112238.html" title="Hexo-Next7.0主题博客优化">https://blog.jyusun.com/contents/20190320112238.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -1229,7 +1240,7 @@
                   
                     
                   
-                  <a href="https://github.com/jyusun" title="GitHub &rarr; https://github.com/jyusun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p5dXN1bg==" title="GitHub &rarr; https://github.com/jyusun"><i class="fa fa-fw fa-github"></i>GitHub</span>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1240,7 +1251,7 @@
                   
                     
                   
-                  <a href="mailto:mr.evansun@foxmail.com" title="E-Mail &rarr; mailto:mr.evansun@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <span class="exturl" data-url="bWFpbHRvOm1yLmV2YW5zdW5AZm94bWFpbC5jb20=" title="E-Mail &rarr; mailto:mr.evansun@foxmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
                 </span>
               
             </div>
@@ -1254,7 +1265,7 @@
               
               
               
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
              </div>
           
 
@@ -1268,15 +1279,15 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.oschina.net/" title="https://www.oschina.net/" rel="noopener" target="_blank">开源中国</a>
+                    <span class="exturl" data-url="aHR0cHM6Ly93d3cub3NjaGluYS5uZXQv" title="https://www.oschina.net/">开源中国</span>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://baidu.com/" title="http://baidu.com/" rel="noopener" target="_blank">百度</a>
+                    <span class="exturl" data-url="aHR0cDovL2JhaWR1LmNvbS8=" title="http://baidu.com/">百度</span>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.sogou.com/" title="https://www.sogou.com/" rel="noopener" target="_blank">搜狗</a>
+                    <span class="exturl" data-url="aHR0cHM6Ly93d3cuc29nb3UuY29tLw==" title="https://www.sogou.com/">搜狗</span>
                   </li>
                 
               </ul>
@@ -1302,7 +1313,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Next7-0主题博客优化"><span class="nav-number">1.</span> <span class="nav-text">Hexo-Next7.0主题博客优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础路径说明"><span class="nav-number">1.1.</span> <span class="nav-text">基础路径说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo站点配置"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo站点配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#站点基础配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">站点基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL访问配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">URL访问配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">指定next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next-Pisces模板"><span class="nav-number">1.2.4.</span> <span class="nav-text">指定next-Pisces模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署设置"><span class="nav-number">1.2.5.</span> <span class="nav-text">部署设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章生成位置及名称"><span class="nav-number">1.2.6.</span> <span class="nav-text">文章生成位置及名称</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单栏设置"><span class="nav-number">1.3.</span> <span class="nav-text">菜单栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置展示菜单"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置展示菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置文章分类页面"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置文章分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点地图"><span class="nav-number">1.3.3.</span> <span class="nav-text">站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公益404"><span class="nav-number">1.3.4.</span> <span class="nav-text">公益404</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站内搜索功能"><span class="nav-number">1.3.5.</span> <span class="nav-text">添加站内搜索功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏设置"><span class="nav-number">1.4.</span> <span class="nav-text">侧边栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">1.4.1.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边社交连接"><span class="nav-number">1.4.2.</span> <span class="nav-text">设置侧边社交连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边栏社交样式"><span class="nav-number">1.4.3.</span> <span class="nav-text">设置侧边栏社交样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS"><span class="nav-number">1.4.4.</span> <span class="nav-text">RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友情链接"><span class="nav-number">1.4.5.</span> <span class="nav-text">友情链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底部设置"><span class="nav-number">1.5.</span> <span class="nav-text">底部设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#推广链接功能"><span class="nav-number">1.5.1.</span> <span class="nav-text">推广链接功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章末尾加上”本文结束”字样"><span class="nav-number">1.5.2.</span> <span class="nav-text">文章末尾加上”本文结束”字样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底部标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">底部标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底部统计"><span class="nav-number">1.5.4.</span> <span class="nav-text">底部统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章样式"><span class="nav-number">1.6.</span> <span class="nav-text">首页文章样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主页文章添加阴影效果"><span class="nav-number">1.6.1.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏文章与文章间分割线"><span class="nav-number">1.6.2.</span> <span class="nav-text">隐藏文章与文章间分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页自动形成摘要"><span class="nav-number">1.6.3.</span> <span class="nav-text">首页自动形成摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作样式"><span class="nav-number">1.7.</span> <span class="nav-text">写作样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文内图片引用"><span class="nav-number">1.7.1.</span> <span class="nav-text">文内图片引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客功能"><span class="nav-number">1.8.</span> <span class="nav-text">博客功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章浏览显示进度百分比"><span class="nav-number">1.8.1.</span> <span class="nav-text">文章浏览显示进度百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启版权声明"><span class="nav-number">1.8.2.</span> <span class="nav-text">开启版权声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打赏功能"><span class="nav-number">1.8.3.</span> <span class="nav-text">打赏功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论功能"><span class="nav-number">1.8.4.</span> <span class="nav-text">评论功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线沟通"><span class="nav-number">1.8.5.</span> <span class="nav-text">在线沟通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分享功能"><span class="nav-number">1.8.6.</span> <span class="nav-text">分享功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章内链接文本样式"><span class="nav-number">1.8.7.</span> <span class="nav-text">文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博文压缩"><span class="nav-number">1.8.8.</span> <span class="nav-text">博文压缩</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Next7-0主题博客优化"><span class="nav-number">1.</span> <span class="nav-text">Hexo-Next7.0主题博客优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础路径说明"><span class="nav-number">1.1.</span> <span class="nav-text">基础路径说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo站点配置"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo站点配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#站点基础配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">站点基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL访问配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">URL访问配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">指定next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定next-Pisces模板"><span class="nav-number">1.2.4.</span> <span class="nav-text">指定next-Pisces模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署设置"><span class="nav-number">1.2.5.</span> <span class="nav-text">部署设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章生成位置及名称"><span class="nav-number">1.2.6.</span> <span class="nav-text">文章生成位置及名称</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单栏设置"><span class="nav-number">1.3.</span> <span class="nav-text">菜单栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置展示菜单"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置展示菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置文章分类页面"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置文章分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点地图"><span class="nav-number">1.3.3.</span> <span class="nav-text">站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公益404"><span class="nav-number">1.3.4.</span> <span class="nav-text">公益404</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站内搜索功能"><span class="nav-number">1.3.5.</span> <span class="nav-text">添加站内搜索功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏设置"><span class="nav-number">1.4.</span> <span class="nav-text">侧边栏设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">1.4.1.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边社交连接"><span class="nav-number">1.4.2.</span> <span class="nav-text">设置侧边社交连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置侧边栏社交样式"><span class="nav-number">1.4.3.</span> <span class="nav-text">设置侧边栏社交样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS"><span class="nav-number">1.4.4.</span> <span class="nav-text">RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#友情链接"><span class="nav-number">1.4.5.</span> <span class="nav-text">友情链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底部设置"><span class="nav-number">1.5.</span> <span class="nav-text">底部设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#推广链接功能"><span class="nav-number">1.5.1.</span> <span class="nav-text">推广链接功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章末尾加上”本文结束”字样"><span class="nav-number">1.5.2.</span> <span class="nav-text">文章末尾加上”本文结束”字样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底部标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">底部标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底部统计"><span class="nav-number">1.5.4.</span> <span class="nav-text">底部统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章样式"><span class="nav-number">1.6.</span> <span class="nav-text">首页文章样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主页文章添加阴影效果"><span class="nav-number">1.6.1.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏文章与文章间分割线"><span class="nav-number">1.6.2.</span> <span class="nav-text">隐藏文章与文章间分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页自动形成摘要"><span class="nav-number">1.6.3.</span> <span class="nav-text">首页自动形成摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作样式"><span class="nav-number">1.7.</span> <span class="nav-text">写作样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文内图片引用"><span class="nav-number">1.7.1.</span> <span class="nav-text">文内图片引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文内超链接"><span class="nav-number">1.7.2.</span> <span class="nav-text">文内超链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客功能"><span class="nav-number">1.8.</span> <span class="nav-text">博客功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章浏览显示进度百分比"><span class="nav-number">1.8.1.</span> <span class="nav-text">文章浏览显示进度百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启版权声明"><span class="nav-number">1.8.2.</span> <span class="nav-text">开启版权声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打赏功能"><span class="nav-number">1.8.3.</span> <span class="nav-text">打赏功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论功能"><span class="nav-number">1.8.4.</span> <span class="nav-text">评论功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线沟通"><span class="nav-number">1.8.5.</span> <span class="nav-text">在线沟通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分享功能"><span class="nav-number">1.8.6.</span> <span class="nav-text">分享功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章内链接文本样式"><span class="nav-number">1.8.7.</span> <span class="nav-text">文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博文压缩"><span class="nav-number">1.8.8.</span> <span class="nav-text">博文压缩</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1476,6 +1487,8 @@
   
 
   
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
 
   
 
@@ -1851,6 +1864,16 @@
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

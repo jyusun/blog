@@ -90,7 +90,7 @@
     fancybox: false,
     fastclick: false,
     lazyload: false,
-    tabs: true,
+    tabs: false,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
@@ -201,7 +201,7 @@
     </div>
     
       
-        <p class="site-subtitle">记录、分享</p>
+        <h1 class="site-subtitle" itemprop="description">记录、分享</h1>
       
     
     
@@ -438,8 +438,8 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>hosts<small>标签</small>
-        </h1>
+        <h2>hosts<small>标签</small>
+        </h2>
       </div>
 
       
@@ -448,7 +448,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/contents/20190213131719.html" itemprop="url">
             
@@ -456,7 +456,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-02-13T13:17:19+08:00" content="2019-02-13">
@@ -679,7 +679,7 @@
                   
                     
                   
-                  <a href="https://github.com/jyusun" title="GitHub &rarr; https://github.com/jyusun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p5dXN1bg==" title="GitHub &rarr; https://github.com/jyusun"><i class="fa fa-fw fa-github"></i>GitHub</span>
                 </span>
               
                 <span class="links-of-author-item">
@@ -690,7 +690,7 @@
                   
                     
                   
-                  <a href="mailto:mr.evansun@foxmail.com" title="E-Mail &rarr; mailto:mr.evansun@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <span class="exturl" data-url="bWFpbHRvOm1yLmV2YW5zdW5AZm94bWFpbC5jb20=" title="E-Mail &rarr; mailto:mr.evansun@foxmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
                 </span>
               
             </div>
@@ -704,7 +704,7 @@
               
               
               
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
              </div>
           
 
@@ -718,15 +718,15 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.oschina.net/" title="https://www.oschina.net/" rel="noopener" target="_blank">开源中国</a>
+                    <span class="exturl" data-url="aHR0cHM6Ly93d3cub3NjaGluYS5uZXQv" title="https://www.oschina.net/">开源中国</span>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://baidu.com/" title="http://baidu.com/" rel="noopener" target="_blank">百度</a>
+                    <span class="exturl" data-url="aHR0cDovL2JhaWR1LmNvbS8=" title="http://baidu.com/">百度</span>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.sogou.com/" title="https://www.sogou.com/" rel="noopener" target="_blank">搜狗</a>
+                    <span class="exturl" data-url="aHR0cHM6Ly93d3cuc29nb3UuY29tLw==" title="https://www.sogou.com/">搜狗</span>
                   </li>
                 
               </ul>
@@ -905,6 +905,8 @@
   
 
   
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
 
   
 
@@ -1278,6 +1280,16 @@
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 
