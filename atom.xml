@@ -551,7 +551,7 @@
   </entry>
   
   <entry>
-    <title>CentOS安装Docker-CE</title>
+    <title>基于CentOS7安装Docker-CE</title>
     <link href="https://blog.jyusun.com/contents/20180901171228.html"/>
     <id>https://blog.jyusun.com/contents/20180901171228.html</id>
     <published>2018-09-01T09:12:28.000Z</published>
@@ -568,11 +568,9 @@
     
     </summary>
     
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="Linux" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/"/>
-    
-      <category term="Docker" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux/Docker/"/>
+      <category term="Docker" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Docker/"/>
     
     
       <category term="docker" scheme="https://blog.jyusun.com/tags/docker/"/>
