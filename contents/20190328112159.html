@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+	
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "c7717065"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="安装配置及卸载MySQL8社区版前言 今天写一个工具，需要使用到数据库，于是在电脑上安装了一个MySQL8社区版数据库，对整个安装过程进行了如下整理。  下载MySQL并解压缩下载社区版 点击进入MySQL最新社区版下载页面  解压缩文件 使用解压缩工具对压缩包进行解压   压缩包内文件展示    环境配置配置环境变量MySQL配置文件 根目录下新建my-default.ini或my.ini文件并">
+<meta name="keywords" content="mysql安装,mysql卸载,mysql8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Windows10安装配置及卸载MySQL8社区版">
+<meta property="og:url" content="https://blog.jyusun.com/contents/20190328112159.html">
+<meta property="og:site_name" content="EvanSun Home">
+<meta property="og:description" content="安装配置及卸载MySQL8社区版前言 今天写一个工具，需要使用到数据库，于是在电脑上安装了一个MySQL8社区版数据库，对整个安装过程进行了如下整理。  下载MySQL并解压缩下载社区版 点击进入MySQL最新社区版下载页面  解压缩文件 使用解压缩工具对压缩包进行解压   压缩包内文件展示    环境配置配置环境变量MySQL配置文件 根目录下新建my-default.ini或my.ini文件并">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190328112159/unzip.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190328112159/showfiles.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190328112159/init.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190328112159/ok.jpg">
+<meta property="og:updated_time" content="2019-03-28T06:23:05.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Windows10安装配置及卸载MySQL8社区版">
+<meta name="twitter:description" content="安装配置及卸载MySQL8社区版前言 今天写一个工具，需要使用到数据库，于是在电脑上安装了一个MySQL8社区版数据库，对整个安装过程进行了如下整理。  下载MySQL并解压缩下载社区版 点击进入MySQL最新社区版下载页面  解压缩文件 使用解压缩工具对压缩包进行解压   压缩包内文件展示    环境配置配置环境变量MySQL配置文件 根目录下新建my-default.ini或my.ini文件并">
+<meta name="twitter:image" content="https://blog.jyusun.com/contents/20190328112159/unzip.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="EvanSun Home" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://blog.jyusun.com/contents/20190328112159.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基于Windows10安装配置及卸载MySQL8社区版 | EvanSun Home</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EvanSun Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">记录、分享</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.jyusun.com/contents/20190328112159.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evansun">
+      <meta itemprop="description" content="男人有实力，才有魅力~">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EvanSun Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">基于Windows10安装配置及卸载MySQL8社区版
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-28 11:21:59 / 修改时间：14:23:05" itemprop="dateCreated datePublished" datetime="2019-03-28T11:21:59+08:00">2019-03-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/" itemprop="url" rel="index"><span itemprop="name">环境部署</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/环境部署/Win/" itemprop="url" rel="index"><span itemprop="name">Win</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/contents/20190328112159.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/contents/20190328112159.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/contents/20190328112159.html" class="leancloud_visitors" data-flag-title="基于Windows10安装配置及卸载MySQL8社区版">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装配置及卸载MySQL8社区版"><a href="#安装配置及卸载MySQL8社区版" class="headerlink" title="安装配置及卸载MySQL8社区版"></a>安装配置及卸载MySQL8社区版</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>今天写一个工具，需要使用到数据库，于是在电脑上安装了一个MySQL8社区版数据库，对整个安装过程进行了如下整理。</li>
+</ul>
+<h2 id="下载MySQL并解压缩"><a href="#下载MySQL并解压缩" class="headerlink" title="下载MySQL并解压缩"></a>下载MySQL并解压缩</h2><h3 id="下载社区版"><a href="#下载社区版" class="headerlink" title="下载社区版"></a>下载社区版</h3><ul>
+<li>点击进入<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2Rvd25sb2Fkcy9teXNxbC8=" title="https://dev.mysql.com/downloads/mysql/">MySQL最新社区版下载<i class="fa fa-external-link"></i></span>页面</li>
+</ul>
+<h3 id="解压缩文件"><a href="#解压缩文件" class="headerlink" title="解压缩文件"></a>解压缩文件</h3><ul>
+<li><p>使用解压缩工具对压缩包进行解压</p>
+<img src="/contents/20190328112159/unzip.jpg" title="解压缩">
+</li>
+<li><p>压缩包内文件展示</p>
+<img src="/contents/20190328112159/showfiles.jpg" title="初始压缩包文件内容">
+</li>
+</ul>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><h3 id="MySQL配置文件"><a href="#MySQL配置文件" class="headerlink" title="MySQL配置文件"></a>MySQL配置文件</h3><ul>
+<li>根目录下新建<code>my-default.ini</code>或<code>my.ini</code>文件并添加以下内容</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Other default tuning values</span></span><br><span class="line"><span class="comment"># MySQL Server Instance Configuration File</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Generated by the MySQL Server Instance Configuration Wizard</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Installation Instructions</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># On Linux you can copy this file to /etc/my.cnf to set global options,</span></span><br><span class="line"><span class="comment"># mysql-data-dir/my.cnf to set server-specific options</span></span><br><span class="line"><span class="comment"># (@localstatedir@ for this installation) or to</span></span><br><span class="line"><span class="comment"># ~/.my.cnf to set user-specific options.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># On Windows you should keep this file in the installation directory </span></span><br><span class="line"><span class="comment"># of your server (e.g. C:\Program Files\MySQL\MySQL Server X.Y). To</span></span><br><span class="line"><span class="comment"># make sure the server reads the config file use the startup option </span></span><br><span class="line"><span class="comment"># "--defaults-file". </span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># To run run the server from the command line, execute this in a </span></span><br><span class="line"><span class="comment"># command line shell, e.g.</span></span><br><span class="line"><span class="comment"># mysqld --defaults-file="G:\Mysql\mysql-5.6.10-winx64\my.ini"</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># To install the server as a Windows service manually, execute this in a </span></span><br><span class="line"><span class="comment"># command line shell, e.g.</span></span><br><span class="line"><span class="comment"># mysqld --install MySQLXY --defaults-file="G:\Mysql\mysql-5.6.10-winx64\my.ini"</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># And then execute this in a command line shell to start the server, e.g.</span></span><br><span class="line"><span class="comment"># net start MySQLXY</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Guildlines for editing this file</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># In this file, you can use all long options that the program supports.</span></span><br><span class="line"><span class="comment"># If you want to know the options a program supports, start the program</span></span><br><span class="line"><span class="comment"># with the "--help" option.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># More detailed information about the individual options can also be</span></span><br><span class="line"><span class="comment"># found in the manual.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># CLIENT SECTION</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The following options will be read by MySQL client applications.</span></span><br><span class="line"><span class="comment"># Note that only client applications shipped by MySQL are guaranteed</span></span><br><span class="line"><span class="comment"># to read this section. If you want your own MySQL client program to</span></span><br><span class="line"><span class="comment"># honor these values, you need to specify it as an option during the</span></span><br><span class="line"><span class="comment"># MySQL client library initialization.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="comment">#password =1234	</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pipe</span></span><br><span class="line"><span class="comment"># socket=mysql</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"><span class="comment"># SERVER SECTION</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The following options will be read by the MySQL Server. Make sure that</span></span><br><span class="line"><span class="comment"># you have installed the server correctly (see above) so it reads this </span></span><br><span class="line"><span class="comment"># file.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># server_type=3</span></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The next three options are mutually exclusive to SERVER_PORT below.</span></span><br><span class="line"><span class="comment"># skip-networking</span></span><br><span class="line"><span class="comment"># enable-named-pipe</span></span><br><span class="line"><span class="comment"># The Pipe the MySQL Server will use</span></span><br><span class="line"><span class="comment"># socket=mysql</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The TCP/IP Port the MySQL Server will listen on</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Path to installation directory. All paths are usually resolved relative to this.</span></span><br><span class="line"><span class="attr">basedir</span>=%MYSQL_HOME%</span><br><span class="line"></span><br><span class="line"><span class="comment"># Path to the database root</span></span><br><span class="line"><span class="attr">datadir</span>=%MYSQL_HOME%/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># The default character set that will be used when a new schema or table is</span></span><br><span class="line"><span class="comment"># created and no character set is defined</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"></span><br><span class="line"><span class="comment"># The default storage engine that will be used when create new tables when</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the SQL mode to strict</span></span><br><span class="line"><span class="attr">sql-mode</span>=<span class="string">"STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable Windows Authentication</span></span><br><span class="line"><span class="comment"># plugin-load=authentication_windows.dll</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># General and Slow logging.</span></span><br><span class="line"><span class="attr">log-output</span>=NONE</span><br><span class="line"><span class="attr">general-log</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">general_log_file</span>=<span class="string">"database-mysql.log"</span></span><br><span class="line"><span class="attr">slow-query-log</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">slow_query_log_file</span>=<span class="string">"database-mysql-slow.log"</span></span><br><span class="line"><span class="attr">long_query_time</span>=<span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Binary Logging.</span></span><br><span class="line"><span class="comment"># log-bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Error Logging.</span></span><br><span class="line"><span class="attr">log-error</span>=<span class="string">"database-mysql.err"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The maximum amount of concurrent sessions the MySQL server will</span></span><br><span class="line"><span class="comment"># allow. One of these connections will be reserved for a user with</span></span><br><span class="line"><span class="comment"># SUPER privileges to allow the administrator to login even if the</span></span><br><span class="line"><span class="comment"># connection limit has been reached.</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Query cache is used to cache SELECT results and later return them</span></span><br><span class="line"><span class="comment"># without actual executing the same query once again. Having the query</span></span><br><span class="line"><span class="comment"># cache enabled may result in significant speed improvements, if your</span></span><br><span class="line"><span class="comment"># have a lot of identical queries and rarely changing tables. See the</span></span><br><span class="line"><span class="comment"># "Qcache_lowmem_prunes" status variable to check if the current value</span></span><br><span class="line"><span class="comment"># is high enough for your load.</span></span><br><span class="line"><span class="comment"># <span class="doctag">Note:</span> In case your tables change very often or if your queries are</span></span><br><span class="line"><span class="comment"># textually different every time, the query cache may result in a</span></span><br><span class="line"><span class="comment"># slowdown instead of a performance improvement.</span></span><br><span class="line"><span class="attr">query_cache_size</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The number of open tables for all threads. Increasing this value</span></span><br><span class="line"><span class="comment"># increases the number of file descriptors that mysqld requires.</span></span><br><span class="line"><span class="comment"># Therefore you have to make sure to set the amount of open files</span></span><br><span class="line"><span class="comment"># allowed to at least 4096 in the variable "open-files-limit" in</span></span><br><span class="line"><span class="comment"># section [mysqld_safe]</span></span><br><span class="line"><span class="attr">table_open_cache</span>=<span class="number">2000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Maximum size for internal (in-memory) temporary tables. If a table</span></span><br><span class="line"><span class="comment"># grows larger than this value, it is automatically converted to disk</span></span><br><span class="line"><span class="comment"># based table This limitation is for a single table. There can be many</span></span><br><span class="line"><span class="comment"># of them.</span></span><br><span class="line"><span class="attr">tmp_table_size</span>=<span class="number">20</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># How many threads we should keep in a cache for reuse. When a client</span></span><br><span class="line"><span class="comment"># disconnects, the client's threads are put in the cache if there aren't</span></span><br><span class="line"><span class="comment"># more than thread_cache_size threads from before.  This greatly reduces</span></span><br><span class="line"><span class="comment"># the amount of thread creations needed if you have a lot of new</span></span><br><span class="line"><span class="comment"># connections. (Normally this doesn't give a notable performance</span></span><br><span class="line"><span class="comment"># improvement if you have a good thread implementation.)</span></span><br><span class="line"><span class="attr">thread_cache_size</span>=<span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*** MyISAM Specific options</span></span><br><span class="line"><span class="comment"># The maximum size of the temporary file MySQL is allowed to use while</span></span><br><span class="line"><span class="comment"># recreating the index (during REPAIR, ALTER TABLE or LOAD DATA INFILE.</span></span><br><span class="line"><span class="comment"># If the file-size would be bigger than this, the index will be created</span></span><br><span class="line"><span class="comment"># through the key cache (which is slower).</span></span><br><span class="line"><span class="attr">myisam_max_sort_file_size</span>=<span class="number">100</span>G</span><br><span class="line"></span><br><span class="line"><span class="comment"># If the temporary file used for fast index creation would be bigger</span></span><br><span class="line"><span class="comment"># than using the key cache by the amount specified here, then prefer the</span></span><br><span class="line"><span class="comment"># key cache method.  This is mainly used to force long character keys in</span></span><br><span class="line"><span class="comment"># large tables to use the slower key cache method to create the index.</span></span><br><span class="line"><span class="attr">myisam_sort_buffer_size</span>=<span class="number">39</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of the Key Buffer, used to cache index blocks for MyISAM tables.</span></span><br><span class="line"><span class="comment"># Do not set it larger than 30% of your available memory, as some memory</span></span><br><span class="line"><span class="comment"># is also required by the OS to cache rows. Even if you're not using</span></span><br><span class="line"><span class="comment"># MyISAM tables, you should still set it to 8-64M as it will also be</span></span><br><span class="line"><span class="comment"># used for internal temporary disk tables.</span></span><br><span class="line"><span class="attr">key_buffer_size</span>=<span class="number">8</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of the buffer used for doing full table scans of MyISAM tables.</span></span><br><span class="line"><span class="comment"># Allocated per thread, if a full scan is needed.</span></span><br><span class="line"><span class="attr">read_buffer_size</span>=<span class="number">64</span>K</span><br><span class="line"><span class="attr">read_rnd_buffer_size</span>=<span class="number">256</span>K</span><br><span class="line"></span><br><span class="line"><span class="comment"># This buffer is allocated when MySQL needs to rebuild the index in</span></span><br><span class="line"><span class="comment"># REPAIR, OPTIMZE, ALTER table statements as well as in LOAD DATA INFILE</span></span><br><span class="line"><span class="comment"># into an empty table. It is allocated per thread so be careful with</span></span><br><span class="line"><span class="comment"># large settings.</span></span><br><span class="line"><span class="attr">sort_buffer_size</span>=<span class="number">256</span>K</span><br><span class="line"></span><br><span class="line"><span class="comment">#*** INNODB Specific options ***</span></span><br><span class="line"><span class="comment"># innodb_data_home_dir=0.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use this option if you have a MySQL server with InnoDB support enabled</span></span><br><span class="line"><span class="comment"># but you do not plan to use it. This will save memory and disk space</span></span><br><span class="line"><span class="comment"># and speed up some things.</span></span><br><span class="line"><span class="comment"># skip-innodb</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Additional memory pool that is used by InnoDB to store metadata</span></span><br><span class="line"><span class="comment"># information.  If InnoDB requires more memory for this purpose it will</span></span><br><span class="line"><span class="comment"># start to allocate it from the OS.  As this is fast enough on most</span></span><br><span class="line"><span class="comment"># recent operating systems, you normally do not need to change this</span></span><br><span class="line"><span class="comment"># value. SHOW INNODB STATUS will display the current amount used.</span></span><br><span class="line"><span class="attr">innodb_additional_mem_pool_size</span>=<span class="number">2</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># If set to 1, InnoDB will flush (fsync) the transaction logs to the</span></span><br><span class="line"><span class="comment"># disk at each commit, which offers full ACID behavior. If you are</span></span><br><span class="line"><span class="comment"># willing to compromise this safety, and you are running small</span></span><br><span class="line"><span class="comment"># transactions, you may set this to 0 or 2 to reduce disk I/O to the</span></span><br><span class="line"><span class="comment"># logs. Value 0 means that the log is only written to the log file and</span></span><br><span class="line"><span class="comment"># the log file flushed to disk approximately once per second. Value 2</span></span><br><span class="line"><span class="comment"># means the log is written to the log file at each commit, but the log</span></span><br><span class="line"><span class="comment"># file is only flushed to disk approximately once per second.</span></span><br><span class="line"><span class="attr">innodb_flush_log_at_trx_commit</span>=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The size of the buffer InnoDB uses for buffering log data. As soon as</span></span><br><span class="line"><span class="comment"># it is full, InnoDB will have to flush it to disk. As it is flushed</span></span><br><span class="line"><span class="comment"># once per second anyway, it does not make sense to have it very large</span></span><br><span class="line"><span class="comment"># (even with long transactions).</span></span><br><span class="line"><span class="attr">innodb_log_buffer_size</span>=<span class="number">1</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># InnoDB, unlike MyISAM, uses a buffer pool to cache both indexes and</span></span><br><span class="line"><span class="comment"># row data. The bigger you set this the less disk I/O is needed to</span></span><br><span class="line"><span class="comment"># access data in tables. On a dedicated database server you may set this</span></span><br><span class="line"><span class="comment"># parameter up to 80% of the machine physical memory size. Do not set it</span></span><br><span class="line"><span class="comment"># too large, though, because competition of the physical memory may</span></span><br><span class="line"><span class="comment"># cause paging in the operating system.  Note that on 32bit systems you</span></span><br><span class="line"><span class="comment"># might be limited to 2-3.5G of user level memory per process, so do not</span></span><br><span class="line"><span class="comment"># set it too high.</span></span><br><span class="line"><span class="attr">innodb_buffer_pool_size</span>=<span class="number">97</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of each log file in a log group. You should set the combined size</span></span><br><span class="line"><span class="comment"># of log files to about 25%-100% of your buffer pool size to avoid</span></span><br><span class="line"><span class="comment"># unneeded buffer pool flush activity on log file overwrite. However,</span></span><br><span class="line"><span class="comment"># note that a larger logfile size will increase the time needed for the</span></span><br><span class="line"><span class="comment"># recovery process.</span></span><br><span class="line"><span class="attr">innodb_log_file_size</span>=<span class="number">48</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of threads allowed inside the InnoDB kernel. The optimal value</span></span><br><span class="line"><span class="comment"># depends highly on the application, hardware as well as the OS</span></span><br><span class="line"><span class="comment"># scheduler properties. A too high value may lead to thread thrashing.</span></span><br><span class="line"><span class="attr">innodb_thread_concurrency</span>=<span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The increment size (in MB) for extending the size of an auto-extend InnoDB system tablespace file when it becomes full.</span></span><br><span class="line"><span class="attr">innodb_autoextend_increment</span>=<span class="number">64</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># The number of regions that the InnoDB buffer pool is divided into.</span></span><br><span class="line"><span class="comment"># For systems with buffer pools in the multi-gigabyte range, dividing the buffer pool into separate instances can improve concurrency,</span></span><br><span class="line"><span class="comment"># by reducing contention as different threads read and write to cached pages.</span></span><br><span class="line"><span class="attr">innodb_buffer_pool_instances</span>=<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Determines the number of threads that can enter InnoDB concurrently.</span></span><br><span class="line"><span class="attr">innodb_concurrency_tickets</span>=<span class="number">5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specifies how long in milliseconds (ms) a block inserted into the old sublist must stay there after its first access before</span></span><br><span class="line"><span class="comment"># it can be moved to the new sublist.</span></span><br><span class="line"><span class="attr">innodb_old_blocks_time</span>=<span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># It specifies the maximum number of .ibd files that MySQL can keep open at one time. The minimum value is 10.</span></span><br><span class="line"><span class="attr">innodb_open_files</span>=<span class="number">300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># When this variable is enabled, InnoDB updates statistics during metadata statements.</span></span><br><span class="line"><span class="attr">innodb_stats_on_metadata</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># When innodb_file_per_table is enabled (the default in 5.6.6 and higher), InnoDB stores the data and indexes for each newly created table</span></span><br><span class="line"><span class="comment"># in a separate .ibd file, rather than in the system tablespace.</span></span><br><span class="line"><span class="attr">innodb_file_per_table</span>=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use the following list of values: 0 for crc32, 1 for strict_crc32, 2 for innodb, 3 for strict_innodb, 4 for none, 5 for strict_none.</span></span><br><span class="line"><span class="attr">innodb_checksum_algorithm</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The number of outstanding connection requests MySQL can have.</span></span><br><span class="line"><span class="comment"># This option is useful when the main MySQL thread gets many connection requests in a very short time.</span></span><br><span class="line"><span class="comment"># It then takes some time (although very little) for the main thread to check the connection and start a new thread.</span></span><br><span class="line"><span class="comment"># The back_log value indicates how many requests can be stacked during this short time before MySQL momentarily</span></span><br><span class="line"><span class="comment"># stops answering new requests.</span></span><br><span class="line"><span class="comment"># You need to increase this only if you expect a large number of connections in a short period of time.</span></span><br><span class="line"><span class="attr">back_log</span>=<span class="number">70</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If this is set to a nonzero value, all tables are closed every flush_time seconds to free up resources and</span></span><br><span class="line"><span class="comment"># synchronize unflushed data to disk.</span></span><br><span class="line"><span class="comment"># This option is best used only on systems with minimal resources.</span></span><br><span class="line"><span class="attr">flush_time</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use</span></span><br><span class="line"><span class="comment"># indexes and thus perform full table scans.</span></span><br><span class="line"><span class="attr">join_buffer_size</span>=<span class="number">256</span>K</span><br><span class="line"></span><br><span class="line"><span class="comment"># The maximum size of one packet or any generated or intermediate string, or any parameter sent by the</span></span><br><span class="line"><span class="comment"># mysql_stmt_send_long_data() C API function.</span></span><br><span class="line"><span class="attr">max_allowed_packet</span>=<span class="number">4</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment"># If more than this many successive connection requests from a host are interrupted without a successful connection,</span></span><br><span class="line"><span class="comment"># the server blocks that host from performing further connections.</span></span><br><span class="line"><span class="attr">max_connect_errors</span>=<span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Changes the number of file descriptors available to mysqld.</span></span><br><span class="line"><span class="comment"># You should try increasing the value of this option if mysqld gives you the error "Too many open files".</span></span><br><span class="line"><span class="attr">open_files_limit</span>=<span class="number">4110</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the query cache type. 0 for OFF, 1 for ON and 2 for DEMAND.</span></span><br><span class="line"><span class="attr">query_cache_type</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If you see many sort_merge_passes per second in SHOW GLOBAL STATUS output, you can consider increasing the</span></span><br><span class="line"><span class="comment"># sort_buffer_size value to speed up ORDER BY or GROUP BY operations that cannot be improved with query optimization</span></span><br><span class="line"><span class="comment"># or improved indexing.</span></span><br><span class="line"><span class="attr">sort_buffer_size</span>=<span class="number">256</span>K</span><br><span class="line"></span><br><span class="line"><span class="comment"># The number of table definitions (from .frm files) that can be stored in the definition cache.</span></span><br><span class="line"><span class="comment"># If you use a large number of tables, you can create a large table definition cache to speed up opening of tables.</span></span><br><span class="line"><span class="comment"># The table definition cache takes less space and does not use file descriptors, unlike the normal table cache.</span></span><br><span class="line"><span class="comment"># The minimum and default values are both 400.</span></span><br><span class="line"><span class="attr">table_definition_cache</span>=<span class="number">1400</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specify the maximum size of a row-based binary log event, in bytes.</span></span><br><span class="line"><span class="comment"># Rows are grouped into events smaller than this size if possible. The value should be a multiple of 256.</span></span><br><span class="line"><span class="attr">binlog_row_event_max_size</span>=<span class="number">8</span>K</span><br><span class="line"></span><br><span class="line"><span class="comment"># If the value of this variable is greater than 0, a replication slave synchronizes its master.info file to disk.</span></span><br><span class="line"><span class="comment"># (using fdatasync()) after every sync_master_info events.</span></span><br><span class="line"><span class="attr">sync_master_info</span>=<span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If the value of this variable is greater than 0, the MySQL server synchronizes its relay log to disk.</span></span><br><span class="line"><span class="comment"># (using fdatasync()) after every sync_relay_log writes to the relay log.</span></span><br><span class="line"><span class="attr">sync_relay_log</span>=<span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If the value of this variable is greater than 0, a replication slave synchronizes its relay-log.info file to disk.</span></span><br><span class="line"><span class="comment"># (using fdatasync()) after every sync_relay_log_info transactions.</span></span><br><span class="line"><span class="attr">sync_relay_log_info</span>=<span class="number">10000</span></span><br></pre></td></tr></table></figure>
+<p>注：如果初始化过程中提示找不到路径<code>basedir</code>和<code>datadir</code>修改为绝对路径</p>
+<h2 id="数据库初始化"><a href="#数据库初始化" class="headerlink" title="数据库初始化"></a>数据库初始化</h2><h3 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h3><ul>
+<li><p>通过cmd窗口执行初始化数据库命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize --console</span><br></pre></td></tr></table></figure>
+<p>注：此命令执行成功会在<code>MYSQL_HOME/data</code>下生成一些文件及root用户初始密码。</p>
+<img src="/contents/20190328112159/init.jpg" title="数据库初始化">
+<p>注：红色部分为初始密码需要记录，也可在<code>MYSQL_HOME/data</code>路径下<code>主机名.err</code>文件中找到</p>
+</li>
+</ul>
+<h2 id="服务安装及启动"><a href="#服务安装及启动" class="headerlink" title="服务安装及启动"></a>服务安装及启动</h2><ul>
+<li>以管理员身份运行cmd窗口，执行下面的命令</li>
+</ul>
+<h3 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h3><ul>
+<li><p>将mysql服务安装到服务列表中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><ul>
+<li><p>启动mysql服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="安装完成测试"><a href="#安装完成测试" class="headerlink" title="安装完成测试"></a>安装完成测试</h2><ul>
+<li><p>通过工具<code>Navicat Premium</code>连接，登陆成功</p>
+<img src="/contents/20190328112159/ok.jpg" title="登陆成功">
+<p>注：第一次登陆会提示修改密码</p>
+</li>
+</ul>
+<h2 id="卸载MySQL数据库"><a href="#卸载MySQL数据库" class="headerlink" title="卸载MySQL数据库"></a>卸载MySQL数据库</h2><ul>
+<li>MySQL卸载步骤进行如下整理</li>
+</ul>
+<h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><ul>
+<li><p>sad</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h3><ul>
+<li><p>通过cmd窗口执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -remove</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="删除环境变量"><a href="#删除环境变量" class="headerlink" title="删除环境变量"></a>删除环境变量</h3><ul>
+<li>删除MySQL相关的环境变量</li>
+</ul>
+<h3 id="删除解压包"><a href="#删除解压包" class="headerlink" title="删除解压包"></a>删除解压包</h3><ul>
+<li>删除MySQL解压包，卸载完成</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+	
+		<div>
+			
+
+<div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+  
+  
+	<div class="post-gallery-row">
+	  <a class="post-gallery-img fancybox" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DQ7%2BOxHRJNU8cQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMSjJriMKVvzd5x%2BIUlGKNpUKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS9iw0%2FdWyiVaogaseAKBk0cTbU9KzMTtxpe7auY0HPYWszlTEcWhO9mCmht7GX%2FH9k%3D" rel="gallery_" target="_blank" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+		<img src="https://gw.alicdn.com/tfs/TB1p12MsQ9WBuNjSspeXXaz5VXa-440-180.jpg" itemprop="contentUrl" alt="天猫618">
+	  </a>
+	
+  
+	
+	  <a class="post-gallery-img fancybox" href="https://s.click.taobao.com/t?e=m%3D2%26s%3D2c9N%2F89tPiMcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMXJZeCVJPqDB8sviUM61dt0KzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B%2BUEclaRYva8F8WBkZipnv9sOkOOEWZ4E%2FnCA8IhtTQhnqXdg7YFDycSpj5qSCmbA%3D" rel="gallery_" target="_blank" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+		<img src="https://img.alicdn.com/tfs/TB125UMsMmTBuNjy1XbXXaMrVXa-440-180.jpg" itemprop="contentUrl" alt="2018年618理想生活狂欢季——聚划算主会场">
+	  </a>
+	
+  
+	
+	  <a class="post-gallery-img fancybox" href="https://s.click.taobao.com/t?e=m%3D2%26s%3D5xcD%2FIEjdhYcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMUG5eE0BPbCdxq3IhSJN6GQKzRB5pSb%2B3oLgBNn%2Fh8Y9fs5VlYBlFz5kblEZQzGoFcs%2Fhc73tO6KVYo%2BqyT%2FBa1NrKwvDJNPXkIGbLNY5ut4zueC0P1cNS%2B6zThPYvErzhJBFs1%2FyLxVPxey8%2Bhd8pyvTW5l3DCD30V92HL3DKLNSqwyt%2BH6DtO%2FMqT4SeHHMKTHNVRq3ENViYq%2BoOM2USF%2Bn%2B1pvicu6FXll1U39L8dNcwDbqGDeU3JefVee9XDEgxYVk%2BaFSeXxiXvDf8DaRs%3D" rel="gallery_" target="_blank" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+		<img src="https://img.alicdn.com/tfs/TB1GnfasntYBeNjy1XdXXXXyVXa-440-180.jpg" itemprop="contentUrl" alt="2018年618理想生活狂欢节—消费电子主会场">
+	  </a>
+	</div>
+  
+
+  
+  
+</div>
+
+		</div>
+	
+
+	
+	  <div>
+		
+    <div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢您的阅读------</div>
+    </div>
+
+	  </div>
+	
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="evansun 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="evansun 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>evansun</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://blog.jyusun.com/contents/20190328112159.html" title="基于Windows10安装配置及卸载MySQL8社区版">https://blog.jyusun.com/contents/20190328112159.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql安装/" rel="tag"><i class="fa fa-tag"></i> mysql安装</a>
+          
+            <a href="/tags/mysql卸载/" rel="tag"><i class="fa fa-tag"></i> mysql卸载</a>
+          
+            <a href="/tags/mysql8/" rel="tag"><i class="fa fa-tag"></i> mysql8</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/contents/20190321110041.html" rel="next" title="设置yum阿里源或本地源">
+                <i class="fa fa-chevron-left"></i> 设置yum阿里源或本地源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="evansun">
+            
+              <p class="site-author-name" itemprop="name">evansun</p>
+              <div class="site-description motion-element" itemprop="description">男人有实力，才有魅力~</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p5dXN1bg==" title="GitHub &rarr; https://github.com/jyusun"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOm1yLmV2YW5zdW5AZm94bWFpbC5jb20=" title="E-Mail &rarr; mailto:mr.evansun@foxmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly93d3cub3NjaGluYS5uZXQv" title="https://www.oschina.net/">开源中国</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2JhaWR1LmNvbS8=" title="http://baidu.com/">百度</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly93d3cuc29nb3UuY29tLw==" title="https://www.sogou.com/">搜狗</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装配置及卸载MySQL8社区版"><span class="nav-number">1.</span> <span class="nav-text">安装配置及卸载MySQL8社区版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载MySQL并解压缩"><span class="nav-number">1.2.</span> <span class="nav-text">下载MySQL并解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载社区版"><span class="nav-number">1.2.1.</span> <span class="nav-text">下载社区版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压缩文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">解压缩文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">1.3.</span> <span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.3.1.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL配置文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">MySQL配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库初始化"><span class="nav-number">1.4.</span> <span class="nav-text">数据库初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化数据库"><span class="nav-number">1.4.1.</span> <span class="nav-text">初始化数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务安装及启动"><span class="nav-number">1.5.</span> <span class="nav-text">服务安装及启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装服务"><span class="nav-number">1.5.1.</span> <span class="nav-text">安装服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">1.5.2.</span> <span class="nav-text">启动服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装完成测试"><span class="nav-number">1.6.</span> <span class="nav-text">安装完成测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载MySQL数据库"><span class="nav-number">1.7.</span> <span class="nav-text">卸载MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#停止服务"><span class="nav-number">1.7.1.</span> <span class="nav-text">停止服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载服务"><span class="nav-number">1.7.2.</span> <span class="nav-text">卸载服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除环境变量"><span class="nav-number">1.7.3.</span> <span class="nav-text">删除环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除解压包"><span class="nav-number">1.7.4.</span> <span class="nav-text">删除解压包</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evansun</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+   <div class="powered-by">
+		<i class="fa fa-user-md"></i>
+		<span id="busuanzi_container_site_pv">本站访客数:<span id="busuanzi_value_site_pv"></span>
+   </span>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+	  <div class="powered-by"></div>
+	  <span class="post-count">博客全站共:13.5k字</span>
+  </div>
+
+
+
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'vKR8bVdBfz65wqu5fvSJhdGa-gzGzoHsz',
+    appKey: 'OQRJPMAjTGxudDkXO9UTQcye',
+    placeholder: 'Just go go',
+    avatar: '/images/touxiang.png',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
