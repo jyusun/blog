@@ -598,6 +598,14 @@
 </li>
 </ul>
 <p>至此，docker-ce安装成功。</p>
+<h2 id="配置Docker随系统启动"><a href="#配置Docker随系统启动" class="headerlink" title="配置Docker随系统启动"></a>配置Docker随系统启动</h2><ul>
+<li><p>系统启动同时启动Doker服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>禁用此行为（系统启动时不启用docker服务）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable docker</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -876,7 +884,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -929,7 +937,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1119,7 +1129,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于CentOS7安装Docker-CE"><span class="nav-number">1.</span> <span class="nav-text">基于CentOS7安装Docker-CE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旧版本卸载"><span class="nav-number">1.2.</span> <span class="nav-text">旧版本卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装基础依赖"><span class="nav-number">1.3.</span> <span class="nav-text">安装基础依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定镜像存储库"><span class="nav-number">1.4.</span> <span class="nav-text">设定镜像存储库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装docker-ce"><span class="nav-number">1.5.</span> <span class="nav-text">安装docker-ce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装最新版本"><span class="nav-number">1.5.1.</span> <span class="nav-text">安装最新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装指定版本"><span class="nav-number">1.5.2.</span> <span class="nav-text">安装指定版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动并测试"><span class="nav-number">1.6.</span> <span class="nav-text">启动并测试</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于CentOS7安装Docker-CE"><span class="nav-number">1.</span> <span class="nav-text">基于CentOS7安装Docker-CE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旧版本卸载"><span class="nav-number">1.2.</span> <span class="nav-text">旧版本卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装基础依赖"><span class="nav-number">1.3.</span> <span class="nav-text">安装基础依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定镜像存储库"><span class="nav-number">1.4.</span> <span class="nav-text">设定镜像存储库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装docker-ce"><span class="nav-number">1.5.</span> <span class="nav-text">安装docker-ce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装最新版本"><span class="nav-number">1.5.1.</span> <span class="nav-text">安装最新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装指定版本"><span class="nav-number">1.5.2.</span> <span class="nav-text">安装指定版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动并测试"><span class="nav-number">1.6.</span> <span class="nav-text">启动并测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Docker随系统启动"><span class="nav-number">1.7.</span> <span class="nav-text">配置Docker随系统启动</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1171,7 +1181,7 @@
 
   <div class="theme-info">
 	  <div class="powered-by"></div>
-	  <span class="post-count">博客全站共:13.5k字</span>
+	  <span class="post-count">博客全站共:14k字</span>
   </div>
 
 
