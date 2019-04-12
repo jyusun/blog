@@ -108,14 +108,17 @@
 
 
 
-  <meta name="description" content="基于Docker搭建Gitlab社区版前言 之前搭建Gitlab是直接在服务器上搭建的，本次基于Docker对Gitlab服务搭建及使用进行了整理。  搜索和拉取镜像 在远端仓库中搜索Gitlab 1docker search gitlab  拉取最新镜像 1docker pull gitlab/gitlab-ce   运行镜像 新建配置文件挂载文件夹 1mkdir -p /var/gitlab/">
+  <meta name="description" content="基于Docker搭建Gitlab社区版前言 之前搭建Gitlab是直接在服务器上搭建的，本次基于Docker对Gitlab服务搭建及使用进行了整理。  搜索和拉取镜像 在远端仓库中搜索Gitlab 1docker search gitlab  拉取最新镜像 1docker pull gitlab/gitlab-ce   运行镜像及配置新建数据挂载路径 新建配置文件挂载文件夹 1mkdir -p /">
 <meta name="keywords" content="gitlab,gitlab-ce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Docker搭建Gitlab社区版">
 <meta property="og:url" content="https://blog.jyusun.com/contents/20190316102007.html">
 <meta property="og:site_name" content="EvanSun Home">
-<meta property="og:description" content="基于Docker搭建Gitlab社区版前言 之前搭建Gitlab是直接在服务器上搭建的，本次基于Docker对Gitlab服务搭建及使用进行了整理。  搜索和拉取镜像 在远端仓库中搜索Gitlab 1docker search gitlab  拉取最新镜像 1docker pull gitlab/gitlab-ce   运行镜像 新建配置文件挂载文件夹 1mkdir -p /var/gitlab/">
+<meta property="og:description" content="基于Docker搭建Gitlab社区版前言 之前搭建Gitlab是直接在服务器上搭建的，本次基于Docker对Gitlab服务搭建及使用进行了整理。  搜索和拉取镜像 在远端仓库中搜索Gitlab 1docker search gitlab  拉取最新镜像 1docker pull gitlab/gitlab-ce   运行镜像及配置新建数据挂载路径 新建配置文件挂载文件夹 1mkdir -p /">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/dockerid.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/external_url.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/gitlabyml.jpg">
 <meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/initpass.jpg">
 <meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/login.jpg">
 <meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/index.jpg">
@@ -124,11 +127,14 @@
 <meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/groupnew.jpg">
 <meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/createproject.jpg">
 <meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/createproject.jpg">
-<meta property="og:updated_time" content="2019-04-12T04:12:52.948Z">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/createuser.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/adduser.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20190316102007/groupauthuser.jpg">
+<meta property="og:updated_time" content="2019-04-12T10:38:48.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Docker搭建Gitlab社区版">
-<meta name="twitter:description" content="基于Docker搭建Gitlab社区版前言 之前搭建Gitlab是直接在服务器上搭建的，本次基于Docker对Gitlab服务搭建及使用进行了整理。  搜索和拉取镜像 在远端仓库中搜索Gitlab 1docker search gitlab  拉取最新镜像 1docker pull gitlab/gitlab-ce   运行镜像 新建配置文件挂载文件夹 1mkdir -p /var/gitlab/">
-<meta name="twitter:image" content="https://blog.jyusun.com/contents/20190316102007/initpass.jpg">
+<meta name="twitter:description" content="基于Docker搭建Gitlab社区版前言 之前搭建Gitlab是直接在服务器上搭建的，本次基于Docker对Gitlab服务搭建及使用进行了整理。  搜索和拉取镜像 在远端仓库中搜索Gitlab 1docker search gitlab  拉取最新镜像 1docker pull gitlab/gitlab-ce   运行镜像及配置新建数据挂载路径 新建配置文件挂载文件夹 1mkdir -p /">
+<meta name="twitter:image" content="https://blog.jyusun.com/contents/20190316102007/dockerid.jpg">
 
 
 
@@ -490,7 +496,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-12 12:12:52" itemprop="dateModified" datetime="2019-04-12T12:12:52+08:00">2019-04-12</time>
+                <time title="修改时间：2019-04-12 18:38:48" itemprop="dateModified" datetime="2019-04-12T18:38:48+08:00">2019-04-12</time>
               
             
           </span>
@@ -584,7 +590,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h2><ul>
+<h2 id="运行镜像及配置"><a href="#运行镜像及配置" class="headerlink" title="运行镜像及配置"></a>运行镜像及配置</h2><h3 id="新建数据挂载路径"><a href="#新建数据挂载路径" class="headerlink" title="新建数据挂载路径"></a>新建数据挂载路径</h3><ul>
 <li><p>新建配置文件挂载文件夹</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/gitlab/etc</span><br></pre></td></tr></table></figure>
 </li>
@@ -594,9 +600,31 @@
 <li><p>新建数据挂载文件夹</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/gitlab/data</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>运行Gitlab镜像并指定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">    --detach \</span><br><span class="line">    --publish 8443:443 \</span><br><span class="line">    --publish 9999:80 \</span><br><span class="line">    --publish 2222:22 \</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    -e &apos;GITLAB_HOST=192.168.233.201:9999&apos; \</span><br><span class="line">    -v /var/gitlab/etc:/etc/gitlab \</span><br><span class="line">    -v /var/gitlab/logs:/var/log/gitlab \</span><br><span class="line">    -v /var/gitlab/data:/var/opt/gitlab \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
-<p>注：初次启动需要初始化配置，启动稍慢2~3分钟，报502错误稍等一会再次刷新即可，新版本目前测试不需要改redis配置文件直接可用</p>
+</ul>
+<h3 id="运行Gitlab镜像"><a href="#运行Gitlab镜像" class="headerlink" title="运行Gitlab镜像"></a>运行Gitlab镜像</h3><ul>
+<li><p>运行Gitlab镜像并指定相关配置地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">    --detach \</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --hostname 192.168.233.201:9999 \</span><br><span class="line">    --publish 2222:22 \</span><br><span class="line">    --publish 8443:443 \</span><br><span class="line">    --publish 9998:80 \</span><br><span class="line">    --publish 9999:9999 \</span><br><span class="line">    --restart always \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    -v /var/gitlab/etc:/etc/gitlab \</span><br><span class="line">    -v /var/gitlab/logs:/var/log/gitlab \</span><br><span class="line">    -v /var/gitlab/data:/var/opt/gitlab \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+<p>注：初次启动需要初始化配置，启动稍慢2~3分钟，访问报502错误稍等一会再次刷新即可</p>
+<blockquote>
+<p>docker run \<br> –detach \ #后台运行<br> –name gitlab \ #镜像名称<br> –hostname 192.168.233.201:9999 \ #容器主机名称，如不配置会默认为DockerID 此时仓库地址会存在问题<br> –publish 2222:22 \  #内部sshd服务端口<br> –publish 8443:443 \ #https端口<br> –publish 9999:9999 \ #访问端口映射，仓库也可以配置单独的外部地址<br> –restart always \<br> –restart unless-stopped \<br> -v /var/gitlab/etc:/etc/gitlab \      #配置文件<br> -v /var/gitlab/logs:/var/log/gitlab \ #日志文件<br> -v /var/gitlab/data:/var/opt/gitlab \ #数据存储<br> gitlab/gitlab-ce:latest   #官方镜像源</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="配置文件（未指定hostname时）"><a href="#配置文件（未指定hostname时）" class="headerlink" title="配置文件（未指定hostname时）"></a>配置文件（未指定hostname时）</h3><ul>
+<li><p>启动效果，资源仓库地址为dockerid，需要调整</p>
+<img src="/contents/20190316102007/dockerid.jpg" title="访问地址展示为dockerid">
+</li>
+<li><p>编辑gitlab.rb配置仓库访问地址，默认初始化为docker的host，需要改为外部地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -t -i gitlab vim /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>external_url <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMjMzLjIwMTo5OTk5" title="http://192.168.233.201:9999">http://192.168.233.201:9999<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<img src="/contents/20190316102007/external_url.jpg" title="访问地址">
+</li>
+<li><p>修改完成，重新生成配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -t -i gitlab gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<p>注：网上大多数都是说<code>/var/gitlab/data/gitlab-rails/etc/gitlab.yml</code>文件，此文件是根据<code>gitlab.rb</code>生成的，直接修改此文件如果重新生成配置，修改就会被覆盖，如图所示</p>
+<img src="/contents/20190316102007/gitlabyml.jpg" title="gitlabyml说明">
 </li>
 </ul>
 <h2 id="基础使用教程"><a href="#基础使用教程" class="headerlink" title="基础使用教程"></a>基础使用教程</h2><ul>
@@ -641,10 +669,17 @@
 <li>一般公司内部会关闭注册功能</li>
 </ul>
 <h3 id="管理员新建用户"><a href="#管理员新建用户" class="headerlink" title="管理员新建用户"></a>管理员新建用户</h3><ul>
-<li>待续…</li>
+<li><p>点击新建用户按钮</p>
+<img src="/contents/20190316102007/createuser.jpg" title="创建用户">
+</li>
+<li><p>添加相关信息创建用户</p>
+<img src="/contents/20190316102007/adduser.jpg" title="添加用户">
+</li>
 </ul>
-<h3 id="组授权"><a href="#组授权" class="headerlink" title="组授权"></a>组授权</h3><ul>
-<li>待续…</li>
+<h3 id="将用户添加到组"><a href="#将用户添加到组" class="headerlink" title="将用户添加到组"></a>将用户添加到组</h3><ul>
+<li><p>将用户添加到组中，使其对组内项目有使用权限</p>
+<img src="/contents/20190316102007/groupauthuser.jpg">
+</li>
 </ul>
 <h3 id="项目授权"><a href="#项目授权" class="headerlink" title="项目授权"></a>项目授权</h3><ul>
 <li>待续…</li>
@@ -1186,7 +1221,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Docker搭建Gitlab社区版"><span class="nav-number">1.</span> <span class="nav-text">基于Docker搭建Gitlab社区版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索和拉取镜像"><span class="nav-number">1.2.</span> <span class="nav-text">搜索和拉取镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行镜像"><span class="nav-number">1.3.</span> <span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础使用教程"><span class="nav-number">1.4.</span> <span class="nav-text">基础使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础设置及展示"><span class="nav-number">1.4.1.</span> <span class="nav-text">基础设置及展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目组"><span class="nav-number">1.4.2.</span> <span class="nav-text">新建项目组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目"><span class="nav-number">1.4.3.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户注册"><span class="nav-number">1.4.4.</span> <span class="nav-text">用户注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员新建用户"><span class="nav-number">1.4.5.</span> <span class="nav-text">管理员新建用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组授权"><span class="nav-number">1.4.6.</span> <span class="nav-text">组授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目授权"><span class="nav-number">1.4.7.</span> <span class="nav-text">项目授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传项目"><span class="nav-number">1.4.8.</span> <span class="nav-text">上传项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载项目"><span class="nav-number">1.4.9.</span> <span class="nav-text">下载项目</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Docker搭建Gitlab社区版"><span class="nav-number">1.</span> <span class="nav-text">基于Docker搭建Gitlab社区版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索和拉取镜像"><span class="nav-number">1.2.</span> <span class="nav-text">搜索和拉取镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行镜像及配置"><span class="nav-number">1.3.</span> <span class="nav-text">运行镜像及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建数据挂载路径"><span class="nav-number">1.3.1.</span> <span class="nav-text">新建数据挂载路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行Gitlab镜像"><span class="nav-number">1.3.2.</span> <span class="nav-text">运行Gitlab镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件（未指定hostname时）"><span class="nav-number">1.3.3.</span> <span class="nav-text">配置文件（未指定hostname时）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础使用教程"><span class="nav-number">1.4.</span> <span class="nav-text">基础使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础设置及展示"><span class="nav-number">1.4.1.</span> <span class="nav-text">基础设置及展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目组"><span class="nav-number">1.4.2.</span> <span class="nav-text">新建项目组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目"><span class="nav-number">1.4.3.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户注册"><span class="nav-number">1.4.4.</span> <span class="nav-text">用户注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员新建用户"><span class="nav-number">1.4.5.</span> <span class="nav-text">管理员新建用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将用户添加到组"><span class="nav-number">1.4.6.</span> <span class="nav-text">将用户添加到组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目授权"><span class="nav-number">1.4.7.</span> <span class="nav-text">项目授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传项目"><span class="nav-number">1.4.8.</span> <span class="nav-text">上传项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载项目"><span class="nav-number">1.4.9.</span> <span class="nav-text">下载项目</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1238,7 +1273,7 @@
 
   <div class="theme-info">
 	  <div class="powered-by"></div>
-	  <span class="post-count">博客全站共:14k字</span>
+	  <span class="post-count">博客全站共:14.3k字</span>
   </div>
 
 
