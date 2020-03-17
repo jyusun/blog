@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jyusun.com/"/>
-  <updated>2020-02-12T09:41:06.828Z</updated>
+  <updated>2020-02-01T02:20:31.000Z</updated>
   <id>https://blog.jyusun.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS配置Docker阿里镜像加速</title>
+    <link href="https://blog.jyusun.com/contents/20200201102031.html"/>
+    <id>https://blog.jyusun.com/contents/20200201102031.html</id>
+    <published>2020-02-01T02:20:31.000Z</published>
+    <updated>2020-02-01T02:20:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CentOS配置Docker阿里镜像加速"><a href="#CentOS配置Docker阿里镜像加速" class="headerlink" title="CentOS配置Docker阿里镜像加速"></a>CentOS配置Docker阿里镜像加速</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul><li>由于默认的Docker镜像是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题。</li><li>推荐安装1.10.0以上版本的Docker客户端，参考文档 <span class="exturl" data-url="aHR0cHM6Ly95cS5hbGl5dW4uY29tL2FydGljbGVzLzExMDgwNg==" title="https://yq.aliyun.com/articles/110806">docker-ce<i class="fa fa-external-link"></i></span> </li></ul><h2 id="登陆阿里云"><a href="#登陆阿里云" class="headerlink" title="登陆阿里云"></a>登陆阿里云</h2><ul><li>阿里云镜像加速地址：<span class="exturl" data-url="aHR0cHM6Ly9jci5jb25zb2xlLmFsaXl1bi5jb20vY24tc2hhbmdoYWkvaW5zdGFuY2VzL21pcnJvcnM=" title="https://cr.console.aliyun.com/cn-shanghai/instances/mirrors">点击获取<i class="fa fa-external-link"></i></span></li></ul><h2 id="配置镜像加速器"><a href="#配置镜像加速器" class="headerlink" title="配置镜像加速器"></a>配置镜像加速器</h2><ul><li><p>针对Docker客户端版本大于 1.10.0 的用户</p><p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</p></li><li><p>创建docker配置文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br></pre></td></tr></table></figure></li><li><p>将加速地址写入配置daemon.json</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://l46iaapq.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li><li><p>重新加载配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure></li><li><p>重启docker使配置生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li><li><p>查看配置生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure><p>可以看到末尾Registry Mirrors 新增阿里云加速地址</p><blockquote><p>Client:<br>Debug Mode: false</p><p>Server:<br>Containers: 1<br> Running: 0<br> Paused: 0<br> Stopped: 1<br>Images: 1<br>Server Version: 19.03.6<br>Storage Driver: overlay2<br> Backing Filesystem: xfs<br> Supports d_type: true<br> Native Overlay Diff: true<br>Logging Driver: json-file<br>Cgroup Driver: cgroupfs<br>Plugins:<br> Volume: local<br> Network: bridge host ipvlan macvlan null overlay<br> Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog<br>Swarm: inactive<br>Runtimes: runc<br>Default Runtime: runc<br>Init Binary: docker-init<br>containerd version: 894b81a4b802e4eb2a91d1ce216b8817763c29fb<br>runc version: 425e105d5a03fabd737a126ad93d62a9eeede87f<br>init version: fec3683<br>Security Options:<br> seccomp<br>  Profile: default<br>Kernel Version: 4.18.0-147.5.1.el8_1.x86_64<br>Operating System: CentOS Linux 8 (Core)<br>OSType: linux<br>Architecture: x86_64<br>CPUs: 1<br>Total Memory: 1.787GiB<br>Name: basic<br>ID: 3Z7R:4VMD:RMKB:PCOI:TBNS:J7GT:I4ES:6UIO:7NRE:NNLY:WWOT:365Q<br>Docker Root Dir: /var/lib/docker<br>Debug Mode: false<br>Registry: <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5kb2NrZXIuaW8vdjEv" title="https://index.docker.io/v1/">https://index.docker.io/v1/<i class="fa fa-external-link"></i></span><br>Labels:<br>Experimental: false<br>Insecure Registries:<br> 127.0.0.0/8<br>Registry Mirrors:<br> https://<em>**</em>.mirror.aliyuncs.com/<br>Live Restore Enabled: false</p></blockquote></li></ul><p>至此docker加速器配置完成</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;CentOS配置Docker阿里镜像加速&quot;&gt;&lt;a href=&quot;#CentOS配置Docker阿里镜像加速&quot; class=&quot;headerlink&quot; title=&quot;CentOS配置Docker阿里镜像加速&quot;&gt;&lt;/a&gt;CentOS配置Docker阿里镜像加速&lt;/h1&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Docker" scheme="https://blog.jyusun.com/tags/Docker/"/>
+    
+      <category term="镜像加速" scheme="https://blog.jyusun.com/tags/%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>idea-Java导入设置</title>
@@ -352,35 +381,6 @@
       <category term="免密登陆" scheme="https://blog.jyusun.com/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86/"/>
     
       <category term="公钥认证" scheme="https://blog.jyusun.com/tags/%E5%85%AC%E9%92%A5%E8%AE%A4%E8%AF%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS配置Docker阿里镜像加速</title>
-    <link href="https://blog.jyusun.com/contents/20190218182031.html"/>
-    <id>https://blog.jyusun.com/contents/20190218182031.html</id>
-    <published>2019-02-18T10:20:31.000Z</published>
-    <updated>2019-02-18T12:15:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="CentOS配置Docker阿里镜像加速"><a href="#CentOS配置Docker阿里镜像加速" class="headerlink" title="CentOS配置Docker阿里镜像加速"></a>CentOS配置Docker阿里镜像加速</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul><li>由于默认的Docker镜像是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题。</li><li>推荐安装1.10.0以上版本的Docker客户端，参考文档 <span class="exturl" data-url="aHR0cHM6Ly95cS5hbGl5dW4uY29tL2FydGljbGVzLzExMDgwNg==" title="https://yq.aliyun.com/articles/110806">docker-ce<i class="fa fa-external-link"></i></span> </li></ul><h2 id="登陆阿里云"><a href="#登陆阿里云" class="headerlink" title="登陆阿里云"></a>登陆阿里云</h2><ul><li>阿里云镜像加速地址：<span class="exturl" data-url="aHR0cHM6Ly9jci5jb25zb2xlLmFsaXl1bi5jb20vY24tc2hhbmdoYWkvaW5zdGFuY2VzL21pcnJvcnM=" title="https://cr.console.aliyun.com/cn-shanghai/instances/mirrors">点击获取<i class="fa fa-external-link"></i></span></li></ul><h2 id="配置镜像加速器"><a href="#配置镜像加速器" class="headerlink" title="配置镜像加速器"></a>配置镜像加速器</h2><ul><li><p>针对Docker客户端版本大于 1.10.0 的用户</p><p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</p></li><li><p>创建docker配置文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br></pre></td></tr></table></figure></li><li><p>将加速地址写入配置daemon.json</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://l46iaapq.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li><li><p>重新加载配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure></li><li><p>重启docker使配置生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li><li><p>查看配置生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure><p>可以看到末尾Registry Mirrors 新增阿里云加速地址</p><blockquote><p>Client:<br>Debug Mode: false</p><p>Server:<br>Containers: 1<br> Running: 0<br> Paused: 0<br> Stopped: 1<br>Images: 1<br>Server Version: 19.03.6<br>Storage Driver: overlay2<br> Backing Filesystem: xfs<br> Supports d_type: true<br> Native Overlay Diff: true<br>Logging Driver: json-file<br>Cgroup Driver: cgroupfs<br>Plugins:<br> Volume: local<br> Network: bridge host ipvlan macvlan null overlay<br> Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog<br>Swarm: inactive<br>Runtimes: runc<br>Default Runtime: runc<br>Init Binary: docker-init<br>containerd version: 894b81a4b802e4eb2a91d1ce216b8817763c29fb<br>runc version: 425e105d5a03fabd737a126ad93d62a9eeede87f<br>init version: fec3683<br>Security Options:<br> seccomp<br>  Profile: default<br>Kernel Version: 4.18.0-147.5.1.el8_1.x86_64<br>Operating System: CentOS Linux 8 (Core)<br>OSType: linux<br>Architecture: x86_64<br>CPUs: 1<br>Total Memory: 1.787GiB<br>Name: basic<br>ID: 3Z7R:4VMD:RMKB:PCOI:TBNS:J7GT:I4ES:6UIO:7NRE:NNLY:WWOT:365Q<br>Docker Root Dir: /var/lib/docker<br>Debug Mode: false<br>Registry: <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5kb2NrZXIuaW8vdjEv" title="https://index.docker.io/v1/">https://index.docker.io/v1/<i class="fa fa-external-link"></i></span><br>Labels:<br>Experimental: false<br>Insecure Registries:<br> 127.0.0.0/8<br>Registry Mirrors:<br> https://<em>**</em>.mirror.aliyuncs.com/<br>Live Restore Enabled: false</p></blockquote></li></ul><p>至此docker加速器配置完成</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;CentOS配置Docker阿里镜像加速&quot;&gt;&lt;a href=&quot;#CentOS配置Docker阿里镜像加速&quot; class=&quot;headerlink&quot; title=&quot;CentOS配置Docker阿里镜像加速&quot;&gt;&lt;/a&gt;CentOS配置Docker阿里镜像加速&lt;/h1&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="Docker" scheme="https://blog.jyusun.com/tags/Docker/"/>
-    
-      <category term="镜像加速" scheme="https://blog.jyusun.com/tags/%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/"/>
     
   </entry>
   
