@@ -108,23 +108,18 @@
 
 
 
-  <meta name="description" content="配置SSH免密登陆前言 test  生成.ssh文件夹 新安装的系统用户下一般情况下没有.ssh的文件夹  查看 1cd ~ &amp;amp; ls -al   执行命令生成 1ssh localhost    生成公钥、私钥 用于配置免密登陆 1ssh-keygen -t rsa -P &apos;&apos; -f ~/.ssh/id_rsa    authorized_keys文件 将公钥（id_rsa.pub）写入">
-<meta name="keywords" content="免密登陆,公钥认证">
+  <meta name="description" content="CentOS配置Docker阿里镜像加速概述 由于默认的Docker镜像是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题。 推荐安装1.10.0以上版本的Docker客户端，参考文档 docker-ce   登陆阿里云 阿里云镜像加速地址：点击获取  配置镜像加速器 针对Docker客户端版本大于 1.10.0 的用户 您可以通过修改daemon配置文件/etc/docker">
+<meta name="keywords" content="Docker,镜像加速">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置SSH免密登陆">
+<meta property="og:title" content="CentOS配置Docker阿里镜像加速">
 <meta property="og:url" content="https://blog.jyusun.com/contents/20190218182031.html">
 <meta property="og:site_name" content="EvanSun Home">
-<meta property="og:description" content="配置SSH免密登陆前言 test  生成.ssh文件夹 新安装的系统用户下一般情况下没有.ssh的文件夹  查看 1cd ~ &amp;amp; ls -al   执行命令生成 1ssh localhost    生成公钥、私钥 用于配置免密登陆 1ssh-keygen -t rsa -P &apos;&apos; -f ~/.ssh/id_rsa    authorized_keys文件 将公钥（id_rsa.pub）写入">
+<meta property="og:description" content="CentOS配置Docker阿里镜像加速概述 由于默认的Docker镜像是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题。 推荐安装1.10.0以上版本的Docker客户端，参考文档 docker-ce   登陆阿里云 阿里云镜像加速地址：点击获取  配置镜像加速器 针对Docker客户端版本大于 1.10.0 的用户 您可以通过修改daemon配置文件/etc/docker">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/1.jpg">
-<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/2.jpg">
-<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/3.jpg">
-<meta property="og:image" content="https://blog.jyusun.com/contents/20190218182031/4.jpg">
 <meta property="og:updated_time" content="2019-02-18T12:15:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置SSH免密登陆">
-<meta name="twitter:description" content="配置SSH免密登陆前言 test  生成.ssh文件夹 新安装的系统用户下一般情况下没有.ssh的文件夹  查看 1cd ~ &amp;amp; ls -al   执行命令生成 1ssh localhost    生成公钥、私钥 用于配置免密登陆 1ssh-keygen -t rsa -P &apos;&apos; -f ~/.ssh/id_rsa    authorized_keys文件 将公钥（id_rsa.pub）写入">
-<meta name="twitter:image" content="https://blog.jyusun.com/contents/20190218182031/1.jpg">
+<meta name="twitter:title" content="CentOS配置Docker阿里镜像加速">
+<meta name="twitter:description" content="CentOS配置Docker阿里镜像加速概述 由于默认的Docker镜像是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题。 推荐安装1.10.0以上版本的Docker客户端，参考文档 docker-ce   登陆阿里云 阿里云镜像加速地址：点击获取  配置镜像加速器 针对Docker客户端版本大于 1.10.0 的用户 您可以通过修改daemon配置文件/etc/docker">
 
 
 
@@ -143,7 +138,7 @@
   };
 </script>
 
-  <title>配置SSH免密登陆 | EvanSun Home</title>
+  <title>CentOS配置Docker阿里镜像加速 | EvanSun Home</title>
   
 
 
@@ -443,7 +438,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">配置SSH免密登陆
+          <h2 class="post-title" itemprop="name headline">CentOS配置Docker阿里镜像加速
 
               
             
@@ -526,7 +521,7 @@
 
           
           
-            <span id="/contents/20190218182031.html" class="leancloud_visitors" data-flag-title="配置SSH免密登陆">
+            <span id="/contents/20190218182031.html" class="leancloud_visitors" data-flag-title="CentOS配置Docker阿里镜像加速">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -557,59 +552,39 @@
       
 
       
-        <h1 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>test</li>
+        <h1 id="CentOS配置Docker阿里镜像加速"><a href="#CentOS配置Docker阿里镜像加速" class="headerlink" title="CentOS配置Docker阿里镜像加速"></a>CentOS配置Docker阿里镜像加速</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>由于默认的Docker镜像是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题。</li>
+<li>推荐安装1.10.0以上版本的Docker客户端，参考文档 <span class="exturl" data-url="aHR0cHM6Ly95cS5hbGl5dW4uY29tL2FydGljbGVzLzExMDgwNg==" title="https://yq.aliyun.com/articles/110806">docker-ce<i class="fa fa-external-link"></i></span> </li>
 </ul>
-<h2 id="生成-ssh文件夹"><a href="#生成-ssh文件夹" class="headerlink" title="生成.ssh文件夹"></a>生成.ssh文件夹</h2><ul>
-<li><p>新安装的系统用户下一般情况下没有.ssh的文件夹</p>
-</li>
-<li><p>查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~ &amp; ls -al</span><br></pre></td></tr></table></figure>
-<img src="/contents/20190218182031/1.jpg" title="ssh文件夹查看">
-</li>
-<li><p>执行命令生成</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
-<img src="/contents/20190218182031/2.jpg" title="ssh localhost">
-</li>
+<h2 id="登陆阿里云"><a href="#登陆阿里云" class="headerlink" title="登陆阿里云"></a>登陆阿里云</h2><ul>
+<li>阿里云镜像加速地址：<span class="exturl" data-url="aHR0cHM6Ly9jci5jb25zb2xlLmFsaXl1bi5jb20vY24tc2hhbmdoYWkvaW5zdGFuY2VzL21pcnJvcnM=" title="https://cr.console.aliyun.com/cn-shanghai/instances/mirrors">点击获取<i class="fa fa-external-link"></i></span></li>
 </ul>
-<h2 id="生成公钥、私钥"><a href="#生成公钥、私钥" class="headerlink" title="生成公钥、私钥"></a>生成公钥、私钥</h2><ul>
-<li><p>用于配置免密登陆</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<img src="/contents/20190218182031/3.jpg" title="生成公钥私钥">
+<h2 id="配置镜像加速器"><a href="#配置镜像加速器" class="headerlink" title="配置镜像加速器"></a>配置镜像加速器</h2><ul>
+<li><p>针对Docker客户端版本大于 1.10.0 的用户</p>
+<p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</p>
 </li>
-</ul>
-<h2 id="authorized-keys文件"><a href="#authorized-keys文件" class="headerlink" title="authorized_keys文件"></a>authorized_keys文件</h2><ul>
-<li><p>将公钥（id_rsa.pub）写入到authorized_keys文件中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<li><p>创建docker配置文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<h2 id="文件授权"><a href="#文件授权" class="headerlink" title="文件授权"></a>文件授权</h2><ul>
-<li><p>SSH公钥生效需满足至少下面两个条件：</p>
+<li><p>将加速地址写入配置daemon.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://l46iaapq.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新加载配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启docker使配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<p>可以看到末尾Registry Mirrors 新增阿里云加速地址</p>
 <blockquote>
-<ol>
-<li>目录.ssh的权限必须是700，由于上面是通过ssh localhost生成的文件夹故此满足此条件；</li>
-<li>文件.ssh/authorized_keys权限必须是600；</li>
-</ol>
+<p>Client:<br>Debug Mode: false</p>
+<p>Server:<br>Containers: 1<br> Running: 0<br> Paused: 0<br> Stopped: 1<br>Images: 1<br>Server Version: 19.03.6<br>Storage Driver: overlay2<br> Backing Filesystem: xfs<br> Supports d_type: true<br> Native Overlay Diff: true<br>Logging Driver: json-file<br>Cgroup Driver: cgroupfs<br>Plugins:<br> Volume: local<br> Network: bridge host ipvlan macvlan null overlay<br> Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog<br>Swarm: inactive<br>Runtimes: runc<br>Default Runtime: runc<br>Init Binary: docker-init<br>containerd version: 894b81a4b802e4eb2a91d1ce216b8817763c29fb<br>runc version: 425e105d5a03fabd737a126ad93d62a9eeede87f<br>init version: fec3683<br>Security Options:<br> seccomp<br>  Profile: default<br>Kernel Version: 4.18.0-147.5.1.el8_1.x86_64<br>Operating System: CentOS Linux 8 (Core)<br>OSType: linux<br>Architecture: x86_64<br>CPUs: 1<br>Total Memory: 1.787GiB<br>Name: basic<br>ID: 3Z7R:4VMD:RMKB:PCOI:TBNS:J7GT:I4ES:6UIO:7NRE:NNLY:WWOT:365Q<br>Docker Root Dir: /var/lib/docker<br>Debug Mode: false<br>Registry: <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5kb2NrZXIuaW8vdjEv" title="https://index.docker.io/v1/">https://index.docker.io/v1/<i class="fa fa-external-link"></i></span><br>Labels:<br>Experimental: false<br>Insecure Registries:<br> 127.0.0.0/8<br>Registry Mirrors:<br> https://<em>**</em>.mirror.aliyuncs.com/<br>Live Restore Enabled: false</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="验证配置"><a href="#验证配置" class="headerlink" title="验证配置"></a>验证配置</h2><ul>
-<li><p>将公钥（id_rsa.pub）写入到authorized_keys文件中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
-<img src="/contents/20190218182031/4.jpg" title="验证成功">
-<p>注：能成功进入说明配置成功</p>
-</li>
-</ul>
-<h2 id="同其他机器相互访问"><a href="#同其他机器相互访问" class="headerlink" title="同其他机器相互访问"></a>同其他机器相互访问</h2><ul>
-<li><p>将.ssh文件夹完整复制到其他机器对应位置</p>
-</li>
-<li><p>授权后即可相互访问</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 0700 ~/.ssh</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单向访问只需要将公钥写入到对方的authorized_keys文件中即可访问对方</p>
-</li>
-</ul>
+<p>至此docker加速器配置完成</p>
 
       
     </div>
@@ -720,7 +695,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://blog.jyusun.com/contents/20190218182031.html" title="配置SSH免密登陆">https://blog.jyusun.com/contents/20190218182031.html</a>
+    <a href="https://blog.jyusun.com/contents/20190218182031.html" title="CentOS配置Docker阿里镜像加速">https://blog.jyusun.com/contents/20190218182031.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li>
@@ -733,9 +708,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/免密登陆/" rel="tag"><i class="fa fa-tag"></i> 免密登陆</a>
+            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
           
-            <a href="/tags/公钥认证/" rel="tag"><i class="fa fa-tag"></i> 公钥认证</a>
+            <a href="/tags/镜像加速/" rel="tag"><i class="fa fa-tag"></i> 镜像加速</a>
           
         </div>
       
@@ -813,8 +788,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/contents/20190219202025.html" rel="prev" title="Linux安装配置JDK1.8">
-                Linux安装配置JDK1.8 <i class="fa fa-chevron-right"></i>
+              <a href="/contents/20190218182031.html" rel="prev" title="配置SSH免密登陆">
+                配置SSH免密登陆 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -890,7 +865,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1024,7 +999,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">38</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1127,7 +1106,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置SSH免密登陆"><span class="nav-number">1.</span> <span class="nav-text">配置SSH免密登陆</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成-ssh文件夹"><span class="nav-number">1.2.</span> <span class="nav-text">生成.ssh文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成公钥、私钥"><span class="nav-number">1.3.</span> <span class="nav-text">生成公钥、私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#authorized-keys文件"><span class="nav-number">1.4.</span> <span class="nav-text">authorized_keys文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件授权"><span class="nav-number">1.5.</span> <span class="nav-text">文件授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证配置"><span class="nav-number">1.6.</span> <span class="nav-text">验证配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同其他机器相互访问"><span class="nav-number">1.7.</span> <span class="nav-text">同其他机器相互访问</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS配置Docker阿里镜像加速"><span class="nav-number">1.</span> <span class="nav-text">CentOS配置Docker阿里镜像加速</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登陆阿里云"><span class="nav-number">1.2.</span> <span class="nav-text">登陆阿里云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置镜像加速器"><span class="nav-number">1.3.</span> <span class="nav-text">配置镜像加速器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1179,7 +1158,7 @@
 
   <div class="theme-info">
 	  <div class="powered-by"></div>
-	  <span class="post-count">博客全站共:14.8k字</span>
+	  <span class="post-count">博客全站共:15.3k字</span>
   </div>
 
 
