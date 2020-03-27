@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="Kubernetes-08概念总结什么是 KubernetesKubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。   pods： 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)、Netw">
+  <meta name="description" content="Kubernetes-08概念总结什么是 KubernetesKubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。 ​      pods： 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)">
 <meta name="keywords" content="k8s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes-08概念总结">
 <meta property="og:url" content="https://blog.jyusun.com/contents/20200101181126.html">
 <meta property="og:site_name" content="EvanSun Home">
-<meta property="og:description" content="Kubernetes-08概念总结什么是 KubernetesKubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。   pods： 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)、Netw">
+<meta property="og:description" content="Kubernetes-08概念总结什么是 KubernetesKubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。 ​      pods： 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.funtl.com/assets1/Lusifer_20190531050832.png">
-<meta property="og:image" content="https://www.funtl.com/assets1/Lusifer_20190531060523.png">
-<meta property="og:image" content="https://www.funtl.com/assets1/Lusifer_20190531062141.png">
-<meta property="og:image" content="https://www.funtl.com/assets1/Lusifer_20190531065907.png">
-<meta property="og:image" content="https://www.funtl.com/assets1/kubernetes_architecture.png">
-<meta property="og:updated_time" content="2020-03-27T07:25:56.748Z">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20200101181126/k8s-jiagou01.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20200101181126/k8s-jiagou02.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20200101181126/k8s-jiagou03.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20200101181126/k8s-jiagou04.jpg">
+<meta property="og:image" content="https://blog.jyusun.com/contents/20200101181126/k8s-jiagou05.jpg">
+<meta property="og:updated_time" content="2020-03-27T08:10:21.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes-08概念总结">
-<meta name="twitter:description" content="Kubernetes-08概念总结什么是 KubernetesKubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。   pods： 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)、Netw">
-<meta name="twitter:image" content="https://www.funtl.com/assets1/Lusifer_20190531050832.png">
+<meta name="twitter:description" content="Kubernetes-08概念总结什么是 KubernetesKubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。 ​      pods： 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)">
+<meta name="twitter:image" content="https://blog.jyusun.com/contents/20200101181126/k8s-jiagou01.jpg">
 
 
 
@@ -487,7 +487,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-27 15:25:56" itemprop="dateModified" datetime="2020-03-27T15:25:56+08:00">2020-03-27</time>
+                <time title="修改时间：2020-03-27 16:10:21" itemprop="dateModified" datetime="2020-03-27T16:10:21+08:00">2020-03-27</time>
               
             
           </span>
@@ -571,7 +571,7 @@
 
       
         <h1 id="Kubernetes-08概念总结"><a href="#Kubernetes-08概念总结" class="headerlink" title="Kubernetes-08概念总结"></a>Kubernetes-08概念总结</h1><h2 id="什么是-Kubernetes"><a href="#什么是-Kubernetes" class="headerlink" title="什么是 Kubernetes"></a>什么是 Kubernetes</h2><p>Kubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。</p>
-<p><img src="https://www.funtl.com/assets1/Lusifer_20190531050832.png" alt="整体架构"></p>
+<p>​    <img src="/contents/20200101181126/k8s-jiagou01.jpg" title="架构图"></p>
 <ul>
 <li><strong>pods：</strong> 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)、Network(网络) 和 UTS namespace(UTS 命名空间是 Linux 命名空间的一个子系统，主要作用是完成对容器 Hostname 和 Domain 的隔离，同时保存内核名称、版本、以及底层体系结构类型等信息)，是 Kubernetes 调度的基本单位。</li>
 <li><strong>labels：</strong> 键值对(key/value)标签，可以被关联到如 Pod 这样的对象上，主要作用是给用户一个直观的感受，比如这个 Pod 是用来放置数据库的</li>
@@ -582,21 +582,21 @@
 <li><strong>Kubernetes Node：</strong> Kubernetes 集群子节点，主要由 <code>kubelet</code>、<code>kube-proxy</code>、<code>runtime</code> 三个模块组成</li>
 <li><strong>Image Registry：</strong> 镜像仓库，比如：Ducker HUB 或 Docker 私服</li>
 </ul>
-<h2 id="Kubernetes-Master"><a href="#Kubernetes-Master" class="headerlink" title="Kubernetes Master"></a>Kubernetes Master</h2><p><img src="https://www.funtl.com/assets1/Lusifer_20190531060523.png" alt="img"></p>
+<h2 id="Kubernetes-Master"><a href="#Kubernetes-Master" class="headerlink" title="Kubernetes Master"></a>Kubernetes Master</h2><p>​    <img src="/contents/20200101181126/k8s-jiagou02.jpg" title="架构图"></p>
 <ul>
 <li><strong>kube-apiserver：</strong> 提供了资源操作的唯一入口，并提供认证、授权、访问控制、API 注册和发现等机制</li>
 <li><strong>kube-scheduler：</strong> 负责资源的调度，按照预定的调度策略将 Pod 调度到相应的机器上</li>
 <li><strong>kube-controller-manager：</strong> 负责维护集群的状态，比如故障检测、自动扩展、滚动更新等</li>
 <li><strong>etcd：</strong> CoreOS 基于 Raft 开发的分布式 key-value 存储，可用于服务发现、共享配置以及一致性保障（如数据库选主、分布式锁等）</li>
 </ul>
-<h2 id="Kubernetes-Node"><a href="#Kubernetes-Node" class="headerlink" title="Kubernetes Node"></a>Kubernetes Node</h2><p><img src="https://www.funtl.com/assets1/Lusifer_20190531062141.png" alt="img"></p>
+<h2 id="Kubernetes-Node"><a href="#Kubernetes-Node" class="headerlink" title="Kubernetes Node"></a>Kubernetes Node</h2><p>​    <img src="/contents/20200101181126/k8s-jiagou03.jpg" title="架构图"></p>
 <ul>
 <li><strong>runtime：</strong> 负责镜像管理以及 Pod 和容器的真正运行（CRI，Container Runtime Interface），默认的容器运行时为 Docker，还支持 RKT 容器</li>
 <li><strong>kubelet：</strong> 负责维持容器的生命周期，同时也负责 Volume（CVI，Container Volume Interface）和网络（CNI，Container Network Interface）的管理</li>
 <li><strong>kube-proxy：</strong> 负责为 Service 提供 cluster 内部的服务发现和负载均衡</li>
 </ul>
-<h2 id="Kubernetes-架构"><a href="#Kubernetes-架构" class="headerlink" title="Kubernetes 架构"></a>Kubernetes 架构</h2><p><img src="https://www.funtl.com/assets1/Lusifer_20190531065907.png" alt="img"></p>
-<p><img src="https://www.funtl.com/assets1/kubernetes_architecture.png" alt="img"></p>
+<h2 id="Kubernetes-架构"><a href="#Kubernetes-架构" class="headerlink" title="Kubernetes 架构"></a>Kubernetes 架构</h2><p>​    <img src="/contents/20200101181126/k8s-jiagou04.jpg" title="架构图"></p>
+<p>​    <img src="/contents/20200101181126/k8s-jiagou05.jpg" title="架构图"></p>
 
       
     </div>
