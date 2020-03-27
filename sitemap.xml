@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.jyusun.com/contents/20200101111126.html</loc>
+    
+    <lastmod>2020-03-27T09:39:39.737Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.jyusun.com/contents/20190423125339.html</loc>
     
     <lastmod>2020-03-27T09:18:38.183Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://blog.jyusun.com/contents/20190316102007.html</loc>
     
     <lastmod>2020-03-27T09:04:54.137Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.jyusun.com/contents/20200101111126.html</loc>
-    
-    <lastmod>2020-03-27T08:47:58.999Z</lastmod>
     
   </url>
   
@@ -222,13 +222,6 @@
     <loc>https://blog.jyusun.com/contents/20180901191228.html</loc>
     
     <lastmod>2018-09-01T11:12:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.jyusun.com/contents/20180901171228.html</loc>
-    
-    <lastmod>2018-09-01T09:12:28.000Z</lastmod>
     
   </url>
   
