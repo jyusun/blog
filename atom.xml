@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jyusun.com/"/>
-  <updated>2020-02-12T09:41:06.828Z</updated>
+  <updated>2020-03-27T07:25:56.748Z</updated>
   <id>https://blog.jyusun.com/</id>
   
   <author>
@@ -15,6 +15,276 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kubernetes-08概念总结</title>
+    <link href="https://blog.jyusun.com/contents/20200101181126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101181126.html</id>
+    <published>2020-01-01T10:11:26.000Z</published>
+    <updated>2020-03-27T07:25:56.748Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-08概念总结"><a href="#Kubernetes-08概念总结" class="headerlink" title="Kubernetes-08概念总结"></a>Kubernetes-08概念总结</h1><h2 id="什么是-Kubernetes"><a href="#什么是-Kubernetes" class="headerlink" title="什么是 Kubernetes"></a>什么是 Kubernetes</h2><p>Kubernetes 是一个开源的 Docker 容器编排系统，它可以调度计算集群的节点，动态管理上面的作业，保证它们按用户期望的状态运行。通过使用「labels」和「pods」的概念，Kubernetes 将应用按逻辑单元进行分组，方便管理和服务发现。</p><p><img src="https://www.funtl.com/assets1/Lusifer_20190531050832.png" alt="整体架构"></p><ul><li><strong>pods：</strong> 是一组紧密关联的容器集合，它们共享 IPC(进程间通信)、Network(网络) 和 UTS namespace(UTS 命名空间是 Linux 命名空间的一个子系统，主要作用是完成对容器 Hostname 和 Domain 的隔离，同时保存内核名称、版本、以及底层体系结构类型等信息)，是 Kubernetes 调度的基本单位。</li><li><strong>labels：</strong> 键值对(key/value)标签，可以被关联到如 Pod 这样的对象上，主要作用是给用户一个直观的感受，比如这个 Pod 是用来放置数据库的</li><li><strong>GUI：</strong> 用户图形界面，可以是 Web 用户界面，比如使用 <code>kubernetes-dashboard</code> 组件，用户可以通过 Dashboard 在 Kubernetes 集群中部署容器化的应用，可以查看集群中应用的运行情况，同时也能够基于 Dashboard 创建或修改部署、任务、服务等 Kubernetes 的资源。通过部署向导，用户能够对部署进行扩缩容，进行滚动更新、重启 Pod 和部署新应用。当然，通过 Dashboard 也能够查看 Kubernetes 资源的状态</li><li><strong>kubectl：</strong> 用于管理 Kubernetes 集群的命令行工具</li><li><strong>kube-apiserver：</strong> 提供了资源操作的唯一入口，并提供认证、授权、访问控制、API 注册和发现等机制</li><li><strong>Kubernetes Master：</strong> Kubernetes 集群主节点，主要由 <code>kube-apiserver</code>、<code>kube-scheduler</code>、<code>kube-controller-manager</code>、<code>etcd</code> 四个模块组成</li><li><strong>Kubernetes Node：</strong> Kubernetes 集群子节点，主要由 <code>kubelet</code>、<code>kube-proxy</code>、<code>runtime</code> 三个模块组成</li><li><strong>Image Registry：</strong> 镜像仓库，比如：Ducker HUB 或 Docker 私服</li></ul><h2 id="Kubernetes-Master"><a href="#Kubernetes-Master" class="headerlink" title="Kubernetes Master"></a>Kubernetes Master</h2><p><img src="https://www.funtl.com/assets1/Lusifer_20190531060523.png" alt="img"></p><ul><li><strong>kube-apiserver：</strong> 提供了资源操作的唯一入口，并提供认证、授权、访问控制、API 注册和发现等机制</li><li><strong>kube-scheduler：</strong> 负责资源的调度，按照预定的调度策略将 Pod 调度到相应的机器上</li><li><strong>kube-controller-manager：</strong> 负责维护集群的状态，比如故障检测、自动扩展、滚动更新等</li><li><strong>etcd：</strong> CoreOS 基于 Raft 开发的分布式 key-value 存储，可用于服务发现、共享配置以及一致性保障（如数据库选主、分布式锁等）</li></ul><h2 id="Kubernetes-Node"><a href="#Kubernetes-Node" class="headerlink" title="Kubernetes Node"></a>Kubernetes Node</h2><p><img src="https://www.funtl.com/assets1/Lusifer_20190531062141.png" alt="img"></p><ul><li><strong>runtime：</strong> 负责镜像管理以及 Pod 和容器的真正运行（CRI，Container Runtime Interface），默认的容器运行时为 Docker，还支持 RKT 容器</li><li><strong>kubelet：</strong> 负责维持容器的生命周期，同时也负责 Volume（CVI，Container Volume Interface）和网络（CNI，Container Network Interface）的管理</li><li><strong>kube-proxy：</strong> 负责为 Service 提供 cluster 内部的服务发现和负载均衡</li></ul><h2 id="Kubernetes-架构"><a href="#Kubernetes-架构" class="headerlink" title="Kubernetes 架构"></a>Kubernetes 架构</h2><p><img src="https://www.funtl.com/assets1/Lusifer_20190531065907.png" alt="img"></p><p><img src="https://www.funtl.com/assets1/kubernetes_architecture.png" alt="img"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-08概念总结&quot;&gt;&lt;a href=&quot;#Kubernetes-08概念总结&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-08概念总结&quot;&gt;&lt;/a&gt;Kubernetes-08概念总结&lt;/h1&gt;&lt;h2 id=&quot;什么是-K
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-07配置网络</title>
+    <link href="https://blog.jyusun.com/contents/20200101171126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101171126.html</id>
+    <published>2020-01-01T09:11:26.000Z</published>
+    <updated>2020-03-27T07:25:43.325Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-07配置网络"><a href="#Kubernetes-07配置网络" class="headerlink" title="Kubernetes-07配置网络"></a>Kubernetes-07配置网络</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>容器网络是容器选择连接到其他容器、主机和外部网络的机制。容器的 runtime 提供了各种网络模式，每种模式都会产生不同的体验。例如，Docker 默认情况下可以为容器配置以下网络：</p><ul><li><strong>none：</strong> 将容器添加到一个容器专门的网络堆栈中，没有对外连接。</li><li><strong>host：</strong> 将容器添加到主机的网络堆栈中，没有隔离。</li><li><strong>default bridge：</strong> 默认网络模式。每个容器可以通过 IP 地址相互连接。</li><li><strong>自定义网桥：</strong> 用户定义的网桥，具有更多的灵活性、隔离性和其他便利功能。</li></ul><h2 id="什么是-CNI"><a href="#什么是-CNI" class="headerlink" title="什么是 CNI"></a>什么是 CNI</h2><p>CNI(Container Network Interface) 是一个标准的，通用的接口。在容器平台，Docker，Kubernetes，Mesos 容器网络解决方案 flannel，calico，weave。只要提供一个标准的接口，就能为同样满足该协议的所有容器平台提供网络功能，而 CNI 正是这样的一个标准接口协议。</p><h2 id="Kubernetes-中的-CNI-插件"><a href="#Kubernetes-中的-CNI-插件" class="headerlink" title="Kubernetes 中的 CNI 插件"></a>Kubernetes 中的 CNI 插件</h2><p>CNI 的初衷是创建一个框架，用于在配置或销毁容器时动态配置适当的网络配置和资源。插件负责为接口配置和管理 IP 地址，并且通常提供与 IP 管理、每个容器的 IP 分配、以及多主机连接相关的功能。容器运行时会调用网络插件，从而在容器启动时分配 IP 地址并配置网络，并在删除容器时再次调用它以清理这些资源。</p><p>运行时或协调器决定了容器应该加入哪个网络以及它需要调用哪个插件。然后，插件会将接口添加到容器网络命名空间中，作为一个 veth 对的一侧。接着，它会在主机上进行更改，包括将 veth 的其他部分连接到网桥。再之后，它会通过调用单独的 IPAM（IP地址管理）插件来分配 IP 地址并设置路由。</p><p>在 Kubernetes 中，kubelet 可以在适当的时间调用它找到的插件，为通过 kubelet 启动的 pod进行自动的网络配置。</p><p>Kubernetes 中可选的 CNI 插件如下：</p><ul><li>Flannel</li><li>Calico</li><li>Canal</li><li>Weave</li></ul><h2 id="什么是-Calico"><a href="#什么是-Calico" class="headerlink" title="什么是 Calico"></a>什么是 Calico</h2><p>Calico 为容器和虚拟机提供了安全的网络连接解决方案，并经过了大规模生产验证（在公有云和跨数千个集群节点中），可与 Kubernetes，OpenShift，Docker，Mesos，DC / OS 和 OpenStack 集成。</p><p>Calico 还提供网络安全规则的动态实施。使用 Calico 的简单策略语言，您可以实现对容器，虚拟机工作负载和裸机主机端点之间通信的细粒度控制</p><h2 id="安装配置Calico"><a href="#安装配置Calico" class="headerlink" title="安装配置Calico"></a>安装配置Calico</h2><p>官网链接：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnByb2plY3RjYWxpY28ub3Jn" title="https://docs.projectcalico.org">点击访问<i class="fa fa-external-link"></i></span></p><ul><li>应用网络配置文件</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml</span><br></pre></td></tr></table></figure><ul><li>查看容器状态</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure><p>需要先下载镜像文件，略作等待所有的镜像文件下载完成，并运行状态为Running说明配置成功。</p><blockquote><p>Every 2.0s: kubectl get pods –all-namespaces                               k8smaster: Wed Mar 25 13:24:46 2020</p><p>NAMESPACE     NAME                                                            READY   STATUS    RESTARTS   AGE<br>kube-system   calico-kube-controllers-5b644bc49c-rlf9g   1/1     Running   0          81m<br>kube-system   calico-node-fvqlg                                              1/1     Running   0          8m30s<br>kube-system   calico-node-ltd5p                                              1/1     Running   0          81m<br>kube-system   calico-node-zwbg7                                            1/1     Running   0          81m<br>kube-system   coredns-9d85f5447-7p478                              1/1     Running   0          87m<br>kube-system   coredns-9d85f5447-dctn9                               1/1     Running   0          87m<br>kube-system   etcd-k8smaster                                                  1/1     Running   0          88m<br>kube-system   kube-apiserver-k8smaster                               1/1     Running   0          88m<br>kube-system   kube-controller-manager-k8smaster             1/1     Running   0          88m<br>kube-system   kube-proxy-bn8lx                                               1/1     Running   1          87m<br>kube-system   kube-proxy-jsw59                                               1/1     Running   1          82m<br>kube-system   kube-proxy-s5q54                                              1/1     Running   1          8m30s<br>kube-system   kube-scheduler-k8smaster                              1/1     Running   0          88m</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-07配置网络&quot;&gt;&lt;a href=&quot;#Kubernetes-07配置网络&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-07配置网络&quot;&gt;&lt;/a&gt;Kubernetes-07配置网络&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-06使用kubeadm配置slave节点</title>
+    <link href="https://blog.jyusun.com/contents/20200101161126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101161126.html</id>
+    <published>2020-01-01T08:11:26.000Z</published>
+    <updated>2020-03-27T07:25:30.967Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-06使用kubeadm配置slave节点"><a href="#Kubernetes-06使用kubeadm配置slave节点" class="headerlink" title="Kubernetes-06使用kubeadm配置slave节点"></a>Kubernetes-06使用kubeadm配置slave节点</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p> 将 slave 节点加入到集群中很简单，只需要在 slave 服务器上安装 kubeadm，kubectl，kubelet 三个工具，然后使用 <code>kubeadm join</code> 命令加入即可。准备工作如下： </p><h2 id="将node加入到集群"><a href="#将node加入到集群" class="headerlink" title="将node加入到集群"></a>将node加入到集群</h2><p>执行初始化master节点时候输出日志的<code>kubeadm join</code>命令，将node节点加入到集群中</p><ul><li><p>执行命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join 192.168.233.200:6443 --token abcdef.0123456789abcdef \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:8e523ebfd1ecd1fdb3578d254d94e60067e987ce3e9ad6c71af0245dea04d14b</span><br></pre></td></tr></table></figure></li></ul><p>说明：</p><ul><li>token<ul><li>可以通过安装 master 时的日志查看 token 信息</li><li>可以通过 <code>kubeadm token list</code> 命令打印出 token 信息</li><li>如果 token 过期，可以使用 <code>kubeadm token create</code> 命令创建新的 token</li></ul></li><li>discovery-token-ca-cert-hash<ul><li>可以通过安装 master 时的日志查看 sha256 信息</li><li>可以通过 <code>openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;</code> 命令查看 sha256 信息</li></ul></li></ul><h2 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h2><ul><li><p>回到master，输入命令验证</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure><blockquote><p>[root@k8smaster kubernetes]# kubectl get node<br>NAME            STATUS         ROLES       AGE       VERSION<br>k8smaster    NotReady      master    3h37m    v1.17.4<br>k8snode01   NotReady      node       3h34m    v1.17.4</p></blockquote></li><li><p>查看 pod 状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n kube-system -o wide</span><br></pre></td></tr></table></figure><blockquote><p>NAME                                       READY   STATUS    RESTARTS   AGE     IP                NODE        NOMINATED NODE   READINESS GATES<br>coredns-9d85f5447-7p478                    0/1     Pending   0          6h23m   <none>    <none>   <none>           <none><br>coredns-9d85f5447-dctn9                    0/1     Pending   0          6h23m   <none>    <none>   <none>           <none><br>etcd-k8smaster                             1/1     Running   0          6h23m   192.168.233.200   k8smaster   <none>           <none><br>kube-apiserver-k8smaster                   1/1     Running   0          6h23m   192.168.233.200   k8smaster   <none>           <none><br>kube-controller-manager-k8smaster          1/1     Running   0          6h23m   192.168.233.200   k8smaster   <none>           <none><br>kube-proxy-bn8lx                           1/1     Running   1          6h23m   192.168.233.200   k8smaster   <none>           <none><br>kube-proxy-jsw59                           1/1     Running   1          6h18m   192.168.233.210   k8snode01   <none>           <none><br>kube-proxy-s5q54                           1/1     Running   1          5h3m    192.168.233.211   k8snode02   <none>           <none><br>kube-scheduler-k8smaster                   1/1     Running   0          6h23m   192.168.233.200   k8smaster   <none>           <none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></none></p></blockquote><p>由此可以看出 coredns 尚未运行，此时我们还需要安装网络插件。 </p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-06使用kubeadm配置slave节点&quot;&gt;&lt;a href=&quot;#Kubernetes-06使用kubeadm配置slave节点&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-06使用kubeadm配置slave节
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-05使用kubeadm初始化mstaer</title>
+    <link href="https://blog.jyusun.com/contents/20200101151126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101151126.html</id>
+    <published>2020-01-01T07:11:26.000Z</published>
+    <updated>2020-03-27T07:25:20.513Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-05使用kubeadm初始化mstaer"><a href="#Kubernetes-05使用kubeadm初始化mstaer" class="headerlink" title="Kubernetes-05使用kubeadm初始化mstaer"></a>Kubernetes-05使用kubeadm初始化mstaer</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>速度发发</p><h2 id="初始化并配置"><a href="#初始化并配置" class="headerlink" title="初始化并配置"></a>初始化并配置</h2><h3 id="初始化主节点"><a href="#初始化主节点" class="headerlink" title="初始化主节点"></a>初始化主节点</h3><ul><li><p>初始化master</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --config=kubeadm-config.yml --upload-certs | tee kubeadm-init.log</span><br></pre></td></tr></table></figure><p>初始化过程日志输出</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">&gt;[init] Using Kubernetes version: v1.17.4</span><br><span class="line">&gt;[preflight] Running pre-flight checks</span><br><span class="line">&gt;[preflight] Pulling images required for setting up a Kubernetes cluster</span><br><span class="line">&gt;[preflight] This might take a minute or two, depending on the speed of your internet connection</span><br><span class="line">&gt;[preflight] You can also perform this action in beforehand using &apos;kubeadm config images pull&apos;</span><br><span class="line">&gt;[kubelet-start] Writing kubelet environment file with flags to file &quot;/var/lib/kubelet/kubeadm-flags.env&quot;</span><br><span class="line">&gt;[kubelet-start] Writing kubelet configuration to file &quot;/var/lib/kubelet/config.yaml&quot;</span><br><span class="line">&gt;[kubelet-start] Starting the kubelet</span><br><span class="line">&gt;[certs] Using certificateDir folder &quot;/etc/kubernetes/pki&quot;</span><br><span class="line">&gt;[certs] Generating &quot;ca&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;apiserver&quot; certificate and key</span><br><span class="line">&gt;[certs] apiserver serving cert is signed for DNS names [k8smaster kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.233.200]</span><br><span class="line">&gt;[certs] Generating &quot;apiserver-kubelet-client&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;front-proxy-ca&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;front-proxy-client&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;etcd/ca&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;etcd/server&quot; certificate and key</span><br><span class="line">&gt;[certs] etcd/server serving cert is signed for DNS names [k8smaster localhost] and IPs [192.168.233.200 127.0.0.1 ::1]</span><br><span class="line">&gt;[certs] Generating &quot;etcd/peer&quot; certificate and key</span><br><span class="line">&gt;[certs] etcd/peer serving cert is signed for DNS names [k8smaster localhost] and IPs [192.168.233.200 127.0.0.1 ::1]</span><br><span class="line">&gt;[certs] Generating &quot;etcd/healthcheck-client&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;apiserver-etcd-client&quot; certificate and key</span><br><span class="line">&gt;[certs] Generating &quot;sa&quot; key and public key</span><br><span class="line">&gt;[kubeconfig] Using kubeconfig folder &quot;/etc/kubernetes&quot;</span><br><span class="line">&gt;[kubeconfig] Writing &quot;admin.conf&quot; kubeconfig file</span><br><span class="line">&gt;[kubeconfig] Writing &quot;kubelet.conf&quot; kubeconfig file</span><br><span class="line">&gt;[kubeconfig] Writing &quot;controller-manager.conf&quot; kubeconfig file</span><br><span class="line">&gt;[kubeconfig] Writing &quot;scheduler.conf&quot; kubeconfig file</span><br><span class="line">&gt;[control-plane] Using manifest folder &quot;/etc/kubernetes/manifests&quot;</span><br><span class="line">&gt;[control-plane] Creating static Pod manifest for &quot;kube-apiserver&quot;</span><br><span class="line">&gt;[control-plane] Creating static Pod manifest for &quot;kube-controller-manager&quot;</span><br><span class="line">&gt;[control-plane] Creating static Pod manifest for &quot;kube-scheduler&quot;</span><br><span class="line">&gt;[etcd] Creating static Pod manifest for local etcd in &quot;/etc/kubernetes/manifests&quot;</span><br><span class="line">&gt;[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This can take up to 4m0s</span><br><span class="line">&gt;[apiclient] All control plane components are healthy after 18.507655 seconds</span><br><span class="line">&gt;[upload-config] Storing the configuration used in ConfigMap &quot;kubeadm-config&quot; in the &quot;kube-system&quot; Namespace</span><br><span class="line">&gt;[kubelet] Creating a ConfigMap &quot;kubelet-config-1.17&quot; in namespace kube-system with the configuration for the kubelets in the cluster</span><br><span class="line">&gt;[upload-certs] Storing the certificates in Secret &quot;kubeadm-certs&quot; in the &quot;kube-system&quot; Namespace</span><br><span class="line">&gt;[upload-certs] Using certificate key:</span><br><span class="line">&gt;a4c99ea3701d5245d6ee81a04ed4d041340fd7d5cf837f1e53c8536151ae78f1</span><br><span class="line">&gt;[mark-control-plane] Marking the node k8smaster as control-plane by adding the label &quot;node-role.kubernetes.io/master=&apos;&apos;&quot;</span><br><span class="line">&gt;[mark-control-plane] Marking the node k8smaster as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]</span><br><span class="line">&gt;[bootstrap-token] Using token: abcdef.0123456789abcdef</span><br><span class="line">&gt;[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles</span><br><span class="line">&gt;[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials</span><br><span class="line">&gt;[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token</span><br><span class="line">&gt;[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster</span><br><span class="line">&gt;[bootstrap-token] Creating the &quot;cluster-info&quot; ConfigMap in the &quot;kube-public&quot; namespace</span><br><span class="line">&gt;[kubelet-finalize] Updating &quot;/etc/kubernetes/kubelet.conf&quot; to point to a rotatable kubelet client certificate and key</span><br><span class="line">&gt;[addons] Applied essential addon: CoreDNS</span><br><span class="line">&gt;[addons] Applied essential addon: kube-proxy</span><br><span class="line">&gt;</span><br><span class="line">&gt;Your Kubernetes control-plane has initialized successfully!</span><br><span class="line">&gt;</span><br><span class="line">&gt;To start using your cluster, you need to run the following as a regular user:</span><br><span class="line">&gt;</span><br><span class="line">&gt;  mkdir -p $HOME/.kube</span><br><span class="line">&gt;  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">&gt;  sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br><span class="line">&gt;</span><br><span class="line">&gt;You should now deploy a pod network to the cluster.</span><br><span class="line">&gt;Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:</span><br><span class="line">&gt;  https://kubernetes.io/docs/concepts/cluster-administration/addons/</span><br><span class="line">&gt;</span><br><span class="line">&gt;Then you can join any number of worker nodes by running the following on each as root:</span><br><span class="line">&gt;</span><br><span class="line">&gt;kubeadm join 192.168.233.200:6443 --token abcdef.0123456789abcdef \</span><br><span class="line">&gt;    --discovery-token-ca-cert-hash sha256:8e523ebfd1ecd1fdb3578d254d94e60067e987ce3e9ad6c71af0245dea04d14b</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote><blockquote><blockquote><p>注意：如果安装 kubernetes 版本和下载的镜像版本不统一则会出现 <code>timed out waiting for the condition</code> 错误。中途失败或是想修改配置可以使用 <code>kubeadm reset</code> 命令重置配置，再做初始化操作即可。 </p></blockquote></blockquote></li></ul><h3 id="配置-kubectl"><a href="#配置-kubectl" class="headerlink" title="配置 kubectl"></a>配置 kubectl</h3><p>依据上面日志输出的信息进行配置操作</p><ul><li><p>创建kube文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br></pre></td></tr></table></figure></li><li><p>复制配置文件到config路径</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br></pre></td></tr></table></figure></li><li><p>授权，将配置文件授权给当前用户</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br></pre></td></tr></table></figure></li></ul><h3 id="验证配置"><a href="#验证配置" class="headerlink" title="验证配置"></a>验证配置</h3><ul><li><p>查看节点</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get node</span><br></pre></td></tr></table></figure><blockquote><p>[root@k8smaster kubernetes]# kubectl get node<br>NAME          STATUS        ROLES       AGE     VERSION<br>k8smaster   NotReady      master   3h37m   v1.17.4</p></blockquote><p>至此主节点配置完成 </p></li></ul><h2 id="kubeadm-init-的执行过程"><a href="#kubeadm-init-的执行过程" class="headerlink" title="kubeadm init 的执行过程"></a>kubeadm init 的执行过程</h2><ul><li>init：指定版本进行初始化操作</li><li>preflight：初始化前的检查和下载所需要的 Docker 镜像文件</li><li>kubelet-start：生成 kubelet 的配置文件 <code>var/lib/kubelet/config.yaml</code>，没有这个文件 kubelet 无法启动，所以初始化之前的 kubelet 实际上启动不会成功</li><li>certificates：生成 Kubernetes 使用的证书，存放在 <code>/etc/kubernetes/pki</code> 目录中</li><li>kubeconfig：生成 KubeConfig 文件，存放在 <code>/etc/kubernetes</code> 目录中，组件之间通信需要使用对应文件</li><li>control-plane：使用 <code>/etc/kubernetes/manifest</code> 目录下的 YAML 文件，安装 Master 组件</li><li>etcd：使用 <code>/etc/kubernetes/manifest/etcd.yaml</code> 安装 Etcd 服务</li><li>wait-control-plane：等待 control-plan 部署的 Master 组件启动</li><li>apiclient：检查 Master 组件服务状态。</li><li>uploadconfig：更新配置</li><li>kubelet：使用 configMap 配置 kubelet</li><li>patchnode：更新 CNI 信息到 Node 上，通过注释的方式记录</li><li>mark-control-plane：为当前节点打标签，打了角色 Master，和不可调度标签，这样默认就不会使用 Master 节点来运行 Pod</li><li>bootstrap-token：生成 token 记录下来，后边使用 <code>kubeadm join</code> 往集群中添加节点时会用到</li><li>addons：安装附加组件 CoreDNS 和 kube-proxy</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-05使用kubeadm初始化mstaer&quot;&gt;&lt;a href=&quot;#Kubernetes-05使用kubeadm初始化mstaer&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-05使用kubeadm初始化mstae
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-04配置kubeadm</title>
+    <link href="https://blog.jyusun.com/contents/20200101141126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101141126.html</id>
+    <published>2020-01-01T06:11:26.000Z</published>
+    <updated>2020-03-27T07:25:05.576Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-04配置kubeadm"><a href="#Kubernetes-04配置kubeadm" class="headerlink" title="Kubernetes-04配置kubeadm"></a>Kubernetes-04配置kubeadm</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p> 安装 kubernetes 主要是安装它的各个镜像，而 kubeadm 已经为我们集成好了运行 kubernetes 所需的基本镜像。但由于国内的网络原因，在搭建环境时，无法拉取到这些镜像。此时我们只需要修改为阿里云提供的镜像服务即可解决该问题。</p><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ul><li><p>创建文件存储路径</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/docker/kubernetes &amp;&amp; cd /usr/local/docker/kubernetes</span><br></pre></td></tr></table></figure></li><li><p>获取默认配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config print init-defaults --kubeconfig ClusterConfiguration &gt; kubeadm-config.yml</span><br></pre></td></tr></table></figure></li><li><p>编辑获取到的文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi kubeadm-config.yml</span><br></pre></td></tr></table></figure></li></ul><p>调整里面主要注释的几个地方</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&gt;apiVersion: kubeadm.k8s.io/v1beta2</span><br><span class="line">&gt;bootstrapTokens:</span><br><span class="line">&gt;- groups:</span><br><span class="line">&gt;  - system:bootstrappers:kubeadm:default-node-token</span><br><span class="line">&gt;  token: abcdef.0123456789abcdef</span><br><span class="line">&gt;  ttl: 24h0m0s</span><br><span class="line">&gt;  usages:</span><br><span class="line">&gt;  - signing</span><br><span class="line">&gt;  - authentication</span><br><span class="line">&gt;kind: InitConfiguration</span><br><span class="line">&gt;localAPIEndpoint:</span><br><span class="line">&gt;  # 改成master节点的ip</span><br><span class="line">&gt;  advertiseAddress: 192.168.233.200</span><br><span class="line">&gt;  bindPort: 6443</span><br><span class="line">&gt;nodeRegistration:</span><br><span class="line">&gt;  criSocket: /var/run/dockershim.sock</span><br><span class="line">&gt;  name: k8smaster</span><br><span class="line">&gt;  taints:</span><br><span class="line">&gt;  - effect: NoSchedule</span><br><span class="line">&gt;    key: node-role.kubernetes.io/master</span><br><span class="line">&gt;---</span><br><span class="line">&gt;apiServer:</span><br><span class="line">&gt;  timeoutForControlPlane: 4m0s</span><br><span class="line">&gt;apiVersion: kubeadm.k8s.io/v1beta2</span><br><span class="line">&gt;certificatesDir: /etc/kubernetes/pki</span><br><span class="line">&gt;clusterName: kubernetes</span><br><span class="line">&gt;controllerManager: &#123;&#125;</span><br><span class="line">&gt;dns:</span><br><span class="line">&gt;  type: CoreDNS</span><br><span class="line">&gt;etcd:</span><br><span class="line">&gt;  local:</span><br><span class="line">&gt;    dataDir: /var/lib/etcd</span><br><span class="line">&gt;# 指定阿里云仓库地址</span><br><span class="line">&gt;imageRepository: registry.aliyuncs.com/google_containers</span><br><span class="line">&gt;kind: ClusterConfiguration</span><br><span class="line">&gt;# 修改为自己配置的版本</span><br><span class="line">&gt;kubernetesVersion: v1.17.4</span><br><span class="line">&gt;networking:</span><br><span class="line">&gt;  dnsDomain: cluster.local</span><br><span class="line">&gt;  # 配置成 Calico 的默认网段</span><br><span class="line">&gt;  podSubnet: 192.168.0.0/16</span><br><span class="line">&gt;  serviceSubnet: 10.96.0.0/12</span><br><span class="line">&gt;scheduler: &#123;&#125;</span><br><span class="line">&gt;---</span><br><span class="line">&gt;# 开启 IPVS 模式</span><br><span class="line">&gt;apiVersion: kubeproxy.config.k8s.io/v1alpha1</span><br><span class="line">&gt;kind: KubeProxyConfiguration</span><br><span class="line">&gt;featureGates:</span><br><span class="line">&gt;  SupportIPVSProxyMode: true</span><br><span class="line">&gt;mode: ipvs</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote><h2 id="查看和拉取镜像"><a href="#查看和拉取镜像" class="headerlink" title="查看和拉取镜像"></a>查看和拉取镜像</h2><ul><li><p>查看镜像文件版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config images list --config kubeadm-config.yml</span><br></pre></td></tr></table></figure></li><li><p>拉取配置中所需的镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config images pull --config kubeadm-config.yml</span><br></pre></td></tr></table></figure></li></ul>  ]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-04配置kubeadm&quot;&gt;&lt;a href=&quot;#Kubernetes-04配置kubeadm&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-04配置kubeadm&quot;&gt;&lt;/a&gt;Kubernetes-04配置kubea
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-03安装kubeadm</title>
+    <link href="https://blog.jyusun.com/contents/20200101131126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101131126.html</id>
+    <published>2020-01-01T05:11:26.000Z</published>
+    <updated>2020-03-27T07:24:48.430Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-03安装-kubeadm"><a href="#Kubernetes-03安装-kubeadm" class="headerlink" title="Kubernetes-03安装 kubeadm"></a>Kubernetes-03安装 kubeadm</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p> kubeadm 是 kubernetes 的集群安装工具，能够快速安装 kubernetes 集群。 </p><h2 id="配置kubernetes软件源"><a href="#配置kubernetes软件源" class="headerlink" title="配置kubernetes软件源"></a>配置kubernetes软件源</h2><ul><li>kubernetes阿里云源</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">repo_gpgcheck=1=</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg&quot; &gt;&gt;/etc/yum.repos.d/kubernetes.repo</span><br></pre></td></tr></table></figure><h2 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a>安装工具</h2><h3 id="安装kubernetes所需工具"><a href="#安装kubernetes所需工具" class="headerlink" title="安装kubernetes所需工具"></a>安装kubernetes所需工具</h3><ul><li><p>kubelet、kubeadm、kubectl</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes</span><br></pre></td></tr></table></figure></li></ul><h3 id="启动kubelet"><a href="#启动kubelet" class="headerlink" title="启动kubelet"></a>启动kubelet</h3><ul><li><p>安装完成后启动 kubelet服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable --now kubelet</span><br></pre></td></tr></table></figure></li></ul><h2 id="集群配置文件"><a href="#集群配置文件" class="headerlink" title="集群配置文件"></a>集群配置文件</h2><ul><li><p>创建文件存储路径</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/docker/kubernetes &amp;&amp; cd /usr/local/docker/kubernetes</span><br></pre></td></tr></table></figure></li><li><p>获取默认配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config print init-defaults --kubeconfig ClusterConfiguration &gt; kubeadm-config.yml</span><br></pre></td></tr></table></figure></li><li><p>编辑获取到的文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi kubeadm-config.yml</span><br></pre></td></tr></table></figure></li></ul><p>调整里面主要注释的几个地方</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&gt;apiVersion: kubeadm.k8s.io/v1beta2</span><br><span class="line">&gt;bootstrapTokens:</span><br><span class="line">&gt;- groups:</span><br><span class="line">&gt;  - system:bootstrappers:kubeadm:default-node-token</span><br><span class="line">&gt;  token: abcdef.0123456789abcdef</span><br><span class="line">&gt;  ttl: 24h0m0s</span><br><span class="line">&gt;  usages:</span><br><span class="line">&gt;  - signing</span><br><span class="line">&gt;  - authentication</span><br><span class="line">&gt;kind: InitConfiguration</span><br><span class="line">&gt;localAPIEndpoint:</span><br><span class="line">&gt;  # 改成master节点的ip</span><br><span class="line">&gt;  advertiseAddress: 192.168.233.200</span><br><span class="line">&gt;  bindPort: 6443</span><br><span class="line">&gt;nodeRegistration:</span><br><span class="line">&gt;  criSocket: /var/run/dockershim.sock</span><br><span class="line">&gt;  name: k8smaster</span><br><span class="line">&gt;  taints:</span><br><span class="line">&gt;  - effect: NoSchedule</span><br><span class="line">&gt;    key: node-role.kubernetes.io/master</span><br><span class="line">&gt;---</span><br><span class="line">&gt;apiServer:</span><br><span class="line">&gt;  timeoutForControlPlane: 4m0s</span><br><span class="line">&gt;apiVersion: kubeadm.k8s.io/v1beta2</span><br><span class="line">&gt;certificatesDir: /etc/kubernetes/pki</span><br><span class="line">&gt;clusterName: kubernetes</span><br><span class="line">&gt;controllerManager: &#123;&#125;</span><br><span class="line">&gt;dns:</span><br><span class="line">&gt;  type: CoreDNS</span><br><span class="line">&gt;etcd:</span><br><span class="line">&gt;  local:</span><br><span class="line">&gt;    dataDir: /var/lib/etcd</span><br><span class="line">&gt;# 指定阿里云仓库地址</span><br><span class="line">&gt;imageRepository: registry.aliyuncs.com/google_containers</span><br><span class="line">&gt;kind: ClusterConfiguration</span><br><span class="line">&gt;# 修改为自己配置的版本</span><br><span class="line">&gt;kubernetesVersion: v1.17.4</span><br><span class="line">&gt;networking:</span><br><span class="line">&gt;  dnsDomain: cluster.local</span><br><span class="line">&gt;  # 配置成 Calico 的默认网段</span><br><span class="line">&gt;  podSubnet: 192.168.0.0/16</span><br><span class="line">&gt;  serviceSubnet: 10.96.0.0/12</span><br><span class="line">&gt;scheduler: &#123;&#125;</span><br><span class="line">&gt;---</span><br><span class="line">&gt;# 开启 IPVS 模式</span><br><span class="line">&gt;apiVersion: kubeproxy.config.k8s.io/v1alpha1</span><br><span class="line">&gt;kind: KubeProxyConfiguration</span><br><span class="line">&gt;featureGates:</span><br><span class="line">&gt;  SupportIPVSProxyMode: true</span><br><span class="line">&gt;mode: ipvs</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote><h2 id="查看和拉取镜像"><a href="#查看和拉取镜像" class="headerlink" title="查看和拉取镜像"></a>查看和拉取镜像</h2><ul><li><p>查看镜像文件版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config images list --config kubeadm-config.yml</span><br></pre></td></tr></table></figure></li><li><p>拉取配置中所需的镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config images pull --config kubeadm-config.yml</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-03安装-kubeadm&quot;&gt;&lt;a href=&quot;#Kubernetes-03安装-kubeadm&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-03安装 kubeadm&quot;&gt;&lt;/a&gt;Kubernetes-03安装 k
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-集群安装准备</title>
+    <link href="https://blog.jyusun.com/contents/20200101121126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101121126.html</id>
+    <published>2020-01-01T04:11:26.000Z</published>
+    <updated>2020-03-27T07:24:28.797Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-集群安装准备"><a href="#Kubernetes-集群安装准备" class="headerlink" title="Kubernetes-集群安装准备"></a>Kubernetes-集群安装准备</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本次安装采用    CentOS 8 版本安装 kubernetes 集群环境，集群节点为 1 主 2 从模式，此次对虚拟机会有些基本要求，如下：</p><ul><li>OS：CentOS Linux release 8.1.1911</li><li>CPU：最低要求，2 CPU 2 核</li><li>内存：最低要求，2GB</li><li>磁盘：最低要求，20GB</li></ul><h2 id="节点准备（3个节点）"><a href="#节点准备（3个节点）" class="headerlink" title="节点准备（3个节点）"></a>节点准备（3个节点）</h2><ul><li>具体配置详情</li></ul><table><thead><tr><th>主机名称</th><th>IP</th><th>角色</th><th>CPU/内存</th><th>磁盘</th></tr></thead><tbody><tr><td>k8smaster</td><td>192.168.233.200</td><td>master</td><td>2核/2G</td><td>20G</td></tr><tr><td>k8snode01</td><td>192.168.233.210</td><td>node</td><td>2核/4G</td><td>20G</td></tr><tr><td>k8snode02</td><td>192.168.233.211</td><td>node</td><td>2核/4G</td><td>20G</td></tr></tbody></table><h2 id="系统基础配置"><a href="#系统基础配置" class="headerlink" title="系统基础配置"></a>系统基础配置</h2><h3 id="配置固定IP地址"><a href="#配置固定IP地址" class="headerlink" title="配置固定IP地址"></a>配置固定IP地址</h3><p>分别为每个节点配置固定IP地址：<a href>点击了解</a></p><h3 id="配置Hosts"><a href="#配置Hosts" class="headerlink" title="配置Hosts"></a>配置Hosts</h3><p>分别在每个节点的/etc/hosts   追加配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;192.168.233.200 k8smaster</span><br><span class="line">192.168.233.210 k8snode01</span><br><span class="line">192.168.233.211 k8snode02&quot; &gt;&gt;/etc/hosts</span><br></pre></td></tr></table></figure><blockquote><p>192.168.233.200 k8smaster<br>192.168.233.210 k8snode01<br>192.168.233.211 k8snode02</p></blockquote><h3 id="配置HostName"><a href="#配置HostName" class="headerlink" title="配置HostName"></a>配置HostName</h3><p>根据节点规划分别配置对应的/etc/hostname</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname &lt;HOSTNAME&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如：</span><br><span class="line">hostnamectl set-hostname k8smaster</span><br><span class="line">hostnamectl set-hostname k8snode01</span><br><span class="line">hostnamectl set-hostname k8snode02</span><br></pre></td></tr></table></figure><p>查看hostname配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl</span><br></pre></td></tr></table></figure><blockquote><p>  Static hostname: <strong>k8smaster</strong><br>        Icon name: computer-vm<br>          Chassis: vm<br>       Machine ID: ef8884ea25f948beb7f8278d18789f2e<br>          Boot ID: cc67657a70f14ddcbbcfe724df79981c<br>   Virtualization: oracle<br> Operating System: CentOS Linux 8 (Core)<br>      CPE OS Name: cpe:/o:centos:centos:8<br>           Kernel: Linux 4.18.0-147.el8.x86_64<br>     Architecture: x86-64</p></blockquote><h3 id="关闭交换空间"><a href="#关闭交换空间" class="headerlink" title="关闭交换空间"></a>关闭交换空间</h3><p>交换空间对虚拟化资源损耗较大，成本损耗较高，一般虚拟化技术是不允许开启交换空间的，如果不关闭交换空间，k8s初始时也会有相应的提示信息。</p><ul><li><p>关闭交换空间</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure></li><li><p>避免开机启动交换空间：注释 /etc/fstab 中的 swap</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/fstab</span><br></pre></td></tr></table></figure><blockquote><p>#注释掉这一行并保存</p><p>#/dev/mapper/cl-swap     swap                    swap    defaults        0 0</p></blockquote></li><li><p>查看交换空间</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure><blockquote><pre><code>total     used      free     shared    buff/cache   available</code></pre><p>Mem:             1.8Gi             896Mi         101Mi          9.0Mi         831Mi                862Mi<br>Swap:             0B                 0B                0B</p></blockquote></li></ul><h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><p>防火墙操作：<a href>点击了解</a></p><h3 id="关闭selinux"><a href="#关闭selinux" class="headerlink" title="关闭selinux"></a>关闭selinux</h3><p>临时关闭</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure><p>永久关闭，避免开启启动</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config</span><br></pre></td></tr></table></figure><h3 id="时间同步"><a href="#时间同步" class="headerlink" title="时间同步"></a>时间同步</h3><p>k8s集群保证每个节点时间是同步的，需要同步节点时间</p><p>时间同步操作：<a href>点击了解</a></p><h3 id="写入k8s-conf"><a href="#写入k8s-conf" class="headerlink" title="写入k8s.conf"></a>写入k8s.conf</h3><ul><li>一些 RHEL/CentOS 7 的用户曾经遇到过问题：由于 iptables 被绕过而导致流量无法正确路由的问题。您应该确保 在 <code>sysctl</code> 配置中的 </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/sysctl.d/k8s.conf&lt;&lt;EOF</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">vm.swappiness=0</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><ul><li>执行命令使修改生效</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sysctl -f /etc/sysctl.d/k8s.conf</span><br><span class="line">或</span><br><span class="line">sysctl --system</span><br></pre></td></tr></table></figure><h2 id="Docker相关"><a href="#Docker相关" class="headerlink" title="Docker相关"></a>Docker相关</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>docker安装操作：<a href>点击了解</a></p><h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>docker-compose安装操作：<a href>点击了解</a>)</p><h3 id="修改daemon-json"><a href="#修改daemon-json" class="headerlink" title="修改daemon.json"></a>修改daemon.json</h3><p>配置docker阿里云加速，以及修改docker的cgroupdriver驱动</p><ul><li><p>修改或创建/etc/docker/daemon.json，加入下面的内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://l46iaapq.mirror.aliyuncs.com&quot;],</span><br><span class="line">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">  &quot;log-driver&quot;: &quot;json-file&quot;,</span><br><span class="line">  &quot;log-opts&quot;: &#123;</span><br><span class="line">    &quot;max-size&quot;: &quot;100m&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;storage-driver&quot;: &quot;overlay2&quot;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-集群安装准备&quot;&gt;&lt;a href=&quot;#Kubernetes-集群安装准备&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-集群安装准备&quot;&gt;&lt;/a&gt;Kubernetes-集群安装准备&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes-01简介</title>
+    <link href="https://blog.jyusun.com/contents/20200101111126.html"/>
+    <id>https://blog.jyusun.com/contents/20200101111126.html</id>
+    <published>2020-01-01T03:11:26.000Z</published>
+    <updated>2020-03-27T07:24:14.384Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubernetes-01简介"><a href="#Kubernetes-01简介" class="headerlink" title="Kubernetes-01简介"></a>Kubernetes-01简介</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>​    </p><p>Kubernetes 是 <strong>Google 2014 年创建管理的</strong>，是 Google 10 多年大规模容器管理技术 Borg 的开源版本。</p><p>Kubernetes 是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。使用 Kubernetes 我们可以：</p><ul><li>快速部署应用</li><li>快速扩展应用</li><li>无缝对接新的应用功能</li><li>节省资源，优化硬件资源的使用</li></ul><p>Kubernetes 的目标是促进完善组件和工具的生态系统，以减轻应用程序在公有云或私有云中运行的负担。</p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li><strong>可移植：</strong> 支持公有云，私有云，混合云，多重云（多个公共云）</li><li><strong>可扩展：</strong> 模块化，插件化，可挂载，可组合</li><li><strong>自动化：</strong> 自动部署，自动重启，自动复制，自动伸缩/扩展</li></ul><h2 id="从传统到容器化部署"><a href="#从传统到容器化部署" class="headerlink" title="从传统到容器化部署"></a>从传统到容器化部署</h2><h3 id="传统的部署方式"><a href="#传统的部署方式" class="headerlink" title="传统的部署方式"></a>传统的部署方式</h3><ul><li>传统的应用部署方式是通过插件或脚本来安装应用。这样做的缺点是应用的运行、配置、管理、所有生存周期将与当前操作系统绑定，这样做并不利于应用的升级更新/回滚等操作，当然也可以通过创建虚机的方式来实现某些功能，但是虚拟机非常重，并不利于可移植性。</li></ul><h3 id="容器化部署的优势"><a href="#容器化部署的优势" class="headerlink" title="容器化部署的优势"></a>容器化部署的优势</h3><ul><li><strong>快速创建/部署应用：</strong> 与虚拟机相比，容器镜像的创建更加容易。</li><li><strong>持续开发、集成和部署：</strong> 提供可靠且频繁的容器镜像构建/部署，并使用快速和简单的回滚(由于镜像不可变性)。</li><li><strong>开发和运行相分离：</strong> 在 build 或者 release 阶段创建容器镜像，使得应用和基础设施解耦。</li><li><strong>开发，测试和生产环境一致性：</strong> 在本地或外网（生产环境）运行的一致性。</li><li><strong>云平台或其他操作系统：</strong> 可以在 Ubuntu、RHEL、CoreOS、on-prem、Google Container Engine 或其它任何环境中运行。</li><li><strong>分布式，弹性，微服务化：</strong> 应用程序分为更小的、独立的部件，可以动态部署和管理。</li><li><strong>资源隔离</strong></li><li><strong>资源利用更高效</strong></li></ul><h2 id="为什么需要-Kubernetes"><a href="#为什么需要-Kubernetes" class="headerlink" title="为什么需要 Kubernetes"></a>为什么需要 Kubernetes</h2><p>可以在物理或虚拟机的 Kubernetes 集群上运行容器化应用，Kubernetes 能提供一个以 <strong>“容器为中心的基础架构”</strong>，满足在生产环境中运行应用的一些常见需求，如：</p><ul><li>多个进程协同工作</li><li>存储系统挂载</li><li>应用健康检查</li><li>应用实例的复制</li><li>自动伸缩/扩展</li><li>注册与发现</li><li>负载均衡</li><li>滚动更新</li><li>资源监控</li><li>日志访问</li><li>调试应用程序</li><li>提供认证和授权</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kubernetes-01简介&quot;&gt;&lt;a href=&quot;#Kubernetes-01简介&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes-01简介&quot;&gt;&lt;/a&gt;Kubernetes-01简介&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="Kubernetes" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/Kubernetes/"/>
+    
+    
+      <category term="k8s" scheme="https://blog.jyusun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux关闭交换空间</title>
+    <link href="https://blog.jyusun.com/contents/20191127183005.html"/>
+    <id>https://blog.jyusun.com/contents/20191127183005.html</id>
+    <published>2019-11-27T10:30:05.000Z</published>
+    <updated>2020-03-23T03:16:55.795Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux关闭交换空间"><a href="#Linux关闭交换空间" class="headerlink" title="Linux关闭交换空间"></a>Linux关闭交换空间</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>交换空间是现代 Linux 系统中的第二种内存类型。交换空间的主要功能是当全部的 RAM 被占用并且需要更多内存时，用磁盘空间代替 RAM 内存。交换空间对虚拟化技术资源损耗较大，成本损耗较高，一般虚拟化技术是不允许开启交换空间的，如果不关闭交换空间，虚拟化相关程序会报错或相应的提示信息（如Kubernates）。</p><h2 id="关闭交换空间"><a href="#关闭交换空间" class="headerlink" title="关闭交换空间"></a>关闭交换空间</h2><ul><li><p>关闭交换空间（临时）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure></li><li><p>避免开机启动交换空间：注释 /etc/fstab 中的 swap</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/fstab</span><br></pre></td></tr></table></figure><blockquote><p>#注释掉swap这一行并保存</p><p>#/dev/mapper/cl-swap     swap                    swap    defaults        0 0</p></blockquote></li><li><p>查看交换空间</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure><blockquote><pre><code>total     used      free     shared    buff/cache   available</code></pre><p>Mem:             1.8Gi             896Mi         101Mi          9.0Mi         831Mi                862Mi<br>Swap:             0B                 0B                0B</p></blockquote></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Linux关闭交换空间&quot;&gt;&lt;a href=&quot;#Linux关闭交换空间&quot; class=&quot;headerlink&quot; title=&quot;Linux关闭交换空间&quot;&gt;&lt;/a&gt;Linux关闭交换空间&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;head
+      
+    
+    </summary>
+    
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="关闭交换空间" scheme="https://blog.jyusun.com/tags/%E5%85%B3%E9%97%AD%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS8时间同步</title>
+    <link href="https://blog.jyusun.com/contents/20191127181126.html"/>
+    <id>https://blog.jyusun.com/contents/20191127181126.html</id>
+    <published>2019-11-27T10:11:26.000Z</published>
+    <updated>2020-03-23T03:09:51.669Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CentOS8时间同步"><a href="#CentOS8时间同步" class="headerlink" title="CentOS8时间同步"></a>CentOS8时间同步</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>最近在CentOs8操作时间同步，却发现在CentOS8中默认已经不再支持ntpd软件包，同时也无法通过官方软件仓库安装， CentOS8上使用Chrony配置NTP服务器，用于同步时间。 它有两个程序，chrony和chronyd， chronyd是守护进程 ，chrony是一个命令行界面程序，可以用来监控chronyd的性能，并修改各种操作参数。 </p><h2 id="安装chrony"><a href="#安装chrony" class="headerlink" title="安装chrony"></a>安装chrony</h2><p>系统会默认安装并启动，如果系统不存在则需要安装此工具库。</p><ul><li>仓库中直接安装</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install chrony</span><br></pre></td></tr></table></figure><ul><li>启动守护进程</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable –now chronyd</span><br></pre></td></tr></table></figure><h2 id="时间同步配置"><a href="#时间同步配置" class="headerlink" title="时间同步配置"></a>时间同步配置</h2><h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><ul><li>联网的情况下一般设置时区后会通过网络同步时间</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-timezone &quot;Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure><h3 id="配置chrony-conf"><a href="#配置chrony-conf" class="headerlink" title="配置chrony.conf"></a>配置chrony.conf</h3><ul><li><p>修改配置加入aliyun pool网络时间，也可以加入多个pool服务器 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/chrony.conf</span><br></pre></td></tr></table></figure><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt;# Use public servers from the pool.ntp.org project.</span><br><span class="line">&gt;# Please consider joining the pool (http://www.pool.ntp.org/join.html).</span><br><span class="line">&gt;pool 2.centos.pool.ntp.org iburst</span><br><span class="line">&gt;pool ntp.aliyun.com iburst</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Record the rate at which the system clock gains/losses time.</span><br><span class="line">&gt;driftfile /var/lib/chrony/drift</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Allow the system clock to be stepped in the first three updates</span><br><span class="line">&gt;# if its offset is larger than 1 second.</span><br><span class="line">&gt;makestep 1.0 3</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Enable kernel synchronization of the real-time clock (RTC).</span><br><span class="line">&gt;rtcsync</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Enable hardware timestamping on all interfaces that support it.</span><br><span class="line">&gt;#hwtimestamp *</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Increase the minimum number of selectable sources required to adjust</span><br><span class="line">&gt;# the system clock.</span><br><span class="line">&gt;#minsources 2</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Allow NTP client access from local network.</span><br><span class="line">&gt;#allow 192.168.0.0/16</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Serve time even if not synchronized to a time source.</span><br><span class="line">&gt;#local stratum 10</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Specify file containing keys for NTP authentication.</span><br><span class="line">&gt;keyfile /etc/chrony.keys</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Get TAI-UTC offset and leap seconds from the system tz database.</span><br><span class="line">&gt;leapsectz right/UTC</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Specify directory for log files.</span><br><span class="line">&gt;logdir /var/log/chrony</span><br><span class="line">&gt;</span><br><span class="line">&gt;# Select which information is logged.</span><br><span class="line">&gt;#log measurements statistics tracking</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote></li><li><p>重新加载配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart chronyd.service</span><br></pre></td></tr></table></figure></li></ul><h3 id="时间同步"><a href="#时间同步" class="headerlink" title="时间同步"></a>时间同步</h3><ul><li><p>执行时间同步命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chronyc sources -v</span><br></pre></td></tr></table></figure><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;[root@k8smaster ~]# chronyc sources -v</span><br><span class="line">&gt;210 Number of sources = 5</span><br><span class="line">&gt;</span><br><span class="line">&gt;  .-- Source mode  &apos;^&apos; = server, &apos;=&apos; = peer, &apos;#&apos; = local clock.</span><br><span class="line">&gt; / .- Source state &apos;*&apos; = current synced, &apos;+&apos; = combined , &apos;-&apos; = not combined,</span><br><span class="line">&gt;| /   &apos;?&apos; = unreachable, &apos;x&apos; = time may be in error, &apos;~&apos; = time too variable.</span><br><span class="line">&gt;||                                                 .- xxxx [ yyyy ] +/- zzzz</span><br><span class="line">&gt;||      Reachability register (octal) -.           |  xxxx = adjusted offset,</span><br><span class="line">&gt;||      Log2(Polling interval) --.      |          |  yyyy = measured offset,</span><br><span class="line">&gt;||                                \     |          |  zzzz = estimated error.</span><br><span class="line">&gt;||                                 |    |           \</span><br><span class="line">&gt;MS Name/IP address         Stratum Poll Reach LastRx Last sample</span><br><span class="line">&gt;===============================================================================</span><br><span class="line">&gt;^- ntp5.flashdance.cx            2   6   377     6  +8255us[+8255us] +/-  139ms</span><br><span class="line">&gt;^- 185.216.231.25                2   7    13     6    +10ms[  +10ms] +/-   98ms</span><br><span class="line">&gt;^- 119.28.206.193                2   6   377     9  +1016us[+1001us] +/-   62ms</span><br><span class="line">&gt;^* dns1.synet.edu.cn             2   6   377     8  -1423us[-1438us] +/- 9294us</span><br><span class="line">&gt;^+ 203.107.6.88                  2   6   377     7  +2107us[+2107us] +/-   17ms</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote></li></ul><h3 id="查看时间"><a href="#查看时间" class="headerlink" title="查看时间"></a>查看时间</h3><ul><li><p>查看当前系统时间</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;CentOS8时间同步&quot;&gt;&lt;a href=&quot;#CentOS8时间同步&quot; class=&quot;headerlink&quot; title=&quot;CentOS8时间同步&quot;&gt;&lt;/a&gt;CentOS8时间同步&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;head
+      
+    
+    </summary>
+    
+      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="时间同步" scheme="https://blog.jyusun.com/tags/%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>idea-Java导入设置</title>
@@ -295,294 +565,6 @@
       <category term="jdk" scheme="https://blog.jyusun.com/tags/jdk/"/>
     
       <category term="配置JDK" scheme="https://blog.jyusun.com/tags/%E9%85%8D%E7%BD%AEJDK/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置SSH免密登陆</title>
-    <link href="https://blog.jyusun.com/contents/20190218182031.html"/>
-    <id>https://blog.jyusun.com/contents/20190218182031.html</id>
-    <published>2019-02-18T10:20:31.000Z</published>
-    <updated>2019-02-18T12:15:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>test</li></ul><h2 id="生成-ssh文件夹"><a href="#生成-ssh文件夹" class="headerlink" title="生成.ssh文件夹"></a>生成.ssh文件夹</h2><ul><li><p>新安装的系统用户下一般情况下没有.ssh的文件夹</p></li><li><p>查看</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~ &amp; ls -al</span><br></pre></td></tr></table></figure><img src="/contents/20190218182031/1.jpg" title="ssh文件夹查看"></li><li><p>执行命令生成</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure><img src="/contents/20190218182031/2.jpg" title="ssh localhost"></li></ul><h2 id="生成公钥、私钥"><a href="#生成公钥、私钥" class="headerlink" title="生成公钥、私钥"></a>生成公钥、私钥</h2><ul><li><p>用于配置免密登陆</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure><img src="/contents/20190218182031/3.jpg" title="生成公钥私钥"></li></ul><h2 id="authorized-keys文件"><a href="#authorized-keys文件" class="headerlink" title="authorized_keys文件"></a>authorized_keys文件</h2><ul><li><p>将公钥（id_rsa.pub）写入到authorized_keys文件中</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></li></ul><h2 id="文件授权"><a href="#文件授权" class="headerlink" title="文件授权"></a>文件授权</h2><ul><li><p>SSH公钥生效需满足至少下面两个条件：</p><blockquote><ol><li>目录.ssh的权限必须是700，由于上面是通过ssh localhost生成的文件夹故此满足此条件；</li><li>文件.ssh/authorized_keys权限必须是600；</li></ol></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></li></ul><h2 id="验证配置"><a href="#验证配置" class="headerlink" title="验证配置"></a>验证配置</h2><ul><li><p>将公钥（id_rsa.pub）写入到authorized_keys文件中</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure><img src="/contents/20190218182031/4.jpg" title="验证成功"><p>注：能成功进入说明配置成功</p></li></ul><h2 id="同其他机器相互访问"><a href="#同其他机器相互访问" class="headerlink" title="同其他机器相互访问"></a>同其他机器相互访问</h2><ul><li><p>将.ssh文件夹完整复制到其他机器对应位置</p></li><li><p>授权后即可相互访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 0700 ~/.ssh</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></li><li><p>单向访问只需要将公钥写入到对方的authorized_keys文件中即可访问对方</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;配置SSH免密登陆&quot;&gt;&lt;a href=&quot;#配置SSH免密登陆&quot; class=&quot;headerlink&quot; title=&quot;配置SSH免密登陆&quot;&gt;&lt;/a&gt;配置SSH免密登陆&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; 
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="免密登陆" scheme="https://blog.jyusun.com/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86/"/>
-    
-      <category term="公钥认证" scheme="https://blog.jyusun.com/tags/%E5%85%AC%E9%92%A5%E8%AE%A4%E8%AF%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7关闭防火墙</title>
-    <link href="https://blog.jyusun.com/contents/20190218122031.html"/>
-    <id>https://blog.jyusun.com/contents/20190218122031.html</id>
-    <published>2019-02-18T04:20:31.000Z</published>
-    <updated>2019-03-05T02:20:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="CentOS7关闭防火墙"><a href="#CentOS7关闭防火墙" class="headerlink" title="CentOS7关闭防火墙"></a>CentOS7关闭防火墙</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>CentOS7默认的防火墙为firewalld，防火墙在一些非生产环境中，防火墙管理并不是我们关注的重点，至此我们需要将其关闭。</li></ul><h2 id="firewalld的基本命令"><a href="#firewalld的基本命令" class="headerlink" title="firewalld的基本命令"></a>firewalld的基本命令</h2><ul><li><p>启动</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure></li><li><p>关闭</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure></li><li><p>查看状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure></li><li><p>开机禁用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure></li><li><p>开机启用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable firewalld</span><br></pre></td></tr></table></figure><p><strong>注：以上命令需要以管理员用户执行</strong></p></li></ul><h2 id="设置防火墙关闭"><a href="#设置防火墙关闭" class="headerlink" title="设置防火墙关闭"></a>设置防火墙关闭</h2><p>依据上文，我们需要执行相应的命令来关闭防火墙</p><ul><li><p>查看当前状态（防火墙开启状态）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl status firewalld</span><br></pre></td></tr></table></figure><img src="/contents/20190218122031/1.jpg" title="防火墙开启状态"></li><li><p>关闭防火墙</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl stop firewalld</span><br></pre></td></tr></table></figure></li><li><p>开机禁用（永久关闭，重启也不会启用）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl disable firewalld</span><br></pre></td></tr></table></figure></li><li><p>再次查看当前状态（防火墙关闭成功）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl status firewalld</span><br></pre></td></tr></table></figure><img src="/contents/20190218122031/2.jpg" title="防火墙关闭状态"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;CentOS7关闭防火墙&quot;&gt;&lt;a href=&quot;#CentOS7关闭防火墙&quot; class=&quot;headerlink&quot; title=&quot;CentOS7关闭防火墙&quot;&gt;&lt;/a&gt;CentOS7关闭防火墙&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="防火墙" scheme="https://blog.jyusun.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
-    
-      <category term="CentOS防火墙" scheme="https://blog.jyusun.com/tags/CentOS%E9%98%B2%E7%81%AB%E5%A2%99/"/>
-    
-      <category term="Linux防火墙" scheme="https://blog.jyusun.com/tags/Linux%E9%98%B2%E7%81%AB%E5%A2%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux环境变量配置文件总结</title>
-    <link href="https://blog.jyusun.com/contents/20190218120022.html"/>
-    <id>https://blog.jyusun.com/contents/20190218120022.html</id>
-    <published>2019-02-18T04:00:22.000Z</published>
-    <updated>2019-02-18T04:00:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Linux环境变量配置文件总结"><a href="#Linux环境变量配置文件总结" class="headerlink" title="Linux环境变量配置文件总结"></a>Linux环境变量配置文件总结</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>Linux中环境变量可以配置在多个地方，在什么样的场景下将环境变量配置在哪个文件中比较合理，下文主要根据使用场景进行分析</li></ul><h2 id="主要文件介绍"><a href="#主要文件介绍" class="headerlink" title="主要文件介绍"></a>主要文件介绍</h2><ul><li>一般主要环境变量配置的文件</li></ul><table><thead><tr><th>文件</th><th>交互</th><th>描述</th></tr></thead><tbody><tr><td>/etc/profile</td><td>全局</td><td>此文件为系统的每个用户设置环境信息,当第一个用户登录时,该文件被执行，并从/etc/profile.d目录的配置文件中搜集shell的设置.</td></tr><tr><td>/etc/bashrc</td><td>全局</td><td>为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取。有些linux版本中的/etc目录下已经不存在bashrc文件。</td></tr><tr><td>~/.profile</td><td>用户家目录下的私有环境变量设定</td><td>每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,它设置一些环境变量,然后执行用户的.bashrc文件</td></tr><tr><td>~/.bashrc</td><td>用户家目录下的私有环境变量设定</td><td>该文件包含专用于某个用户的bash shell的bash信息,当该用户登录时以及每次打开新的shell时,该文件被读取.</td></tr></tbody></table><h2 id="系统读取配置文件的顺序"><a href="#系统读取配置文件的顺序" class="headerlink" title="系统读取配置文件的顺序"></a>系统读取配置文件的顺序</h2><ul><li>待续</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Linux环境变量配置文件总结&quot;&gt;&lt;a href=&quot;#Linux环境变量配置文件总结&quot; class=&quot;headerlink&quot; title=&quot;Linux环境变量配置文件总结&quot;&gt;&lt;/a&gt;Linux环境变量配置文件总结&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;
-      
-    
-    </summary>
-    
-      <category term="知识拓展" scheme="https://blog.jyusun.com/categories/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"/>
-    
-      <category term="系统学习" scheme="https://blog.jyusun.com/categories/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="profile" scheme="https://blog.jyusun.com/tags/profile/"/>
-    
-      <category term="bashrc" scheme="https://blog.jyusun.com/tags/bashrc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统设置静态IP地址</title>
-    <link href="https://blog.jyusun.com/contents/20190217112031.html"/>
-    <id>https://blog.jyusun.com/contents/20190217112031.html</id>
-    <published>2019-02-17T03:19:31.000Z</published>
-    <updated>2019-02-17T03:19:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="设置静态IP"><a href="#设置静态IP" class="headerlink" title="设置静态IP"></a>设置静态IP</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>通常使用Linux系统都是需要提供服务的。</li><li>如果不设置静态的IP地址，采用动态地址的情况下，系统每次启动或IP被占用，都会重新获取一个IP地址，会造成我们不知道此服务器当前的IP地址而访问不了，不便于我们管理和维护。</li><li>综合上述原因需要给其指定一个固定的IP地址，这个就是静态的IP地址，客户端可以每次通过这个指定的IP地址来访问这个服务器即可。</li></ul><h2 id="编辑网卡配置文件"><a href="#编辑网卡配置文件" class="headerlink" title="编辑网卡配置文件"></a>编辑网卡配置文件</h2><ul><li><p>切换路径，并编辑网卡文件，如（ifcfg-ens33）文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/sysconfig/network-scripts</span><br><span class="line"># vim ifcfg-ens33</span><br></pre></td></tr></table></figure><blockquote><p>TYPE=”Ethernet”<br>PROXY_METHOD=”none”<br>BROWSER_ONLY=”no”<br>BOOTPROTO=”static”       #静态的IP<br>DEFROUTE=”yes”<br>IPV4_FAILURE_FATAL=”no”<br>IPV6INIT=”yes”<br>IPV6_AUTOCONF=”yes”<br>IPV6_DEFROUTE=”yes”<br>IPV6_FAILURE_FATAL=”no”<br>IPV6_ADDR_GEN_MODE=”stable-privacy”<br>NAME=”ens33”<br>UUID=”658b8ef8-1295-446d-8235-7f6e4054b527”<br>DEVICE=”ens33”<br>ONBOOT=”yes”                        #开机启动<br>IPADDR=192.168.233.101      #IP地址<br>PREFIX=24                                #子网掩码24位,255.255.255.0<br>GATEWAY=192.168.233.2      #网关地址<br>DNS1=202.106.0.20               #联通DNS</p></blockquote><p>注：IP及网关根据实际网络情况进行相应的设置</p></li></ul><h2 id="使网卡设置生效"><a href="#使网卡设置生效" class="headerlink" title="使网卡设置生效"></a>使网卡设置生效</h2><ul><li><p>设置完成后，无需重新启动系统，使用命令重启网卡使其生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl restart network</span><br></pre></td></tr></table></figure></li></ul><h2 id="重启后验证"><a href="#重启后验证" class="headerlink" title="重启后验证"></a>重启后验证</h2><ul><li><p>重启网卡后，验证是否生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ifconfig</span><br></pre></td></tr></table></figure><p>注:如ifconfig命令无效，说明没有安装基础工具包（net-tools）</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;设置静态IP&quot;&gt;&lt;a href=&quot;#设置静态IP&quot; class=&quot;headerlink&quot; title=&quot;设置静态IP&quot;&gt;&lt;/a&gt;设置静态IP&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="IP" scheme="https://blog.jyusun.com/tags/IP/"/>
-    
-      <category term="静态ip" scheme="https://blog.jyusun.com/tags/%E9%9D%99%E6%80%81ip/"/>
-    
-      <category term="LinuxIP" scheme="https://blog.jyusun.com/tags/LinuxIP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos7更新后遗留内核清理</title>
-    <link href="https://blog.jyusun.com/contents/20190214131719.html"/>
-    <id>https://blog.jyusun.com/contents/20190214131719.html</id>
-    <published>2019-02-14T05:17:19.000Z</published>
-    <updated>2019-02-14T05:17:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Centos7更新后遗留内核清理"><a href="#Centos7更新后遗留内核清理" class="headerlink" title="Centos7更新后遗留内核清理"></a>Centos7更新后遗留内核清理</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>今天对CentOS7系统进行了一次更新，更新后重启发现系统启动项多了一个，经过了解是更新后遗留的系统内核，在上网查找后，找到了下面的方法清理遗留的内核，经过本人测试完全可行。自己写下来便以后用到。</li></ul><h2 id="删除系统遗留内核"><a href="#删除系统遗留内核" class="headerlink" title="删除系统遗留内核"></a>删除系统遗留内核</h2><h3 id="查看当前内核"><a href="#查看当前内核" class="headerlink" title="查看当前内核"></a>查看当前内核</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># uname -sr</span><br></pre></td></tr></table></figure><blockquote><p>Linux 3.10.0-514.26.2.el7.x86_64</p></blockquote><h3 id="搜索查询"><a href="#搜索查询" class="headerlink" title="搜索查询"></a>搜索查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rpm -qa | grep kernel</span><br></pre></td></tr></table></figure><blockquote><p>kernel-3.10.0-514.26.2.el7.x86_64<br>abrt-addon-kerneloops-2.1.11-45.el7.centos.x86_64<br>kernel-tools-libs-3.10.0-514.26.2.el7.x86_64<br><strong>kernel-3.10.0-514.el7.x86_64</strong><br>kernel-tools-3.10.0-514.26.2.el7.x86_64</p></blockquote><h3 id="删除多余的版本"><a href="#删除多余的版本" class="headerlink" title="删除多余的版本"></a>删除多余的版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rpm -e kernel-3.10.0-514.el7.x86_64</span><br></pre></td></tr></table></figure><h2 id="内核定量"><a href="#内核定量" class="headerlink" title="内核定量"></a>内核定量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/yum.conf</span><br></pre></td></tr></table></figure><blockquote><p>installonly_limit=5</p></blockquote><h2 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># reboot</span><br></pre></td></tr></table></figure><h2 id="再次查看"><a href="#再次查看" class="headerlink" title="再次查看"></a>再次查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rpm -qa|grep kernel*</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Centos7更新后遗留内核清理&quot;&gt;&lt;a href=&quot;#Centos7更新后遗留内核清理&quot; class=&quot;headerlink&quot; title=&quot;Centos7更新后遗留内核清理&quot;&gt;&lt;/a&gt;Centos7更新后遗留内核清理&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a hr
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="Linux内核清理" scheme="https://blog.jyusun.com/tags/Linux%E5%86%85%E6%A0%B8%E6%B8%85%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7设置hostname和hosts</title>
-    <link href="https://blog.jyusun.com/contents/20190213131719.html"/>
-    <id>https://blog.jyusun.com/contents/20190213131719.html</id>
-    <published>2019-02-13T05:17:19.000Z</published>
-    <updated>2019-02-13T05:17:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="设置hostname和hosts"><a href="#设置hostname和hosts" class="headerlink" title="设置hostname和hosts"></a>设置hostname和hosts</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>在使用Linux系统的过程中，某些软件访问需要指定IP地址，因IP可能会变动而导致软件需要再次配置新的IP。基于此种场景，配置hostname和hosts文件解决此问题：即软件中需要配置IP的地方使用hostname代替，通过解析hosts文件hostname就被解析成对应的IP地址。如果IP有变动也只需要调整hosts中IP与hostname的对应关系，无需在频繁改动软件内部IP配置。</li></ul><h2 id="设置HostName"><a href="#设置HostName" class="headerlink" title="设置HostName"></a>设置HostName</h2><ul><li><p>设置hostname为centosvm（可以根据自己的需求起名）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure><blockquote><p>centosvm</p></blockquote><p>注：HostName尽量不要出现’/‘、’*’、’.’、’_’等特殊字符，否则某些软件引用过程中可能读不到正确的配置或一些莫名其妙的错误问题。</p></li></ul><h2 id="设置Hosts"><a href="#设置Hosts" class="headerlink" title="设置Hosts"></a>设置Hosts</h2><ul><li><p>在Hosts中设置的尾部追加IP地址、域名和主机名映射关系</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure><blockquote><p>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4<br>::1         localhost localhost.localdomain localhost6 localhost6.localdomain6<br><strong>192.168.233.100 centosvm</strong></p></blockquote><p>注：需要配置多个映射关系在尾部继续追加即可</p></li></ul><h2 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h2><ul><li><p>hostname永久修改需要重启系统才可以生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># reboot</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;设置hostname和hosts&quot;&gt;&lt;a href=&quot;#设置hostname和hosts&quot; class=&quot;headerlink&quot; title=&quot;设置hostname和hosts&quot;&gt;&lt;/a&gt;设置hostname和hosts&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a hr
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="系统配置" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="hostname" scheme="https://blog.jyusun.com/tags/hostname/"/>
-    
-      <category term="hosts" scheme="https://blog.jyusun.com/tags/hosts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>虚拟机迁移-VMWare-to-VirtualBox</title>
-    <link href="https://blog.jyusun.com/contents/20190211092005.html"/>
-    <id>https://blog.jyusun.com/contents/20190211092005.html</id>
-    <published>2019-02-11T01:20:05.000Z</published>
-    <updated>2019-02-11T01:20:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="虚拟机迁移-VMWare-to-VirtualBox"><a href="#虚拟机迁移-VMWare-to-VirtualBox" class="headerlink" title="虚拟机迁移-VMWare-to-VirtualBox"></a>虚拟机迁移-VMWare-to-VirtualBox</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。</li></ul><h2 id="导出VMware中的虚拟机"><a href="#导出VMware中的虚拟机" class="headerlink" title="导出VMware中的虚拟机"></a>导出VMware中的虚拟机</h2><ul><li><p>导出开放式格式.ovf的虚拟机</p><img src="/contents/20190211092005/1.jpg" title="导出开放式格式.ovf的虚拟机"><img src="/contents/20190211092005/2.jpg" title="导出开放式格式.ovf的虚拟机"></li><li><p>导出完成</p><img src="/contents/20190211092005/3.jpg" title="导出完成"></li></ul><h2 id="导入虚拟机到VirtualBox"><a href="#导入虚拟机到VirtualBox" class="headerlink" title="导入虚拟机到VirtualBox"></a>导入虚拟机到VirtualBox</h2><ul><li><p>将.ovf格式的虚拟机导入到VirtualBox中</p><img src="/contents/20190211092005/4.jpg" title="导入开放式格式.ovf的虚拟机"><img src="/contents/20190211092005/5.jpg" title="导入开放式格式.ovf的虚拟机"></li><li><p>导入成功并启动</p><img src="/contents/20190211092005/6.jpg" title="导入成功并启动"></li></ul><h2 id="迁移过程中网络问题解决"><a href="#迁移过程中网络问题解决" class="headerlink" title="迁移过程中网络问题解决"></a>迁移过程中网络问题解决</h2><h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><ul><li>迁移完成后，打开虚拟机，执行ifconfig命令发现网卡名称与我们配置的网卡名称不一致，最简单的解决办法是重命名我们配置的网卡信息与ifconfig中的名称一致即可。</li></ul><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><ul><li>VirtualBox如果实现VM Ware中的访问模式，需要配置两个网卡，将当前的网卡指定为（host-only）模式，在新建一个nat网卡即可。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;虚拟机迁移-VMWare-to-VirtualBox&quot;&gt;&lt;a href=&quot;#虚拟机迁移-VMWare-to-VirtualBox&quot; class=&quot;headerlink&quot; title=&quot;虚拟机迁移-VMWare-to-VirtualBox&quot;&gt;&lt;/a&gt;虚拟机迁移-VM
-      
-    
-    </summary>
-    
-      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="工具使用" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="vm" scheme="https://blog.jyusun.com/tags/vm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS配置Docker阿里镜像加速</title>
-    <link href="https://blog.jyusun.com/contents/20190201102031.html"/>
-    <id>https://blog.jyusun.com/contents/20190201102031.html</id>
-    <published>2019-02-01T02:20:31.000Z</published>
-    <updated>2019-12-01T02:20:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="CentOS配置Docker阿里镜像加速"><a href="#CentOS配置Docker阿里镜像加速" class="headerlink" title="CentOS配置Docker阿里镜像加速"></a>CentOS配置Docker阿里镜像加速</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul><li>由于默认的Docker Hub镜像仓库是国外的，下载镜像较慢甚至中途卡死，所以配置阿里镜像加速器解决这一问题提高速度，管理你的镜像和拉取别人的镜像 。</li><li>推荐安装1.10.0以上版本的Docker客户端，参考文档 <span class="exturl" data-url="aHR0cHM6Ly95cS5hbGl5dW4uY29tL2FydGljbGVzLzExMDgwNg==" title="https://yq.aliyun.com/articles/110806">docker-ce<i class="fa fa-external-link"></i></span> </li></ul><h2 id="登陆阿里云"><a href="#登陆阿里云" class="headerlink" title="登陆阿里云"></a>登陆阿里云</h2><ul><li>阿里云镜像加速地址：<span class="exturl" data-url="aHR0cHM6Ly9jci5jb25zb2xlLmFsaXl1bi5jb20vY24tc2hhbmdoYWkvaW5zdGFuY2VzL21pcnJvcnM=" title="https://cr.console.aliyun.com/cn-shanghai/instances/mirrors">点击获取<i class="fa fa-external-link"></i></span></li></ul><h2 id="配置镜像加速器"><a href="#配置镜像加速器" class="headerlink" title="配置镜像加速器"></a>配置镜像加速器</h2><ul><li><p>针对Docker客户端版本大于 1.10.0 的用户</p><p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</p></li><li><p>创建docker配置文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br></pre></td></tr></table></figure></li><li><p>将加速地址写入配置daemon.json</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://l46iaapq.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li><li><p>重新加载配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure></li><li><p>重启docker使配置生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li><li><p>查看配置生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure><p>可以看到末尾Registry Mirrors 新增阿里云加速地址</p><blockquote><p>Client:<br>Debug Mode: false</p><p>Server:<br>Containers: 1<br> Running: 0<br> Paused: 0<br> Stopped: 1<br>Images: 1<br>Server Version: 19.03.6<br>Storage Driver: overlay2<br> Backing Filesystem: xfs<br> Supports d_type: true<br> Native Overlay Diff: true<br>Logging Driver: json-file<br>Cgroup Driver: cgroupfs<br>Plugins:<br> Volume: local<br> Network: bridge host ipvlan macvlan null overlay<br> Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog<br>Swarm: inactive<br>Runtimes: runc<br>Default Runtime: runc<br>Init Binary: docker-init<br>containerd version: 894b81a4b802e4eb2a91d1ce216b8817763c29fb<br>runc version: 425e105d5a03fabd737a126ad93d62a9eeede87f<br>init version: fec3683<br>Security Options:<br> seccomp<br>  Profile: default<br>Kernel Version: 4.18.0-147.5.1.el8_1.x86_64<br>Operating System: CentOS Linux 8 (Core)<br>OSType: linux<br>Architecture: x86_64<br>CPUs: 1<br>Total Memory: 1.787GiB<br>Name: basic<br>ID: 3Z7R:4VMD:RMKB:PCOI:TBNS:J7GT:I4ES:6UIO:7NRE:NNLY:WWOT:365Q<br>Docker Root Dir: /var/lib/docker<br>Debug Mode: false<br>Registry: <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5kb2NrZXIuaW8vdjEv" title="https://index.docker.io/v1/">https://index.docker.io/v1/<i class="fa fa-external-link"></i></span><br>Labels:<br>Experimental: false<br>Insecure Registries:<br> 127.0.0.0/8<br>Registry Mirrors:<br> https://<em>**</em>.mirror.aliyuncs.com/<br>Live Restore Enabled: false</p></blockquote></li></ul><p>至此docker加速器配置完成</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;CentOS配置Docker阿里镜像加速&quot;&gt;&lt;a href=&quot;#CentOS配置Docker阿里镜像加速&quot; class=&quot;headerlink&quot; title=&quot;CentOS配置Docker阿里镜像加速&quot;&gt;&lt;/a&gt;CentOS配置Docker阿里镜像加速&lt;/h1&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="docker" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/docker/"/>
-    
-    
-      <category term="Docker" scheme="https://blog.jyusun.com/tags/Docker/"/>
-    
-      <category term="镜像加速" scheme="https://blog.jyusun.com/tags/%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA默认配置文件位置调整</title>
-    <link href="https://blog.jyusun.com/contents/20181116135728.html"/>
-    <id>https://blog.jyusun.com/contents/20181116135728.html</id>
-    <published>2018-11-16T05:57:28.000Z</published>
-    <updated>2018-11-16T05:57:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li>IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配置目录会越来越大，因此将配置目录指定到想要存放的位置。</li></ul><h1 id="编辑默认配置路径"><a href="#编辑默认配置路径" class="headerlink" title="编辑默认配置路径"></a>编辑默认配置路径</h1><ul><li><p>编辑默认配置路径</p><p>编辑文件：{IDEA安装路径}/bin/idea.properties（本人将默认路径配置在IntelliJIdea的安装路径settings下，故做如下配置）</p></li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">idea.config.path=../settings/.IntelliJIdea/config</span><br><span class="line">idea.system.path=../settings/.IntelliJIdea/system</span><br><span class="line">idea.plugins.path=$&#123;idea.config.path&#125;/plugins</span><br><span class="line">idea.log.path=$&#123;idea.system.path&#125;/log</span><br></pre></td></tr></table></figure><p>如图所示红色部分</p><img src="/contents/20181116135728/1.jpg"><ul><li>配置完成后重新启动，配置即可生效！</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;IDEA 默认会在用户文件夹创建配置目录，由于使用过程中此配置目录会越来越大，因此将配置目录指定到想要存放的位置。&lt;/li&gt;
-&lt;
-      
-    
-    </summary>
-    
-      <category term="环境部署" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="开发工具" scheme="https://blog.jyusun.com/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="idea" scheme="https://blog.jyusun.com/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux环境下Oracle生成AWR报告</title>
-    <link href="https://blog.jyusun.com/contents/20180909121931.html"/>
-    <id>https://blog.jyusun.com/contents/20180909121931.html</id>
-    <published>2018-09-09T04:19:31.000Z</published>
-    <updated>2018-09-09T04:19:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Linux环境下Oracle生成AWR报告"><a href="#Linux环境下Oracle生成AWR报告" class="headerlink" title="Linux环境下Oracle生成AWR报告"></a>Linux环境下Oracle生成AWR报告</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>test</li></ul><h2 id="生成报告"><a href="#生成报告" class="headerlink" title="生成报告"></a>生成报告</h2><ul><li>创建文件存储路径（oracle需要对此路径有读写权限）</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkdir -p ~/oradata/update/awrreport</span><br></pre></td></tr></table></figure><ul><li>切换到存储路径中</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd ~/oradata/update/awrreport</span><br></pre></td></tr></table></figure><ul><li>使用sqlplus命令连接数据库</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sqlplus / as sysdba</span><br></pre></td></tr></table></figure><blockquote><p>使用DBA用户或 sqlplus 用户名/密码</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@?/rdbms/admin/awrrpt.sql</span><br></pre></td></tr></table></figure><blockquote><ol><li>选择报告类型，默认选html （可直接回车）</li><li>报告涉及天数范围（1：当天）</li><li>开始、结束编号</li><li>报告名字 （回车默认）</li></ol></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Linux环境下Oracle生成AWR报告&quot;&gt;&lt;a href=&quot;#Linux环境下Oracle生成AWR报告&quot; class=&quot;headerlink&quot; title=&quot;Linux环境下Oracle生成AWR报告&quot;&gt;&lt;/a&gt;Linux环境下Oracle生成AWR报告&lt;/
-      
-    
-    </summary>
-    
-      <category term="技术实践" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="工具使用" scheme="https://blog.jyusun.com/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="awr" scheme="https://blog.jyusun.com/tags/awr/"/>
     
   </entry>
   
