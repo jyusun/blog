@@ -243,11 +243,6 @@
     <title><![CDATA[虚拟机迁移-VMWare-to-VirtualBox]]></title>
     <url>%2Fcontents%2F20190211092005.html</url>
     <content type="text"><![CDATA[虚拟机迁移-VMWare-to-VirtualBox前言 由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。 导出VMware中的虚拟机 导出开放式格式.ovf的虚拟机 导出完成 导入虚拟机到VirtualBox 将.ovf格式的虚拟机导入到VirtualBox中 导入成功并启动 迁移过程中网络问题解决桥接模式 迁移完成后，打开虚拟机，执行ifconfig命令发现网卡名称与我们配置的网卡名称不一致，最简单的解决办法是重命名我们配置的网卡信息与ifconfig中的名称一致即可。 NAT模式 VirtualBox如果实现VM Ware中的访问模式，需要配置两个网卡，将当前的网卡指定为（host-only）模式，在新建一个nat网卡即可。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[虚拟机迁移-VMWare-to-VirtualBox]]></title>
-    <url>%2Fcontents%2F20190211092005.html</url>
-    <content type="text"><![CDATA[虚拟机迁移-VMWare-to-VirtualBox前言 由于之前使用的虚拟机是在VMware上，公司要求将所有VMWare的虚拟机迁移至VirtualBox上，至此整理如下步骤。 导出VMware中的虚拟机 导出开放式格式.ovf的虚拟机 导出完成 导入虚拟机到VirtualBox 将.ovf格式的虚拟机导入到VirtualBox中 导入成功并启动 迁移过程中网络问题解决桥接模式 迁移完成后，打开虚拟机，执行ifconfig命令发现网卡名称与我们配置的网卡名称不一致，最简单的解决办法是重命名我们配置的网卡信息与ifconfig中的名称一致即可。 NAT模式 VirtualBox如果实现VM Ware中的访问模式，需要配置两个网卡，将当前的网卡指定为（host-only）模式，在新建一个nat网卡即可。]]></content>
       <categories>
         <category>虚拟机</category>
       </categories>
@@ -367,8 +362,8 @@
   </entry>
   <entry>
     <title><![CDATA[面向对象]]></title>
-    <url>%2Fcontents%2F20180808102031.html</url>
-    <content type="text"><![CDATA[面向对象概述面向对象的方法主要是把事物给对象化，包括其属性和行为。面向对象编程更贴近实际生活的思想。总体来说面向对象的底层还是面向过程，面向过程抽象成类，然后封装，方便使用就是面向对象，（万物皆对象）。 面向对象特性封装继承多态抽象（后加的）面向对象设计原则面向扩展开放，面向修改关闭接口隔离原则组合/聚合原则里氏替换原则最少知识原则（迪米特法则）单一职责原则依赖倒置原则]]></content>
+    <url>%2Fcontents%2F20180808102032.html</url>
+    <content type="text"><![CDATA[面向对象概述面向对象的方法主要是把事物给对象化，包括其属性和行为。面向对象编程更贴近实际生活的思想。总体来说面向对象的底层还是面向过程，面向过程抽象成类，然后封装，方便使用就是面向对象，（万物皆对象）。 面向对象特性封装继承多态抽象（面向对象一种特性）面向对象设计原则​ 面向扩展开放，面向修改关闭接口隔离原则组合/聚合原则里氏替换原则最少知识原则（迪米特法则）单一职责原则依赖倒置原则]]></content>
       <categories>
         <category>基础知识</category>
         <category>面向对象设计思想</category>
